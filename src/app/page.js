@@ -1,0 +1,103 @@
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Home() {
+  return (
+    <main >
+      <section class="h-80 bg-[url('https://media.istockphoto.com/id/1296506522/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%9B%E0%B8%95%E0%B9%8C%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B9%8C.jpg?s=1024x1024&w=is&k=20&c=EYosMjYDXJgF9Dpfu_30MNggCzaF5WWp0cAC7FHD4AE=')]">
+
+        <div class="h-2/6 flex">
+
+          <div class="w-2/5 flex justify-center items-center text-white text-4xl">
+            <h1>TellTone</h1>
+          </div>
+
+          <ul class="w-full gap-8 flex justify-center items-center text-white">
+            <Link href="/">Home</Link>
+            <Link href="/Skintone">Skin tone</Link>
+            <Link href="/Personalcolor">Personal color</Link>
+            <Link href="/Makeuptutorials">Makeup tutorials</Link>
+            <Link href="/Makeuptools">Makeup tools</Link>
+            <Link href="/Skincare">Skincare</Link>
+          </ul>
+        </div>
+
+        <div class="h-4/6 flex">
+          <div class="w-full h-4/5 grid justify-center items-center ">
+            <h1 class="text-white text-4xl">TELL YOUR SKIN TONE & PERSONAL COLOR</h1>
+            <h1 class="text-white text-center">Makeup tutorials & Tools & Skincare</h1>
+            <Link class="bg-white w-12 border-1 mx-auto border-black text-black text-center " href="/Skintone">Start</Link>
+
+          </div>
+        </div>
+
+      </section>
+
+
+
+      <section class="h-auto grid place-items-center">
+
+        <div class="pt-10 h-96 w-3/5 grid border-black border-4">
+
+          <div class="h-2/6 text-center">
+            <h1>SKIN TONE</h1>
+            <br />
+            <p>มนุษย์แต่ละเชื้อชาติมีความต่างกัน เห็นได้ชัดทั้งรูปร่างหน้าตาและสีผิว สำหรับคนที่เชื้อชาติเดียวกัน
+              <br />ก็ยังมีสีผิวที่แตกต่างกันได้ หรือแม้กระทั่งตัวเราก็ยังมีสีผิวที่ไม่สม่ำเสมอ</p>
+          </div>
+          <br />
+
+          <div class=" h-4/6 flex text-center">
+            <div class="w-1/2 ">
+              <img class="w-auto h-auto" src="https://media.istockphoto.com/id/1296506522/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%9B%E0%B8%95%E0%B9%8C%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B9%8C.jpg?s=1024x1024&w=is&k=20&c=EYosMjYDXJgF9Dpfu_30MNggCzaF5WWp0cAC7FHD4AE="></img>
+
+            </div>
+            <div class="w-1/2 pl-5 text-left">
+              <h1>Skin tone</h1>
+              <br />
+              <h1 class="">เลือกรองพื้นให้หน้าไม่เทา</h1>
+              <h1 class="text-sm">ถ้าเรารู้โทนสีผิวของตัวเองแล้ว เราจะสามารถเลือกสีรองพื้น
+                <br />คอนซีลเลอร์ และแป้งที่เหมาะกับสีผิวของเราได้มากขึ้น
+                <br />ช่วยทำให้เครื่องสำอางที่ทาออกมาดูเป็นงานผิวธรรมชาติ
+                <br />ไม่ดูหมองคล้ำ หรือหน้าลอย</h1>
+              <br />
+              <Link class="bg-black w-12 border-1 mx-auto border-black text-white text-center " href="/Skintone">เริ่มทดสอบ</Link>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="pt-10 h-96 w-3/5 grid border-black border-4">
+
+          <div class="h-2/6 text-center">
+            <h1>PERSONAL COLOR</h1>
+            <br />
+            <p>เทรนด์บางอย่างมาแล้วก็ไป แต่ Personal Color เป็นการทำงานกับหลักความเป็นจริง
+              <br />นั่นแปลว่า ถ้าคุณใส่สีนี้สวย ต่อให้สิบปีข้างหน้า คุณก็ยังใส่สีนี้สวยอยู่ ดังนั้น Personal Color
+              <br />ไม่มีทางหายไปไหน เพราะเรายังต้องอยู่กับความเป็นจริงตลอดไป</p>
+          </div>
+          <br />
+
+          <div class=" h4/6 flex text-center">
+            <div class="w-1/2 pr-5 text-right">
+              <h1 class="py-10 text-sm">หากคุณอยากรู้ว่าโทนสีที่ใช่
+                <br />และเหมาะสมกับผิวของคุณที่สุดอยู่ในโทนใด
+                <br />ไปเช็คและสำรวจตัวเองกันได้เลย</h1>
+              <Link class="bg-black w-12 border-1 mx-auto border-black text-white text-center " href="/Personalcolor">เริ่มทดสอบ</Link>
+            </div>
+
+            <div class="w-1/2">
+              <img class="w-auto h-auto" src="https://media.istockphoto.com/id/1296506522/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%9B%E0%B8%95%E0%B9%8C%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B9%8C.jpg?s=1024x1024&w=is&k=20&c=EYosMjYDXJgF9Dpfu_30MNggCzaF5WWp0cAC7FHD4AE="></img>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  );
+}
