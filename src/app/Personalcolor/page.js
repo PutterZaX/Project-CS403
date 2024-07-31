@@ -38,8 +38,32 @@ function Personalcolor() {
                 <div class="pt-10 w-3/5 text-center border-black border-4">
                     <h1>4 STEP การดู Personal color</h1>
                     <br />
-
-
+                    <div class="flex">
+                        <div class="w-1/4 border-black border-4">
+                            <h1>STEP 1</h1>
+                            <br />
+                            <p>เปิดกล้อง</p>
+                            <p>ต้องทำการทดสอบในแสงธรรมชาติ</p>
+                        </div>
+                        <div class="w-1/4 border-black border-4">
+                            <h1>STEP 2</h1>
+                            <br />
+                            <p>เลือกโทนสี</p>
+                            <p>คลิกที่แผ่นสีที่ต้องการจะลอง</p>
+                        </div>
+                        <div class="w-1/4 border-black border-4">
+                            <h1>STEP 3</h1>
+                            <br />
+                            <p>เปรียบเทียบ</p>
+                            <p>เลือกโทนสีที่เข้ากับเราที่สุดที่ทำให้ใบหน้าคมชัดและสว่าง</p>
+                        </div>
+                        <div class="w-1/4 border-black border-4">
+                            <h1>STEP 4</h1>
+                            <br />
+                            <p>ดูผลลัพธ์คำแนะนำ</p>
+                            <p>ดูคำแนะนำของโทนสีแต่ละซีซั่น เช่น ใช้เครื่องสำอางสีอะไร ควรแต่งตัวสัไหนไม่ควรใช้สีอะไร</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="w-3/5 text-center border-black border-4">
