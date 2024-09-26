@@ -10,6 +10,7 @@ function Makeuptutorials() {
   const data = [
     {
       link: 'https://www.youtube.com/embed/en7NaNgQGts',
+      name: 'wwwwwwwwwwwww',
       type: 1
 
     },
@@ -304,7 +305,10 @@ function Makeuptutorials() {
           <div class="pt-10 pb-20 grid gap-4 grid-cols-4 place-items-center">
             {
               fitter.map(data => (
+                <div>
                 <iframe width="200" height="150" src={data.link} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="1" />
+                <p>${data.name}</p>
+                </div>
               ))
             }
 
