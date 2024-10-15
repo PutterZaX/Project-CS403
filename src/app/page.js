@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
+
 export default function Home() {
   return (
     <main >
-      <section class="h-80 bg-[url('https://media.istockphoto.com/id/1296506522/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%9B%E0%B8%95%E0%B9%8C%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B9%8C.jpg?s=1024x1024&w=is&k=20&c=EYosMjYDXJgF9Dpfu_30MNggCzaF5WWp0cAC7FHD4AE=')]">
+      <section class=" picture-home bg-[url('https://limelushorganics.com/cdn/shop/files/Bg.png?v=1694756724&width=1440')]">
 
         <div class="h-2/6 flex">
 
@@ -24,38 +25,40 @@ export default function Home() {
 
         <div class="h-4/6 flex">
           <div class="w-full h-4/5 grid justify-center items-center ">
-            <h1 class="text-white text-4xl">TELL YOUR SKIN TONE & PERSONAL COLOR</h1>
+            <h1 class="text-white  text-center text-4xl">TELL YOUR SKIN TONE & PERSONAL COLOR</h1>
             <h1 class="text-white text-center">Makeup tutorials & Tools & Skincare</h1>
-            <Link class="bg-white w-12 border-1 mx-auto border-black text-black text-center " href="/Skintone">Start</Link>
+            <Link class="bg-white  mx-auto px-7 py-4 text-black text-center " href="/Skintone"> Let’s start</Link>
 
           </div>
         </div>
 
       </section>
 
-
-
+     
+      
       <section class="h-auto grid place-items-center">
 
-        <div class="pt-10 h-96 w-3/5 grid border-black border-4">
+        <div class="pt-10 h-96 w-3/5 ">
 
-          <div class="h-2/6 text-center">
-            <h1>SKIN TONE</h1>
+          <div class=" h-2/6 text-center">
+          <br />
+          <p class="text-3xl font-serif font-semibold">Skin Tone</p>
             <br />
-            <p>มนุษย์แต่ละเชื้อชาติมีความต่างกัน เห็นได้ชัดทั้งรูปร่างหน้าตาและสีผิว สำหรับคนที่เชื้อชาติเดียวกัน
+            <p class= "text-neutral-500" >มนุษย์แต่ละเชื้อชาติมีความต่างกัน เห็นได้ชัดทั้งรูปร่างหน้าตาและสีผิว สำหรับคนที่เชื้อชาติเดียวกัน
               <br />ก็ยังมีสีผิวที่แตกต่างกันได้ หรือแม้กระทั่งตัวเราก็ยังมีสีผิวที่ไม่สม่ำเสมอ</p>
           </div>
-          <br />
+          <br /> <br /><br />
 
-          <div class=" h-4/6 flex text-center">
+          <div class=" h-4/6 flex justify-center text-center">
             <div class="w-1/2 ">
-              <img class="w-auto h-auto" src="https://media.istockphoto.com/id/1296506522/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%9B%E0%B8%95%E0%B9%8C%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B9%8C.jpg?s=1024x1024&w=is&k=20&c=EYosMjYDXJgF9Dpfu_30MNggCzaF5WWp0cAC7FHD4AE="></img>
-
+              <img class="max-w-100" src="https://www.sinotaclinic.com/wp-content/uploads/2023/11/P2-Insert-Pico-sinota-01.webp"></img>
             </div>
+            
             <div class="w-1/2 pl-5 text-left">
-              <h1>Skin tone</h1>
+            <br /><br />
+              <p class ="text-base font-serif font-medium text-red-700">Skin tone</p>
               <br />
-              <h1 class="">เลือกรองพื้นให้หน้าไม่เทา</h1>
+              <h1 class="text-2xl font-bold">เลือกรองพื้นให้หน้าไม่เทา</h1>
               <h1 class="text-sm">ถ้าเรารู้โทนสีผิวของตัวเองแล้ว เราจะสามารถเลือกสีรองพื้น
                 <br />คอนซีลเลอร์ และแป้งที่เหมาะกับสีผิวของเราได้มากขึ้น
                 <br />ช่วยทำให้เครื่องสำอางที่ทาออกมาดูเป็นงานผิวธรรมชาติ
@@ -63,13 +66,12 @@ export default function Home() {
               <br />
               <Link class="bg-black w-12 border-1 mx-auto border-black text-white text-center " href="/Skintone">เริ่มทดสอบ</Link>
             </div>
-
           </div>
-
         </div>
 
-        <div class="pt-10 h-96 w-3/5 grid border-black border-4">
+       <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
+        <div class="pt-10 h-96 w-3/5 grid border-black border-4">
           <div class="h-2/6 text-center">
             <h1>PERSONAL COLOR</h1>
             <br />
@@ -88,7 +90,7 @@ export default function Home() {
             </div>
 
             <div class="w-1/2">
-              <img class="w-auto h-auto" src="https://media.istockphoto.com/id/1296506522/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%9B%E0%B8%95%E0%B9%8C%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B9%8C.jpg?s=1024x1024&w=is&k=20&c=EYosMjYDXJgF9Dpfu_30MNggCzaF5WWp0cAC7FHD4AE="></img>
+              <img class="w-auto h-auto" src="https://cdn.prod.website-files.com/649174dcab676e52a64ce81a/6492a007773c4bf34455f75e_image-36.jpeg"></img>
             </div>
 
           </div>
