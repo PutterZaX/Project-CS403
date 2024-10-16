@@ -33,13 +33,13 @@ function Skintone() {
 
             <section class="h-auto grid place-items-center">
 
-            <div class=" h-4/6 flex justify-center">
-                <div class="w-1/2 pl-5 ">
-                    <h1 class="text-center text-lg">คำแนะนำสำหรับการอัพโหลดรูป</h1>
+            <div class=" h-2/6 flex justify-center">
+                <div class="pl-5 ">
+                    <h1 class="text-center text-2xl font-semibold">คำแนะนำสำหรับการอัพโหลดรูปภาพ:</h1>
                     
                     <br />
-                    <div class="">
-                        <li>รูปครวที่จะเป็นหน้าสด ไม่ใช้รุปที่แต่งหน้าแล้วเพื่อนที่จะได้คำนวนสีออกมาได้ถูกต้อง</li>
+                    <div class="text-lg">
+                        <li>รูปควรที่จะเป็นหน้าสด ไม่ใช้รุปที่แต่งหน้าแล้วเพื่อนที่จะได้คำนวนสีออกมาได้ถูกต้อง</li>
                         <br />
                         <li>แสงควรที่จะสว่าง ไม่ทำให้เกิดาหงาบนใบหน้า เพื่อให้สีออกมาตรงมากที่สุด</li>
                         <br />
@@ -50,8 +50,9 @@ function Skintone() {
                     <br /><br />
                     </div>
 
-                    <div class="w-1/2">
-                    <img class="w-40" src="https://i.postimg.cc/qvCf9N9B/image.png"></img>
+                    <div class="mt-10 text-center">
+                    <img class="w-40 ml-12 "  src="https://i.postimg.cc/qvCf9N9B/image.png"></img>
+                <p class="ml-12 mt-2  ">ตัวอย่างรูปภาพ</p>
                 </div>
                 </div>
 
