@@ -5,7 +5,7 @@ import Link from "next/link";
 function Makeuptools() {
     return (
         <main >
-            <section class="h-80 bg-[url('https://media.istockphoto.com/id/1296506522/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%9B%E0%B8%95%E0%B9%8C%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B9%8C.jpg?s=1024x1024&w=is&k=20&c=EYosMjYDXJgF9Dpfu_30MNggCzaF5WWp0cAC7FHD4AE=')]">
+            <section class="picture-home bg-[url('https://i.postimg.cc/pXTq63gP/5d1f1c33c3d5dcca7db3066ac510cfa6.jpg')]">
 
                 <div class="h-2/6 flex">
 
@@ -23,7 +23,7 @@ function Makeuptools() {
                     </ul>
                 </div>
 
-                <div class="h-4/6 flex">
+                <div class="h-2/6 flex">
                     <div class="w-full h-4/5 flex justify-center items-center text-white text-4xl">
                         <h1>MAKEUP TOOLS</h1>
                     </div>

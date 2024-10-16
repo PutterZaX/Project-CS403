@@ -33,7 +33,8 @@ function Skintone() {
 
             <section class="h-auto grid place-items-center">
 
-                <div class=" pt-10">
+            <div class=" h-4/6 flex justify-center">
+                <div class="w-1/2 pl-5 ">
                     <h1 class="text-center text-lg">คำแนะนำสำหรับการอัพโหลดรูป</h1>
                     
                     <br />
@@ -47,11 +48,11 @@ function Skintone() {
                         <li>พื้นหลังต้องไม่ส่งผลกระทบต่อแสงที่ใบหน้า</li>
                     </div>
                     <br /><br />
-
-                    <div class="w-full text-right">
-
                     </div>
 
+                    <div class="w-1/2">
+                    <img class="w-40" src="https://i.postimg.cc/qvCf9N9B/image.png"></img>
+                </div>
                 </div>
 
             </section>
