@@ -11,6 +11,15 @@
   
 }
 
+.picture-personal {
+  background-size: cover;
+  background-position: 50% 40%; 
+  height: 70vh;
+  max-width: 100%;
+  display: grid;
+  
+}
+
 .indent{ 
   padding-left: 2em 
 }
