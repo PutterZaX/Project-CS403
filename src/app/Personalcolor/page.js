@@ -59,8 +59,9 @@ function Personalcolor() {
             </section>
 
             <section class="">
-                <div className="container">
+                <div class="container">
                     <video className="container" ref={videoRef}></video>
+                    <button onClick> </button>
                 </div>
              </section>
         </main>
