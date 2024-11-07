@@ -27,7 +27,24 @@ function Personalcolor() {
         getUserCamera()
     },[videoRef])
 
+
+    // Utility function to darken a color by reducing its brightness
+const darkenColor = (color, amount) => {
+    let colorValue = parseInt(color.slice(1), 16); // Remove "#" and convert to integer
+    let r = (colorValue >> 16) - amount;
+    let g = ((colorValue >> 8) & 0x00FF) - amount;
+    let b = (colorValue & 0x0000FF) - amount;
+
+    // Ensure RGB values are within 0-255
+  r = Math.max(0, r);
+  g = Math.max(0, g);
+  b = Math.max(0, b);
+
+  return `#${(r << 16 | g << 8 | b).toString(16).padStart(6, '0')}`;
+};
+
         const [selectedColor, setSelectedColor] = useState('#FFFFFF'); // Default white color
+       
     
         // Define color palettes for the 4 seasons
   const colorPalettes = {
@@ -37,11 +54,11 @@ function Personalcolor() {
     Winter: ['#D7E3FC', '#A9DEF9', '#C3F0CA', '#B6E2D3'],
   }
 
-  // Handle color change on clicking a palette color
+  
+
   const handleColorChange = (color) => {
     setSelectedColor(color);
   }
-
 
    /* const [color, setColor] = useState('#9D27B1');
 
@@ -100,7 +117,7 @@ function Personalcolor() {
         }}
       />
 
-      {/* Color palettes for the 4 seasons */}
+      {/* Color palettes with darker border on selected color */}
       <div>
         {Object.keys(colorPalettes).map((season) => (
           <div key={season} style={{ marginBottom: '10px' }}>
@@ -115,7 +132,10 @@ function Personalcolor() {
                     height: '30px',
                     backgroundColor: color,
                     cursor: 'pointer',
-                    border: '1px solid #ccc',
+                    border: selectedColor === color ? `3px solid ${darkenColor(color, 30)}` : '', // Darker border on selected color
+                    borderRadius: '50%', // Round shape for color swatches
+                    transition: 'transform 0.2s ease, border 0.2s ease', // Smooth animation
+                    transform: selectedColor === color ? 'scale(1.2)' : 'scale(1)', // Scale animation on selected
                   }}
                 />
               ))}
@@ -130,10 +150,7 @@ function Personalcolor() {
              
         </main>
     )
-    /*<span
-      onClick={() => changeColor('#9D27B1')}
-      style={{ backgroundColor: color, display: 'inline-block', cursor: 'pointer' }}
-    ></span>*/
+    
 }
 
 
