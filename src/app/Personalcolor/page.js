@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Image from "next/image";
 import Link from "next/link";
 
+
 function Personalcolor() {
     let videoRef = React.useRef(null);
 
@@ -21,10 +22,33 @@ function Personalcolor() {
             console.error(error)
         })
     }
+
     useEffect(() => {
         getUserCamera()
     },[videoRef])
 
+        const [selectedColor, setSelectedColor] = useState('#FFFFFF'); // Default white color
+    
+        // Define color palettes for the 4 seasons
+  const colorPalettes = {
+    Spring: ['#FFADAD', '#FFD6A5', '#FDFFB6', '#CAFFBF'],
+    Summer: ['#9BF6FF', '#A0C4FF', '#BDB2FF', '#FFC6FF'],
+    Autumn: ['#FFB3C1', '#FF9F1C', '#FFD670', '#6A4C93'],
+    Winter: ['#D7E3FC', '#A9DEF9', '#C3F0CA', '#B6E2D3'],
+  }
+
+  // Handle color change on clicking a palette color
+  const handleColorChange = (color) => {
+    setSelectedColor(color);
+  }
+
+
+   /* const [color, setColor] = useState('#9D27B1');
+
+  const changeColor = (newColor) => {
+    setColor(newColor);
+  };
+*/
     
     return (
         <main >
@@ -61,13 +85,58 @@ function Personalcolor() {
             </section>
 
             <section class="">
-                <div class="container">
-                    <video className="container" ref={videoRef}></video>
-                    <span value="#0000FF " onClick="changeColor(this)" style={{ backgroundColor: '#0000FF' }}></span>
+                <div class="camera">
+                    <video className="camera" ref={videoRef}></video>
                 </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+      {/* Square that changes color */}
+      <div
+        style={{
+          width: '100px',
+          height: '100px',
+          backgroundColor: selectedColor,
+          border: '1px solid #ccc',
+        }}
+      />
+
+      {/* Color palettes for the 4 seasons */}
+      <div>
+        {Object.keys(colorPalettes).map((season) => (
+          <div key={season} style={{ marginBottom: '10px' }}>
+            <h4>{season}</h4>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              {colorPalettes[season].map((color) => (
+                <div
+                  key={color}
+                  onClick={() => handleColorChange(color)}
+                  style={{
+                    width: '30px',
+                    height: '30px',
+                    backgroundColor: color,
+                    cursor: 'pointer',
+                    border: '1px solid #ccc',
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  
+      
              </section>
+             
         </main>
     )
+    /*<span
+      onClick={() => changeColor('#9D27B1')}
+      style={{ backgroundColor: color, display: 'inline-block', cursor: 'pointer' }}
+    ></span>*/
 }
+
+
+
 
 export default Personalcolor
