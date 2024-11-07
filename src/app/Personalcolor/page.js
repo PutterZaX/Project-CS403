@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Image from "next/image";
 import Link from "next/link";
 
@@ -24,6 +24,8 @@ function Personalcolor() {
     useEffect(() => {
         getUserCamera()
     },[videoRef])
+
+    
     return (
         <main >
             <section class="picture-personal bg-[url('https://cdn.prod.website-files.com/649174dcab676e52a64ce81a/6492a007773c4bf34455f75e_image-36.jpeg')]">
@@ -61,7 +63,7 @@ function Personalcolor() {
             <section class="">
                 <div class="container">
                     <video className="container" ref={videoRef}></video>
-                    <button onClick> </button>
+                    <span value="#0000FF " onClick="changeColor(this)" style={{ backgroundColor: '#0000FF' }}></span>
                 </div>
              </section>
         </main>
