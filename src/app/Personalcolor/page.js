@@ -41,14 +41,23 @@ function Personalcolor() {
     const [selectedColor, setSelectedColor] = useState('#FFFFFF');
 
     const colorPalettes = useMemo(() => ({
-        Spring: ['#FFADAD', '#FFD6A5', '#FDFFB6', '#CAFFBF'],
-        Summer: ['#9BF6FF', '#A0C4FF', '#BDB2FF', '#FFC6FF'],
-        Autumn: ['#FFB3C1', '#FF9F1C', '#FFD670', '#6A4C93'],
-        Winter: ['#D7E3FC', '#A9DEF9', '#C3F0CA', '#B6E2D3'],
+        Spring: ['#FE9A01', '#FE804D', '#FE592A', '#F91D41', '#29AAAE', '#870EC6', '#B0DF72', '#8ECE76', '#68BD65', '#B4E1ED', '#67C3B9', '#42B199', '#EE677B', '#EC89B8', '#F0E2E5', '#F3EED2', '#F1ED8A', '#F2EC11', '#F74491', '#DBCC98', '#DAB345', '#C0AC6F', '#4D1A04', '#0B286E'],
+        Autumn: ['#412A0B', '#5A350B', '#FA7D77', '#FFF2DF', '#D9D9C9', '#CBBC91', '#BF8840', '#735F0F', '#757F4E', '#4D5F2B', '#253F12', '#358125', '#0E3F1A', '#34001B', '#591B19', '#CCA107', '#CB800F', '#CC5205', '#C01700', '#F8554E', '#019376', '#80AFA4', '#013133', '#690B9D'],
+        Summer: ['#F95C94', '#B3D6EA', '#9AC4DD', '#8E8CC3', '#8B55A5', '#CCBEDC', '#F1D7E9', '#EDA4D1', '#76A4CD', '#5284BC', '#5360A9', '#6A47A3', '#DBF1F7', '#B5E1CC', '#80CEBD', '#EA437F', '#E6E6AB', '#BDA1A6', '#A5BBBB', '#80A38E', '#7E8593', '#806F5C', '#805043', '#703738'],
+        Winter: ['#051436', '#0B286E', '#76C1DC', '#F2FAFE', '#F2FFAD', '#BEC5DE', '#2398DB', '#0000FD', '#29017C', '#870EC6', '#FEF100', '#0C8732', '#0E916B', '#005322', '#77003A', '#780D6E', '#CF0140', '#FF00FE', '#D69FCD', '#B1AAD3', '#CCCCCC', '#808080', '#4C4C4C', '#030217'],
     }), []);
+
 
     const handleColorChange = (color) => {
         setSelectedColor(color);
+    };
+
+      // Map season names to their tones
+    const seasonToneMap = {
+        Spring: "Warm Tone",
+        Autumn: "Warm Tone",
+        Summer: "Cool Tone",
+        Winter: "Cool Tone"
     };
 
     return (
@@ -72,73 +81,61 @@ function Personalcolor() {
                         <h1>PERSONAL COLOR ANALYSIS</h1>
                     </div>
                 </div>
-
-                </section> <br /> <br />
-            <section class="h-auto grid place-items-center">
-                <div class="pt-10 w-3/5 text-center">
-                <h1 class="my_space text-2xl font-bold">4 Steps การดู Personal color</h1>   <br /> <br /> <br />
-                <img src="https://i.postimg.cc/90dQB41f/4steps.png"></img>
-                    
-                    <br />  
+            </section> 
+            <br /> <br />
+            
+            <section className="h-auto grid place-items-center">
+                <div className="pt-10 w-3/5 text-center">
+                    <h1 className="my_space text-2xl font-bold">4 Steps การดู Personal color</h1>
+                    <br /> <br /> <br />
+                    <img src="https://i.postimg.cc/90dQB41f/4steps.png" alt="4 Steps Personal Color Guide"></img>
+                    <br />
                 </div>
-                
             </section>
             <br />
             <br />
-
+            
             <section className="flex justify-center items-center">
-                <div className="relative w-2/5">
-                    {/* Camera Feed */}
-                    <div className="camera w-full">
-                        <video className="camera w-full" ref={videoRef}></video>
-                    </div>
+            <div className="relative w-3/5"> {/* Adjust width here to control overall container size */}
+        {/* Camera Feed */}
+        <div className="camera w-full h-full">
+            <video 
+                className="camera w-full h-full" 
+                ref={videoRef} 
+                style={{ width: '90%', height: '100%' }} // Ensures video fills container
+            ></video>
+        </div>
 
-                    {/* Drape Overlay */}
+                    {/* Trapezoid Overlay */}
                     <div
                         style={{
                             position: 'absolute',
-                            top: '50%',
-                            left: '50%',
+                            top: '90%',
+                            left: '45%',
                             transform: 'translate(-50%, -50%)',
-                            width: '80%', // Adjust width if needed
-                            height: 'auto',
-                            borderRadius: '10px',
-                            overflow: 'hidden',
+                            width: '90%', 
+                            height: '20%',
+                            clipPath: 'polygon(35% 0%, 65% 0%, 100% 100%, 0% 100%)', // Creates a trapezoid shape
+                            backgroundColor: selectedColor,
+                            transition: 'background-color 0.3s ease',
+                            borderRadius: '',
                         }}
-                    >
-                        <div
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                width: '100%',
-                                height: '100%',
-                                backgroundColor: selectedColor,
-                                mixBlendMode: 'multiply',
-                                transition: 'background-color 0.3s ease',
-                            }}
-                        />
-                        <img
-                            src="https://i.postimg.cc/gJT97ytp/drape-bw.png" // Replace with the path to your white drape image
-                            alt="Personal color drape"
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                pointerEvents: 'none',
-                                mixBlendMode: 'screen',
-                                filter: 'brightness(1.5)',
-                            }}
-                        />
-                    </div>
+                    />
                 </div>
 
                 {/* Color Palette on the Right */}
                 <div className="ml-10">
                     {Object.keys(colorPalettes).map((season) => (
-                        <div key={season} style={{ marginBottom: '10px' }}>
-                            <h4>{season}</h4>
-                            <div style={{ display: 'flex', gap: '10px' }}>
+    
+                        <div key={season} style={{ marginBottom: '20px' }}>
+                            {/* Season with tone text */}
+                            <h4 style={{ marginBottom: '7px' }}>{`${season} ( ${seasonToneMap[season]} )`}</h4>
+                            <div style={{
+                                    display: 'flex',
+                                    flexWrap: 'wrap',
+                                    gap: '4px',
+                                    maxWidth: '300px', // Adjust to control the number of colors per line
+                                }}>
                                 {colorPalettes[season].map((color) => (
                                     <div
                                         key={color}
@@ -148,18 +145,20 @@ function Personalcolor() {
                                             height: '30px',
                                             backgroundColor: color,
                                             cursor: 'pointer',
-                                            border: selectedColor === color ? `3px solid ${darkenColor(color, 30)}` : '1px solid #ccc',
+                                            border: selectedColor === color ? `3px solid ${darkenColor(color, 30)}` : '',
                                             borderRadius: '50%',
                                             transition: 'transform 0.2s ease, border 0.2s ease',
                                             transform: selectedColor === color ? 'scale(1.2)' : 'scale(1)',
                                         }}
-                                    />
+                                    /> 
                                 ))}
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
+            <br />
+            <br />
         </main>
     );
 }
