@@ -39,7 +39,7 @@ function Personalcolor() {
     };
 
     const [selectedColor, setSelectedColor] = useState('#FFFFFF');
-
+    const [likedColors, setLikedColors] = useState({});
     const colorPalettes = useMemo(() => ({
         Spring: ['#FE9A01', '#FE804D', '#FE592A', '#F91D41', '#29AAAE', '#870EC6', '#B0DF72', '#8ECE76', '#68BD65', '#B4E1ED', '#67C3B9', '#42B199', '#EE677B', '#EC89B8', '#F0E2E5', '#F3EED2', '#F1ED8A', '#F2EC11', '#F74491', '#DBCC98', '#DAB345', '#C0AC6F', '#4D1A04', '#0B286E'],
         Autumn: ['#412A0B', '#5A350B', '#FA7D77', '#FFF2DF', '#D9D9C9', '#CBBC91', '#BF8840', '#735F0F', '#757F4E', '#4D5F2B', '#253F12', '#358125', '#0E3F1A', '#34001B', '#591B19', '#CCA107', '#CB800F', '#CC5205', '#C01700', '#F8554E', '#019376', '#80AFA4', '#013133', '#690B9D'],
@@ -58,6 +58,13 @@ function Personalcolor() {
         Autumn: "Warm Tone",
         Summer: "Cool Tone",
         Winter: "Cool Tone"
+    };
+
+    const toggleHeart = (color) => {
+        setLikedColors((prevLikedColors) => ({
+            ...prevLikedColors,
+            [color]: !prevLikedColors[color],
+        }));
     };
 
     return (
@@ -140,17 +147,31 @@ function Personalcolor() {
                                     <div
                                         key={color}
                                         onClick={() => handleColorChange(color)}
+                                        onDoubleClick={() => toggleHeart(color)}
                                         style={{
                                             width: '30px',
                                             height: '30px',
                                             backgroundColor: color,
                                             cursor: 'pointer',
+                                            position: 'relative',
                                             border: selectedColor === color ? `3px solid ${darkenColor(color, 30)}` : '',
                                             borderRadius: '50%',
                                             transition: 'transform 0.2s ease, border 0.2s ease',
                                             transform: selectedColor === color ? 'scale(1.2)' : 'scale(1)',
                                         }}
-                                    /> 
+                                        >
+                                        {/* Red Heart Icon */}
+                                        {likedColors[color] && (
+                                            <span style={{
+                                                position: 'absolute',
+                                                top: '2px',
+                                                right: '2px',
+                                                color: 'red',
+                                                fontSize: '12px',
+                                                lineHeight: '1',
+                                            }}>❤️</span>
+                                        )}
+                                    </div>
                                 ))}
                             </div>
                         </div>
