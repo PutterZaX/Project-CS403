@@ -164,8 +164,8 @@ function Personalcolor() {
                                         {likedColors[color] && (
                                             <span style={{
                                                 position: 'absolute',
-                                                top: '2px',
-                                                right: '2px',
+                                                top: '1px',
+                                                right: '0px',
                                                 color: 'red',
                                                 fontSize: '12px',
                                                 lineHeight: '1',
