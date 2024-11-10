@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "face-api.js": "^0.20.0",
     "formidable": "^3.5.2",
     "next": "^14.2.16",
     "react": "^18.3.1",

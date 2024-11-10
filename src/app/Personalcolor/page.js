@@ -1,10 +1,21 @@
 "use client";
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import Image from "next/image";
+import * as faceapi from "face-api.js";
 import Link from "next/link";
 
 function Personalcolor() {
     const videoRef = useRef(null);
+    const canvasRef = useRef(null);
+    const [uploadedImage, setUploadedImage] = useState(null);
+    const [undertone, setUndertone] = useState("");
+
+    useEffect(() => {
+        // Load face detection models
+        const loadModels = async () => {
+            await faceapi.loadTinyFaceDetectorModel('/models');
+        };
+        loadModels();
+    }, []);
 
     const getUserCamera = () => {
         navigator.mediaDevices.getUserMedia({
@@ -65,6 +76,104 @@ function Personalcolor() {
             ...prevLikedColors,
             [color]: !prevLikedColors[color],
         }));
+    };
+
+    // Handle image upload and undertone analysis
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                setUploadedImage(e.target.result);
+                analyzeImage(e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    // Analyze the uploaded image and determine undertone
+    const analyzeImage = (imageSrc) => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext("2d");
+        const image = new window.Image();
+
+        image.onload = async () => {
+            canvas.width = image.width;
+            canvas.height = image.height;
+            context.drawImage(image, 0, 0);
+
+            // Detect face
+            const detections = await faceapi.detectSingleFace(canvas, new faceapi.TinyFaceDetectorOptions());
+            if (!detections) {
+                setUndertone("Face not detected");
+                return;
+            }
+
+            // Get face bounding box and extract color data within it
+            const { x, y, width, height } = detections.box;
+            const faceData = context.getImageData(x, y, width, height);
+
+            let red = 0, green = 0, blue = 0;
+            const pixelCount = faceData.data.length / 4;
+
+            for (let i = 0; i < faceData.data.length; i += 4) {
+                red += faceData.data[i];
+                green += faceData.data[i + 1];
+                blue += faceData.data[i + 2];
+            }
+
+            /// Calculate average color values
+            red = red / pixelCount;
+            green = green / pixelCount;
+            blue = blue / pixelCount;
+
+            // Reference warm and cool tone colors
+            const warmTones = ["#FEDCC0", "#F0C9A6", "#EDC097"];
+            const coolTones = ["#FCD6CA", "#F4D0C4", "#EBBCAC"];
+
+            // Convert hex to RGB
+        const hexToRgb = (hex) => {
+            const bigint = parseInt(hex.slice(1), 16);
+            return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+        };
+
+        // Calculate color distance
+        const colorDistance = (rgb1, rgb2) => {
+            return Math.sqrt(
+                Math.pow(rgb1[0] - rgb2[0], 2) +
+                Math.pow(rgb1[1] - rgb2[1], 2) +
+                Math.pow(rgb1[2] - rgb2[2], 2)
+            );
+        };
+
+        // Find closest match in warm and cool tones
+        const averageColor = [red, green, blue];
+        let minWarmDistance = Infinity;
+        let minCoolDistance = Infinity;
+
+        for (const tone of warmTones) {
+            const toneRgb = hexToRgb(tone);
+            const distance = colorDistance(averageColor, toneRgb);
+            if (distance < minWarmDistance) minWarmDistance = distance;
+        }
+
+        for (const tone of coolTones) {
+            const toneRgb = hexToRgb(tone);
+            const distance = colorDistance(averageColor, toneRgb);
+            if (distance < minCoolDistance) minCoolDistance = distance;
+        }
+
+            // Determine undertone based on closest color match
+        if (minWarmDistance < minCoolDistance) {
+            setUndertone("Warm Tone");
+        } else if (minCoolDistance < minWarmDistance) {
+            setUndertone("Cool Tone");
+        } else {
+            setUndertone("Neutral Tone");
+        }
+    };
+
+        image.src = imageSrc;
     };
 
     return (
@@ -180,6 +289,21 @@ function Personalcolor() {
             </section>
             <br />
             <br />
+
+            <section>
+                <h1>Personal Color Analysis</h1>
+                <div>
+                    <input type="file" accept="image/*" onChange={handleImageUpload} />
+                    {uploadedImage && <img src={uploadedImage} alt="Uploaded" style={{ width: '200px', marginTop: '10px' }} />}
+                </div>
+
+                {/* Display Undertone Result */}
+                {undertone && <p>Your undertone is: {undertone}</p>}
+
+                {/* Hidden Canvas for Image Analysis */}
+                <canvas ref={canvasRef} style={{ display: "none" }} />
+            </section>
+
         </main>
     );
 }
