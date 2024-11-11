@@ -120,6 +120,7 @@ function Personalcolor() {
                 red += faceData.data[i];
                 green += faceData.data[i + 1];
                 blue += faceData.data[i + 2];
+                
             }
 
             /// Calculate average color values
@@ -200,8 +201,22 @@ function Personalcolor() {
             </section> 
             <br /> <br />
             
+
             <section className="h-auto grid place-items-center">
-                <div className="pt-10 w-3/5 text-center">
+                <div className="pt-10 w-4/5">
+                    <h1 className="my_space text-2xl font-bold text-center">Personal Color</h1>
+                    <br /> 
+                    <p>Personal Color คือสีประจำตัวที่มีความเหมาะสมกับโทนสีผิวของเรา ซึ่งถ้ามีสีนี้อยู่บนตัวจะขับผิวให้ดูเปล่งปลั่ง มีออร่าโดดเด่นและเปล่งประกาย ช่วยเสริมสร้างความมั่นใจ และทำให้ดูอ่อนเยาว์มากขึ้น ในทางตรงกันข้าม หากเลือกสีที่ไม่เหมาะกับตัวเองก็จะทำให้หน้าดูหมอง ริ้วรอยบนหน้าดูชัดขึ้นได้ โดย Personal Color นี้สามารถนำมาใช้เป็นสีเสื้อผ้า เครื่องประดับ เครื่องสำอาง สีผม หรืออะไรก็ตามที่อยู่ใกล้กับผิวของเรามากที่สุด</p>
+                    <br /> 
+                    <p>ตามหลักการแล้ว Personal Color จะแบ่งออกเป็น 2 ประเภทอย่างหลวมๆ ก็คือ Warm Tone (สีโทนอุ่น)  และ Cool Tone (สีโทนเย็น) โดยแบ่งลงไปอีกเป็น 2 กลุ่มย่อยในแต่ละประเภท นั่นก็คือ Autumn และ Spring อยู่ในหมวด Warm Tone , Summer และ  Winter  อยู่ในหมวดสี Cool Tone ทั้ง 4 กลุ่มย่อยถูกแบ่งด้วยความเข้มและสว่างของเฉดสีอีกที</p>
+                    <br /><br />
+                    <div className=" grid place-items-center">
+                            <img src="https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_01.jpg" alt="personalcolor"></img>
+                        </div>
+                    <br /> 
+
+                    <section className="h-auto grid place-items-center">
+                <div className="pt-10 w-full text-center">
                     <h1 className="my_space text-2xl font-bold">4 Steps การดู Personal color</h1>
                     <br /> <br /> <br />
                     <img src="https://i.postimg.cc/90dQB41f/4steps.png" alt="4 Steps Personal Color Guide"></img>
@@ -209,9 +224,47 @@ function Personalcolor() {
                 </div>
             </section>
             <br />
-            <br />
+            <br /> 
+                    <h1 className="h-auto grid place-items-center" > Step 1 </h1><br />
+                    <p>วิธีการเช็กสี Personal Color ก็ขึ้นอยู่กับหลายปัจจัยทั้ง Under Tone ของสีผิว สีตา และสีผมของแต่ละคน และ วิธีทดสอบ Personal Color เบื้องต้นแบบง่ายๆ เริ่มจากขั้นตอนแรกการหา Under Tone ของสีผิวจาก 4 วิธีต่อไปนี้</p>
+                    <br /> 
+                    <p>1.เป็นวิธีที่นิยมกันมากที่สุดคือ ดูสีเส้นเลือดที่ข้อมือ <br /> เส้นเลือดออกสีเขียว คือ สีผิวโทนอุ่น <br /> เส้นเลือดออกสีม่วง คือ สีผิวโทนเย็น <br /> เส้นเลือดออกทั้งสีเขียวและสีน้ำเงิน คือ สีผิวแบบกลาง (ให้ลองเทียบดูว่าเราเหมาะกับสีแบบไหนมากกว่ากัน)</p>
+                    <br />
+                    <p>2.เช็กสีผิวหลังโดนแดด <br /> โดนแดดแล้วผิวคล้ำ คือ สีผิวโทนอุ่น <br /> โดนแดดแล้วผิวเป็นสีแดง คือ สีผิวโทนเย็น  </p>
+                    <br />
+                    <p>3.สีผม / ตา <br /> ได้สังเกตจากสีผมธรรมชาติของเราบริเวณโคนผม หากสีผมและตาเป็นโทนสีดำ แสดงว่า เป็น Blue Base <br /> แต่หากเป็นโทนออกน้ำตาล หรือว่าเวลาโดนแดดแล้วเป็นประกายออกแดงๆ แสดงว่า เป็น Yellow Base ค่ะ</p>
+                    <br />
+                    <p>4.เทียบสีเครื่องประดับทอง vs เงิน <br /> ใส่เครื่องประดับทองแล้วดูผ่อง คือ สีผิวโทนอุ่น <br /> ใส่เครื่องประดับเงินแล้วดูผ่อง คือ สีผิวโทนเย็น </p>
+                </div>
+            </section>
+
+
             
+            <br />
+            <br />
+
+            <section className="h-auto grid place-items-center">
+                <h1> Step 2 </h1><br />
+                <h1>Personal Color Analysis</h1>
+                <div><br />
+                    <input type="file" accept="image/*" onChange={handleImageUpload} />
+                    {uploadedImage && <img src={uploadedImage} alt="Uploaded" style={{ width: '200px', marginTop: '10px' }} />}
+                </div>
+                <br /><br /><br />
+                {/* Display Undertone Result */}
+                {undertone && <p>Your undertone is: {undertone}</p>}
+
+                {/* Hidden Canvas for Image Analysis */}
+                <canvas ref={canvasRef} style={{ display: "none" }} />
+            </section>
+            <br /><br />
+
+
+            <h1 className="h-auto grid place-items-center" > Step 3 </h1>
+            <br /><br />
+
             <section className="flex justify-center items-center">
+                
             <div className="relative w-3/5"> {/* Adjust width here to control overall container size */}
         {/* Camera Feed */}
         <div className="camera w-full h-full">
@@ -286,23 +339,14 @@ function Personalcolor() {
                         </div>
                     ))}
                 </div>
+            
             </section>
             <br />
             <br />
 
-            <section>
-                <h1>Personal Color Analysis</h1>
-                <div>
-                    <input type="file" accept="image/*" onChange={handleImageUpload} />
-                    {uploadedImage && <img src={uploadedImage} alt="Uploaded" style={{ width: '200px', marginTop: '10px' }} />}
-                </div>
-
-                {/* Display Undertone Result */}
-                {undertone && <p>Your undertone is: {undertone}</p>}
-
-                {/* Hidden Canvas for Image Analysis */}
-                <canvas ref={canvasRef} style={{ display: "none" }} />
-            </section>
+            <section className="h-auto grid place-items-center">
+                <h1> Step 4 </h1>
+            </section><br /><br />
 
         </main>
     );
