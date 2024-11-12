@@ -225,16 +225,16 @@ function Personalcolor() {
             </section>
             <br />
             <br /> 
-                    <h1 className="h-auto grid place-items-center" > Step 1 </h1><br />
-                    <p>วิธีการเช็กสี Personal Color ก็ขึ้นอยู่กับหลายปัจจัยทั้ง Under Tone ของสีผิว สีตา และสีผมของแต่ละคน และ วิธีทดสอบ Personal Color เบื้องต้นแบบง่ายๆ เริ่มจากขั้นตอนแรกการหา Under Tone ของสีผิวจาก 4 วิธีต่อไปนี้</p>
+                    <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 1 </h1><br />
+                    <p> วิธีทดสอบ Personal Color เบื้องต้นแบบง่ายๆ เริ่มจากขั้นตอนแรกการหา Under Tone ของสีผิวจาก 4 วิธีต่อไปนี้</p>
                     <br /> 
-                    <p>1.เป็นวิธีที่นิยมกันมากที่สุดคือ ดูสีเส้นเลือดที่ข้อมือ <br /> เส้นเลือดออกสีเขียว คือ สีผิวโทนอุ่น <br /> เส้นเลือดออกสีม่วง คือ สีผิวโทนเย็น <br /> เส้นเลือดออกทั้งสีเขียวและสีน้ำเงิน คือ สีผิวแบบกลาง (ให้ลองเทียบดูว่าเราเหมาะกับสีแบบไหนมากกว่ากัน)</p>
+                    <p>1.เป็นวิธีที่นิยมกันมากที่สุดคือ ดูสีเส้นเลือดที่ข้อมือ <br /> เส้นเลือดออกสีเขียว คือ Warm Tone <br /> เส้นเลือดออกสีม่วง คือ Cool Tone <br /> เส้นเลือดออกทั้งสีเขียวและสีน้ำเงิน คือ สีผิวแบบกลาง (ให้ลองเทียบดูว่าเราเหมาะกับสีแบบไหนมากกว่ากัน)</p>
                     <br />
-                    <p>2.เช็กสีผิวหลังโดนแดด <br /> โดนแดดแล้วผิวคล้ำ คือ สีผิวโทนอุ่น <br /> โดนแดดแล้วผิวเป็นสีแดง คือ สีผิวโทนเย็น  </p>
+                    <p>2.เช็กสีผิวหลังโดนแดด <br /> โดนแดดแล้วผิวคล้ำ คือ Warm Tone <br /> โดนแดดแล้วผิวเป็นสีแดง คือ Cool Tone  </p>
                     <br />
-                    <p>3.สีผม / ตา <br /> ได้สังเกตจากสีผมธรรมชาติของเราบริเวณโคนผม หากสีผมและตาเป็นโทนสีดำ แสดงว่า เป็น Blue Base <br /> แต่หากเป็นโทนออกน้ำตาล หรือว่าเวลาโดนแดดแล้วเป็นประกายออกแดงๆ แสดงว่า เป็น Yellow Base ค่ะ</p>
+                    <p>3.สีผม / ตา <br /> ได้สังเกตจากสีผมธรรมชาติของเราบริเวณโคนผม <br />  หากสีผมและตาเป็นโทนออกน้ำตาล หรือว่าเวลาโดนแดดแล้วเป็นประกายออกแดงๆ แสดงว่า เป็น Warm Tone <br />  หากสีผมและตาเป็นโทนสีดำ แสดงว่า เป็น Cool Tone </p>
                     <br />
-                    <p>4.เทียบสีเครื่องประดับทอง vs เงิน <br /> ใส่เครื่องประดับทองแล้วดูผ่อง คือ สีผิวโทนอุ่น <br /> ใส่เครื่องประดับเงินแล้วดูผ่อง คือ สีผิวโทนเย็น </p>
+                    <p>4.เทียบสีเครื่องประดับทอง vs เงิน <br /> ใส่เครื่องประดับทองแล้วดูผ่อง คือ Warm Tone <br /> ใส่เครื่องประดับเงินแล้วดูผ่อง คือ Cool Tone </p>
                 </div>
             </section>
 
@@ -244,23 +244,22 @@ function Personalcolor() {
             <br />
 
             <section className="h-auto grid place-items-center">
-                <h1> Step 2 </h1><br />
-                <h1>Personal Color Analysis</h1>
-                <div><br />
-                    <input type="file" accept="image/*" onChange={handleImageUpload} />
+                <h1 className="my_space text-2xl font-bold h-auto grid place-items-center"> Step 2 Personal Color Analysis </h1>
+                <div className="h-auto grid place-items-center"><br />
+                    <input type="file" accept="image/*" onChange={handleImageUpload} /><br />
                     {uploadedImage && <img src={uploadedImage} alt="Uploaded" style={{ width: '200px', marginTop: '10px' }} />}
                 </div>
-                <br /><br /><br />
+                <br />
                 {/* Display Undertone Result */}
                 {undertone && <p>Your undertone is: {undertone}</p>}
 
                 {/* Hidden Canvas for Image Analysis */}
                 <canvas ref={canvasRef} style={{ display: "none" }} />
             </section>
-            <br /><br />
+            <br /><br /><br />
 
 
-            <h1 className="h-auto grid place-items-center" > Step 3 </h1>
+            <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 3 </h1>
             <br /><br />
 
             <section className="flex justify-center items-center">
@@ -345,7 +344,7 @@ function Personalcolor() {
             <br />
 
             <section className="h-auto grid place-items-center">
-                <h1> Step 4 </h1>
+                <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 4 </h1>
             </section><br /><br />
 
         </main>
