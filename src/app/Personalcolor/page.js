@@ -177,6 +177,32 @@ function Personalcolor() {
         image.src = imageSrc;
     };
 
+    
+        const topics = [
+          {
+            title: "Spring",
+            paragraph: "Warm Tone ที่มีความอ่อน จะเป็นโทนสีแนวสดใส ดอกไม้ผลิ ที่มีความน่ารัก หรือป๊อป สดใส สว่าง สว่างสดใส ให้ลุคที่น่ารักและร่าเริง",
+            image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_04.jpg",
+          },
+          {
+            title: "Autumn",
+            paragraph: "Warm Tone ที่มีความเข้ม จะเป็นโทนสีแนวตุ่นๆ หม่นๆ ดูเป็นธรรมชาติ ดูชิค และ หรูหรา แนวเอิร์ธโทน ให้ลุคที่เป็นธรรมชาติและดูสุขุมนุ่มลึก",
+            image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_06.jpg",
+          },
+          {
+            title: "Summer",
+            paragraph: "Cool Tone ที่มีความอ่อน จะเป็นโทนสีแนว pastel ละมุ่น หวาน โรแมนติก สง่างาม แนวพาสเทล ให้ลุคที่ดูอ่อนโยนและน่าทะนุถนอม",
+            image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_05.jpg",
+          },
+          {
+            title: "Winter",
+            paragraph: "สีโทนเย็นที่มีความเข้ม จะเป็นโทนสีเข้ม ๆ contrastจัด ๆ สีสด ๆ สีแบบแม่สี สีค่อนข้างสด ให้ลุคที่คมเข้มและดูเท่",
+            image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_07-01.jpg",
+          },
+        ];
+        
+        const [currentTopic, setCurrentTopic] = useState(topics[0]);
+
     return (
         <main>
             <section className="picture-personal bg-[url('https://cdn.prod.website-files.com/649174dcab676e52a64ce81a/6492a007773c4bf34455f75e_image-36.jpeg')]">
@@ -225,8 +251,8 @@ function Personalcolor() {
             </section>
             <br />
             <br /> 
-                    <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 1 </h1><br />
-                    <p> วิธีทดสอบ Personal Color เบื้องต้นแบบง่ายๆ เริ่มจากขั้นตอนแรกการหา Under Tone ของสีผิวจาก 4 วิธีต่อไปนี้</p>
+                    <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 1 Basic Under Tone</h1>
+                    <p className="text-center"> วิธีทดสอบ Personal Color เบื้องต้นแบบง่ายๆ เริ่มจากขั้นตอนแรกการหา Under Tone ของสีผิวจาก 4 วิธีต่อไปนี้</p>
                     <br /> 
                     <p>1.เป็นวิธีที่นิยมกันมากที่สุดคือ ดูสีเส้นเลือดที่ข้อมือ <br /> เส้นเลือดออกสีเขียว คือ Warm Tone <br /> เส้นเลือดออกสีม่วง คือ Cool Tone <br /> เส้นเลือดออกทั้งสีเขียวและสีน้ำเงิน คือ สีผิวแบบกลาง (ให้ลองเทียบดูว่าเราเหมาะกับสีแบบไหนมากกว่ากัน)</p>
                     <br />
@@ -243,8 +269,9 @@ function Personalcolor() {
             <br />
             <br />
 
-            <section className="h-auto grid place-items-center">
-                <h1 className="my_space text-2xl font-bold h-auto grid place-items-center"> Step 2 Personal Color Analysis </h1>
+            <section className="h-auto grid place-items-center text-center">
+                <h1 className="my_space text-2xl font-bold h-auto grid place-items-center"> Step 2 Under Tone Analysis </h1>
+                <p> หากคุณยังไม่แน่ใจสี Under Tone เราจะประมวลผลให้ เพียงคุณอัปโหลดรูปภาพ <br /> รูปหน้าตรง หน้าสด ถ่ายภายใต้แสงไฟสีขาวหรือแสงธรรมชาติ พื้นหลังสีขาว</p>
                 <div className="h-auto grid place-items-center"><br />
                     <input type="file" accept="image/*" onChange={handleImageUpload} /><br />
                     {uploadedImage && <img src={uploadedImage} alt="Uploaded" style={{ width: '200px', marginTop: '10px' }} />}
@@ -258,8 +285,10 @@ function Personalcolor() {
             </section>
             <br /><br /><br />
 
-
-            <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 3 </h1>
+            <div className="my_space grid place-items-center">
+            <h1 className="my_space text-2xl font-bold h-auto" > Step 3 Personal Color Analysis</h1>
+            <p> ซึ่งหลังจากที่เราเช็ก Undertone ของสีผิวทั้ง 4 ข้อเรียบร้อยแล้ว เราก็จะสามารถดูได้เลยว่าโทนผิวของเราจะสามารถอยู่ในฤดูไหนบ้าง </p>
+            </div>
             <br /><br />
 
             <section className="flex justify-center items-center">
@@ -340,13 +369,42 @@ function Personalcolor() {
                 </div>
             
             </section>
-            <br />
-            <br />
+            <br /> <br /><br /><br />
 
             <section className="h-auto grid place-items-center">
-                <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 4 </h1>
-            </section><br /><br />
+                <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 4 Result</h1>
+                <p> มาดูผลลัพธ์และคำแนะนำของแต่ละฤดูกัน </p>
+            </section><br />
 
+            <div style={{ textAlign: "center" }}>
+      {/* Topic Titles */}
+      <div style={{ display: "flex", justifyContent: "center", gap: "20px", marginBottom: "20px" }}>
+        {topics.map((topic, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentTopic(topic)}
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#f0f0f0",
+              border: "1px solid #ccc",
+              cursor: "pointer",
+            }}
+          >
+            {topic.title}
+          </button>
+        ))}
+      </div>
+
+      {/* Displayed Content */}
+      <div className="h-auto grid place-items-center">
+        <h2 >{currentTopic.title}</h2>
+        <p className="my_space">{currentTopic.paragraph}</p>
+        <img src={currentTopic.image} alt={currentTopic.title} style={{ maxWidth: "100%" }} />
+      </div>
+    </div>
+    <br /><br /><br /><br />
+                    
+    
         </main>
     );
 }
