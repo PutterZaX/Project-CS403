@@ -31,18 +31,7 @@ function Makeuptutorials() {
       link: 'https://www.youtube.com/embed/V-EaJ-xvO5o',
       type: 1
     },
-    {
-      link: 'https://www.youtube.com/embed/LrdfV8JvwEY',
-      type: 1
-    },
-    {
-      link: 'https://www.youtube.com/embed/hjakEhIm33s',
-      type: 1
-    },
-    {
-      link: 'https://www.youtube.com/embed/znAVSab7Hgw',
-      type: 1
-    },
+    
     {
       link: 'https://www.youtube.com/embed/zccRkG7J8V8',
       type: 2
@@ -64,10 +53,6 @@ function Makeuptutorials() {
       type: 2
     },
     {
-      link: 'https://www.youtube.com/embed/Gz9vRr12B4w',
-      type: 2
-    },
-    {
       link: 'https://www.youtube.com/embed/bon9yxCuTwM',
       type: 3
     },
@@ -85,18 +70,6 @@ function Makeuptutorials() {
     },
     {
       link: 'https://www.youtube.com/embed/fOtuzE-_NtA',
-      type: 3
-    },
-    {
-      link: 'https://www.youtube.com/embed/AdQWskev7Q4',
-      type: 3
-    },
-    {
-      link: 'https://www.youtube.com/embed/2w5WKCYbTg4',
-      type: 3
-    },
-    {
-      link: 'https://www.youtube.com/embed/AWKY5981hvc',
       type: 3
     },
     {
@@ -217,14 +190,6 @@ function Makeuptutorials() {
     },
     {
       link: 'https://www.youtube.com/embed/wc7vvsOSEMU',
-      type: 9
-    },
-    {
-      link: 'https://www.youtube.com/embed/BILROlwfYDU',
-      type: 9
-    },
-    {
-      link: 'https://www.youtube.com/embed/9Ppqj_HFwI0',
       type: 9
     },
     {

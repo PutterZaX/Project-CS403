@@ -231,47 +231,44 @@ function Personalcolor() {
             <section className="h-auto grid place-items-center">
                 <div className="pt-10 w-4/5">
                     <h1 className="my_space text-2xl font-bold text-center">Personal Color</h1>
-                    <br /> 
-                    <p>Personal Color คือสีประจำตัวที่มีความเหมาะสมกับโทนสีผิวของเรา ซึ่งถ้ามีสีนี้อยู่บนตัวจะขับผิวให้ดูเปล่งปลั่ง มีออร่าโดดเด่นและเปล่งประกาย ช่วยเสริมสร้างความมั่นใจ และทำให้ดูอ่อนเยาว์มากขึ้น ในทางตรงกันข้าม หากเลือกสีที่ไม่เหมาะกับตัวเองก็จะทำให้หน้าดูหมอง ริ้วรอยบนหน้าดูชัดขึ้นได้ โดย Personal Color นี้สามารถนำมาใช้เป็นสีเสื้อผ้า เครื่องประดับ เครื่องสำอาง สีผม หรืออะไรก็ตามที่อยู่ใกล้กับผิวของเรามากที่สุด</p>
-                    <br /> 
-                    <p>ตามหลักการแล้ว Personal Color จะแบ่งออกเป็น 2 ประเภทอย่างหลวมๆ ก็คือ Warm Tone (สีโทนอุ่น)  และ Cool Tone (สีโทนเย็น) โดยแบ่งลงไปอีกเป็น 2 กลุ่มย่อยในแต่ละประเภท นั่นก็คือ Autumn และ Spring อยู่ในหมวด Warm Tone , Summer และ  Winter  อยู่ในหมวดสี Cool Tone ทั้ง 4 กลุ่มย่อยถูกแบ่งด้วยความเข้มและสว่างของเฉดสีอีกที</p>
-                    <br /><br />
+                    <br/> 
+                    <p className="text-lg">Personal Color คือสีประจำตัวที่มีความเหมาะสมกับโทนสีผิวของเรา ซึ่งถ้ามีสีนี้อยู่บนตัวจะขับผิวให้ดูเปล่งปลั่ง มีออร่าโดดเด่นและเปล่งประกาย ช่วยเสริมสร้างความมั่นใจ และทำให้ดูอ่อนเยาว์มากขึ้น ในทางตรงกันข้าม หากเลือกสีที่ไม่เหมาะกับตัวเองก็จะทำให้หน้าดูหมอง ริ้วรอยบนหน้าดูชัดขึ้นได้ โดย Personal Color นี้สามารถนำมาใช้เป็นสีเสื้อผ้า เครื่องประดับ เครื่องสำอาง สีผม หรืออะไรก็ตามที่อยู่ใกล้กับผิวของเรามากที่สุด</p>
+                    <br/> 
+                    <p className="text-lg">ตามหลักการแล้ว Personal Color จะแบ่งออกเป็น 2 ประเภทอย่างหลวมๆ ก็คือ Warm Tone (สีโทนอุ่น)  และ Cool Tone (สีโทนเย็น) โดยแบ่งลงไปอีกเป็น 2 กลุ่มย่อยในแต่ละประเภท นั่นก็คือ Autumn และ Spring อยู่ในหมวด Warm Tone , Summer และ  Winter  อยู่ในหมวดสี Cool Tone ทั้ง 4 กลุ่มย่อยถูกแบ่งด้วยความเข้มและสว่างของเฉดสีอีกที</p>
+                    <br/><br/>
                     <div className=" grid place-items-center">
                             <img src="https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_01.jpg" alt="personalcolor"></img>
                         </div>
-                    <br /> 
+                    <br/> <br/> <br/> <br/> <br/> 
 
                     <section className="h-auto grid place-items-center">
                 <div className="pt-10 w-full text-center">
                     <h1 className="my_space text-2xl font-bold">4 Steps การดู Personal color</h1>
                     <br /> <br /> <br />
-                    <img src="https://i.postimg.cc/90dQB41f/4steps.png" alt="4 Steps Personal Color Guide"></img>
-                    <br />
+                    <img src="https://i.postimg.cc/HsXCVMmX/4step.png" alt="4 Steps Personal Color Guide"></img>
+                    <br/><br/> <br/> <br/> <br/> <br/> <br/> 
                 </div>
             </section>
-            <br />
-            <br /> 
-                    <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 1 Basic Under Tone</h1>
-                    <p className="text-center"> วิธีทดสอบ Personal Color เบื้องต้นแบบง่ายๆ เริ่มจากขั้นตอนแรกการหา Under Tone ของสีผิวจาก 4 วิธีต่อไปนี้</p>
-                    <br /> 
-                    <p>1.เป็นวิธีที่นิยมกันมากที่สุดคือ ดูสีเส้นเลือดที่ข้อมือ <br /> เส้นเลือดออกสีเขียว คือ Warm Tone <br /> เส้นเลือดออกสีม่วง คือ Cool Tone <br /> เส้นเลือดออกทั้งสีเขียวและสีน้ำเงิน คือ สีผิวแบบกลาง (ให้ลองเทียบดูว่าเราเหมาะกับสีแบบไหนมากกว่ากัน)</p>
-                    <br />
-                    <p>2.เช็กสีผิวหลังโดนแดด <br /> โดนแดดแล้วผิวคล้ำ คือ Warm Tone <br /> โดนแดดแล้วผิวเป็นสีแดง คือ Cool Tone  </p>
-                    <br />
-                    <p>3.สีผม / ตา <br /> ได้สังเกตจากสีผมธรรมชาติของเราบริเวณโคนผม <br />  หากสีผมและตาเป็นโทนออกน้ำตาล หรือว่าเวลาโดนแดดแล้วเป็นประกายออกแดงๆ แสดงว่า เป็น Warm Tone <br />  หากสีผมและตาเป็นโทนสีดำ แสดงว่า เป็น Cool Tone </p>
-                    <br />
-                    <p>4.เทียบสีเครื่องประดับทอง vs เงิน <br /> ใส่เครื่องประดับทองแล้วดูผ่อง คือ Warm Tone <br /> ใส่เครื่องประดับเงินแล้วดูผ่อง คือ Cool Tone </p>
-                    </div>
-                    </section>
-
-
             
-            <br />
-            <br />
+                    <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 1 Basic Under Tone</h1>
+                    <p className="text-center text-lg"> วิธีทดสอบ Personal Color เบื้องต้นแบบง่ายๆ เริ่มจากขั้นตอนแรกการหา Under Tone ของสีผิวจาก 4 วิธีต่อไปนี้</p>
+                    <br /> 
+                    <p className="text-lg">1.เป็นวิธีที่นิยมกันมากที่สุดคือ ดูสีเส้นเลือดที่ข้อมือ <br /> เส้นเลือดออกสีเขียว คือ Warm Tone <br /> เส้นเลือดออกสีม่วง คือ Cool Tone <br /> เส้นเลือดออกทั้งสีเขียวและสีน้ำเงิน คือ สีผิวแบบกลาง (ให้ลองเทียบดูว่าเราเหมาะกับสีแบบไหนมากกว่ากัน)</p>
+                    <br />
+                    <p className="text-lg">2.เช็กสีผิวหลังโดนแดด <br /> โดนแดดแล้วผิวคล้ำ คือ Warm Tone <br /> โดนแดดแล้วผิวเป็นสีแดง คือ Cool Tone  </p>
+                    <br />
+                    <p className="text-lg">3.สีผม / ตา <br /> ได้สังเกตจากสีผมธรรมชาติของเราบริเวณโคนผม <br />  หากสีผมและตาเป็นโทนออกน้ำตาล หรือว่าเวลาโดนแดดแล้วเป็นประกายออกแดงๆ แสดงว่า เป็น Warm Tone <br />  หากสีผมและตาเป็นโทนสีดำ แสดงว่า เป็น Cool Tone </p>
+                    <br />
+                    <p className="text-lg">4.เทียบสีเครื่องประดับทอง vs เงิน <br /> ใส่เครื่องประดับทองแล้วดูผ่อง คือ Warm Tone <br /> ใส่เครื่องประดับเงินแล้วดูผ่อง คือ Cool Tone </p>
+                    </div>
+                    </section><br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> 
+
+
 
             <section className="h-auto grid place-items-center text-center">
                 <h1 className="my_space text-2xl font-bold h-auto grid place-items-center"> Step 2 Under Tone Analysis </h1>
-                <p> หากคุณยังไม่แน่ใจสี Under Tone เราจะประมวลผลให้ เพียงคุณอัปโหลดรูปภาพ <br /> รูปหน้าตรง หน้าสด ถ่ายภายใต้แสงไฟสีขาวหรือแสงธรรมชาติ พื้นหลังสีขาว</p>
+                <p className="text-lg"> หากคุณยังไม่แน่ใจสี Under Tone เราจะประมวลผลให้ เพียงคุณอัปโหลดรูปภาพ </p>
+                <p> รูปหน้าตรง หน้าสด ถ่ายภายใต้แสงไฟสีขาวหรือแสงธรรมชาติ พื้นหลังสีขาว</p>
                 <div className="h-auto grid place-items-center"><br />
                     <input type="file" accept="image/*" onChange={handleImageUpload} /><br />
                     {uploadedImage && <img src={uploadedImage} alt="Uploaded" style={{ width: '200px', marginTop: '10px' }} />}
@@ -283,11 +280,12 @@ function Personalcolor() {
                 {/* Hidden Canvas for Image Analysis */}
                 <canvas ref={canvasRef} style={{ display: "none" }} />
             </section>
-            <br /><br /><br />
+            <br/><br/><br/><br/> <br/> <br/> <br/> 
 
-            <div className="my_space grid place-items-center">
+            <div className="grid place-items-center">
             <h1 className="my_space text-2xl font-bold h-auto" > Step 3 Personal Color Analysis</h1>
-            <p> ซึ่งหลังจากที่เราเช็ก Undertone ของสีผิวทั้ง 4 ข้อเรียบร้อยแล้ว เราก็จะสามารถดูได้เลยว่าโทนผิวของเราจะสามารถอยู่ในฤดูไหนบ้าง </p>
+            <p className="text-lg"> ซึ่งหลังจากที่เราเช็ก Undertone ของสีผิวทั้ง 4 ข้อเรียบร้อยแล้ว เราก็จะสามารถดูได้เลยว่าโทนผิวของเราจะสามารถอยู่ในฤดูไหนบ้าง </p><br/>
+            <p className="px-40 text-lg text-center"> วิธีการทดสอบ : กดแผ่นสีเพื่อลองเทียบกับใบหน้า หากใบหน้าดูสว่างขึ้น หรือส่งเสริมให้เราดูดี ให้คลิกที่สีนั้น2ครั้งเพื่อกดถูกใจ ถ้าหัวใจที่ฤดูไหนเยอะที่สุดสีในฤดูนั้นจะเป็นสี Personal ของคุณ ระหว่างทำการทดสอบ ต้องหน้าสด ใช้แสงไฟสีขาวหรือแสงธรรมชาติ พื้นหลังสีขาว </p>
             </div>
             <br /><br />
 
@@ -369,46 +367,51 @@ function Personalcolor() {
                 </div>
             
             </section>
-            <br /> <br /><br /><br />
+            <br/><br/><br/><br/><br/><br/><br/><br/>
 
             <section className="h-auto grid place-items-center">
                 
-                <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 4 Result</h1>
-                <p> มาดูผลลัพธ์และคำแนะนำของแต่ละฤดูกัน </p>
-            </section><br />
+                <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 4 Result & Recommendation</h1>
+                <p className="text-lg"> มาดูผลลัพธ์และคำแนะนำของแต่ละฤดูกัน </p>
+            </section><br/><br/>
 
             <div style={{ textAlign: "center" }}>
       {/* Topic Titles */}
-      <div style={{ display: "flex", justifyContent: "center", gap: "20px", marginBottom: "20px" }}>
+      <div style={{ display: "flex", justifyContent: "center", gap: "", marginBottom: "20px" }}>
         {topics.map((topic, index) => (
           <button
             key={index}
             onClick={() => setCurrentTopic(topic)}
             style={{
-              padding: "10px 20px",
+              padding: "10px 90px",
               backgroundColor: "#f0f0f0",
               border: "1px solid #ccc",
               cursor: "pointer",
+              fontSize: 20,
+              fontWeight: 'bold',
             }}
           >
             {topic.title}
           </button>
         ))}
       </div>
+      </div><br/>
 
       {/* Displayed Content */}
       
-      <div className="grid place-items-center text-center">
-        <h2 >{currentTopic.title}</h2>
-        <p className="my_space">{currentTopic.paragraph}</p>
-        <img src={currentTopic.image} alt={currentTopic.title} style={{ maxWidth: "100%" }} />
-      <p>ทั้งนี้ทั้งนั้นก็ไม่อยากให้เพื่อน ๆ ยึดติดในสีประจำตัวมากเกินไป แต่นำหลักการไปปรับให้เข้ากับตัวเองโดยการสังเกตสีที่เราใส่แล้วรอด จะได้สนุกกับการแต่งตัวและได้ลุคที่ดึงเสน่ห์ของเราออกมาได้ด้วย</p>
-      <p>ทดสอบ Personal Color ได้สีที่ใช่กันไปเรียบร้อย สาว ๆ จะเอาไปแมตช์สีเสื้อผ้า เครื่องประดับ เครื่องสำอาง หรือสีผมได้หมดทุกสิ่งอย่างเพื่อสร้างสรรค์ลุคที่สวยขับผิวเปล่งออร่าให้ความมั่นใจมาเต็ม จะแต่งลุคไหนก็เกิดแน่นอนค่าา~</p>
+      <div className="h-auto grid place-items-center">
+        <h2 className="text-xl font-bold">{currentTopic.title}</h2>
+        <p className="my_space text-lg">{currentTopic.paragraph}</p>
+        <img src={currentTopic.image} alt={currentTopic.title} style={{ maxWidth: "60%" }} /><br/><br /><br />
+
+        <p className="px-40 text-lg">ทดสอบ Personal Color ได้สีที่ใช่กันไปเรียบร้อยแล้วหวังว่าทุกคนจะเอาไปแมตช์สีเสื้อผ้า เครื่องประดับ เครื่องสำอาง หรือสีผมได้หมดทุกสิ่งอย่างเพื่อสร้างสรรค์ลุคที่สวยขับผิวเปล่งออร่าให้ความมั่นใจมาเต็ม จะแต่งลุคไหนก็เกิดแน่นอน!</p><br />
+      <p className="px-40 text-lg">ทั้งนี้ทั้งนั้นก็ไม่อยากให้หลายๆคน ยึดติดในสีประจำตัวมากเกินไป แต่นำหลักการไปปรับให้เข้ากับตัวเองโดยการสังเกตสีที่ตัวเองใส่แล้วรอด จะได้สนุกกับการแต่งตัวและได้ลุคที่ดึงเสน่ห์ของเราออกมาได้ด้วย</p>
+      
       </div>
-    </div>
+   
     
     
-    <br /><br /><br /><br />
+    <br /><br/><br/><br/>
                     
     
         </main>
