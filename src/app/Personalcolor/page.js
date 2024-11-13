@@ -261,8 +261,8 @@ function Personalcolor() {
                     <p>3.สีผม / ตา <br /> ได้สังเกตจากสีผมธรรมชาติของเราบริเวณโคนผม <br />  หากสีผมและตาเป็นโทนออกน้ำตาล หรือว่าเวลาโดนแดดแล้วเป็นประกายออกแดงๆ แสดงว่า เป็น Warm Tone <br />  หากสีผมและตาเป็นโทนสีดำ แสดงว่า เป็น Cool Tone </p>
                     <br />
                     <p>4.เทียบสีเครื่องประดับทอง vs เงิน <br /> ใส่เครื่องประดับทองแล้วดูผ่อง คือ Warm Tone <br /> ใส่เครื่องประดับเงินแล้วดูผ่อง คือ Cool Tone </p>
-                </div>
-            </section>
+                    </div>
+                    </section>
 
 
             
@@ -372,6 +372,7 @@ function Personalcolor() {
             <br /> <br /><br /><br />
 
             <section className="h-auto grid place-items-center">
+                
                 <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 4 Result</h1>
                 <p> มาดูผลลัพธ์และคำแนะนำของแต่ละฤดูกัน </p>
             </section><br />
@@ -396,12 +397,17 @@ function Personalcolor() {
       </div>
 
       {/* Displayed Content */}
-      <div className="h-auto grid place-items-center">
+      
+      <div className="grid place-items-center text-center">
         <h2 >{currentTopic.title}</h2>
         <p className="my_space">{currentTopic.paragraph}</p>
         <img src={currentTopic.image} alt={currentTopic.title} style={{ maxWidth: "100%" }} />
+      <p>ทั้งนี้ทั้งนั้นก็ไม่อยากให้เพื่อน ๆ ยึดติดในสีประจำตัวมากเกินไป แต่นำหลักการไปปรับให้เข้ากับตัวเองโดยการสังเกตสีที่เราใส่แล้วรอด จะได้สนุกกับการแต่งตัวและได้ลุคที่ดึงเสน่ห์ของเราออกมาได้ด้วย</p>
+      <p>ทดสอบ Personal Color ได้สีที่ใช่กันไปเรียบร้อย สาว ๆ จะเอาไปแมตช์สีเสื้อผ้า เครื่องประดับ เครื่องสำอาง หรือสีผมได้หมดทุกสิ่งอย่างเพื่อสร้างสรรค์ลุคที่สวยขับผิวเปล่งออร่าให้ความมั่นใจมาเต็ม จะแต่งลุคไหนก็เกิดแน่นอนค่าา~</p>
       </div>
     </div>
+    
+    
     <br /><br /><br /><br />
                     
     
