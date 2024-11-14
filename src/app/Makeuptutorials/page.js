@@ -9,211 +9,192 @@ function Makeuptutorials() {
   const [type, setType] = useState(0)
   const data = [
     {
-      link: 'https://www.youtube.com/embed/en7NaNgQGts',
-      name: 'wwwwwwwwwwwww',
+      link: 'https://www.youtube.com/embed/LjiP6I9q_qI',
+      name: 'Warm Tone Makeup 🍂 | Dearkiko',
       type: 1
 
     },
     {
-      link: 'https://www.youtube.com/embed/8eKGei7pv3I',
+      link: 'https://www.youtube.com/embed/DuyIKvsbxFc',
+      name: 'WARM TONE Makeup | mininuiizz',
       type: 1
 
     },
     {
-      link: 'https://www.youtube.com/embed/EYQS0wEp7nA',
+      link: 'https://www.youtube.com/embed/cJtKsdZfiIQ',
+      name: 'Warm tone fall makeup that makes prettier',
       type: 1
     },
     {
-      link: 'https://www.youtube.com/embed/1hcdp1wz18Y',
+      link: 'https://www.youtube.com/embed/V1eq6uWB6sE',
+      name: 'HOW TO Warm Tone Makeup 🤎 ',
       type: 1
     },
     {
-      link: 'https://www.youtube.com/embed/V-EaJ-xvO5o',
+      link: 'https://www.youtube.com/embed/dk2Goqgvg9Q',
+      name: 'Warm Everyday Makeup 🧶',
       type: 1
     },
-    
     {
-      link: 'https://www.youtube.com/embed/zccRkG7J8V8',
+      link: 'https://www.youtube.com/embed/USbS0e6o58o',
+      name: ' แต่งหน้าโทนอุ่น โทนสีตุ่นๆ ละมุน รับหน้าหนาว 🍂',
+      type: 1
+    },
+    {
+      link: 'https://www.youtube.com/embed/9OQM3rZUd2c',
+      name: 'Everyday Cool Tone Makeup 🐈‍⬛',
       type: 2
     },
     {
-      link: 'https://www.youtube.com/embed/3vUpA26dIhQ',
+      link: 'https://www.youtube.com/embed/hxzAKZ_t6bg',
+      name: 'Cool Tone Makeup สาวไทยก็แต่งได้นะ!!',
       type: 2
     },
     {
-      link: 'https://www.youtube.com/embed/D4hmmDmbwkY',
+      link: 'https://www.youtube.com/embed/L8ehUgP05xc',
+      name: '❄️✨🤍 COOL TONE MAKEUP เกาหลีเกาใจ',
       type: 2
     },
     {
-      link: 'https://www.youtube.com/embed/BOShKEWiF3w',
+      link: 'https://www.youtube.com/embed/0duxJz8ZHyk',
+      name: 'Everyday Cool Berry Makeup',
       type: 2
     },
     {
-      link: 'https://www.youtube.com/embed/PI5BifgV3xA',
+      link: 'https://www.youtube.com/embed/qyxT6ZidG_c',
+      name: 'แต่งหน้าหวานๆโทนม่วงชมพูววว☂️💗',
       type: 2
     },
     {
-      link: 'https://www.youtube.com/embed/bon9yxCuTwM',
+      link: 'https://www.youtube.com/embed/Lw_EaPF619c',
+      name: 'แต่งหน้าชมพูคูลโทนของสาวผิวขาวเหลือง',
+      type: 2
+    },
+    {
+      link: 'https://www.youtube.com/embed/RKxw0oP3OAo',
+      name: 'Neutral Tone Makeup แบบสวยจึ้งตะลึง!',
       type: 3
     },
     {
-      link: 'https://www.youtube.com/embed/XyDBQNY0gYE',
+      link: 'https://www.youtube.com/embed/U4v_w2zaZZ0',
+      name: 'แต่งหน้างานผิวแมทล้อแสง Neutral Tone',
       type: 3
     },
     {
-      link: 'https://www.youtube.com/embed/mRY_aAUh98c',
+      link: 'https://www.youtube.com/embed/FdXW9kuS1BI',
+      name: 'grwm, everyday soft glam makeup ^_−☆',
       type: 3
     },
     {
-      link: 'https://www.youtube.com/embed/UfoDQAv183A',
+      link: 'https://www.youtube.com/embed/ZTS7IenNi6M',
+      name: 'Soft beige makeup',
       type: 3
     },
     {
-      link: 'https://www.youtube.com/embed/fOtuzE-_NtA',
+      link: 'https://www.youtube.com/embed/sHm27cMY2M4',
+      name: 'แนะนำเมคอัพ Neutral Tone ละมุนเกินเบอร์',
       type: 3
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/g8Mjj0w0C1k',
+      name: 'สอนแต่งหน้า : Spring looks',
       type: 4
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/hCUu0rtkKA',
+      name: 'Glowy Spring makeup ',
       type: 4
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/OgMmEP7K5jc',
+      name: 'Light Spring Makeup ',
       type: 4
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/9R-YJYGTIk0',
+      name: 'fresh spring makeup 🌷',
       type: 4
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/QNnnYG8PUHY',
+      name: 'Spring warm makeup',
       type: 4
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/-CipoeGV-s8',
+      name: 'Autumn Makeup งาน Warm Tone มาแล้ว',
       type: 5
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/EfVuVCATeIM',
+      name: 'grwm 🍂 autumn mute makeup',
       type: 5
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/E8PKPFsqje4',
+      name: 'Autumn Palette Makeup ฟีลฤดูใบไม้ร่วง🍂🍁',
       type: 5
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/VoRFuJSzwdk',
+      name: 'สอนแต่งหน้า : Autumn Look ',
       type: 5
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/7zIV3FWbUrM',
+      name: 'Warm Autumn 🍁 Makeup ',
       type: 5
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/rXmB78BRbJk',
+      name: '데일리 메이크업 튜토리얼🌷',
       type: 6
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/gDBRORMi0a8',
+      name: 'สอนแต่งหน้า : Summer looks',
       type: 6
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/KB9xb6O9YJc',
+      name: 'Soft Summer(CoolTone)💕Korean Makeup✨',
       type: 6
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/GYEljxxv5po',
+      name: 'PC light summer 🎀🛁',
       type: 6
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/qs_yb0L6xx8',
+      name: 'Light Summer(Cool Tone) 🍓🥛 Strawberry Milk',
       type: 6
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/erTX3cvP_GM',
+      name: 'Deep Winter Makeup Tutorial ❄️ 💜',
       type: 7
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/EAPb_y-hHXA',
+      name: 'อนแต่งหน้า : Winter Look',
       type: 7
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/jbVyzE1XYFA',
+      name: 'Clear Winter Makeup ลุคชมพูบานเย็น ',
       type: 7
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/X4RmvQWtkJA',
+      name: 'How To : DARK WINTER MAKEUP LOOK ',
       type: 7
     },
     {
-      link: '',
+      link: 'https://www.youtube.com/embed/LWRut1RsEnc',
+      name: 'Deep Winter: My makeup before and after',
       type: 7
     },
-    {
-      link: 'https://www.youtube.com/embed/Hf6_U-eoTds',
-      type: 8
-    },
-    {
-      link: '',
-      type: 8
-    },
-    {
-      link: '',
-      type: 8
-    },
-    {
-      link: '',
-      type: 8
-    },
-    {
-      link: '',
-      type: 8
-    },
-    {
-      link: 'https://www.youtube.com/embed/znAVSab7Hgw?si=XFQpNzMacZ20YStc',
-      type: 9
-    },
-    {
-      link: 'https://www.youtube.com/embed/fnLAw6-wsTY',
-      type: 9
-    },
-    {
-      link: 'https://www.youtube.com/embed/6bGnE2quJTs',
-      type: 9
-    },
-    {
-      link: 'https://www.youtube.com/embed/rqLosSG8Sow',
-      type: 9
-    },
-    {
-      link: 'https://www.youtube.com/embed/wc7vvsOSEMU',
-      type: 9
-    },
-    {
-      link: '',
-      type: 10
-    },
-    {
-      link: '',
-      type: 10
-    },
-    {
-      link: '',
-      type: 10
-    },
-    {
-      link: '',
-      type: 10
-    },
-    {
-      link: '',
-      type: 10
-    },
-
-
   ]
 
   const fitter = type === 0 ? data : data?.filter(data => type === data?.type)
@@ -246,30 +227,27 @@ function Makeuptutorials() {
 
       <section class="h-auto flex justify-center">
 
-        <div class="w-4/5 text-center pt-10 border-black border-4 ">
+        <div class=" text-center pt-10 ">
 
           <h1 class="text-2xl">Caragories</h1>
-          <br />
-          <ul class="gap-8 flex justify-center items-center  ">
+          <br/>
+          <ul class="gap-10 flex justify-center items-center  ">
             <button onClick={() => setType(0)}>ทั้งหมด</button>
-            <button onClick={() => setType(1)}>มือใหม่</button>
-            <button onClick={() => setType(2)}>สไตล์เกาหลี</button>
-            <button onClick={() => setType(3)}>สายฝอ</button>
-            <button onClick={() => setType(4)}>คอสเพลย์</button>
-            <button onClick={() => setType(5)}>Spring</button>
-            <button onClick={() => setType(6)}>Autumn</button>
+            <button onClick={() => setType(1)}>Warm Tone</button>
+            <button onClick={() => setType(2)}>Cool Tone</button>
+            <button onClick={() => setType(3)}>Neutral Tone</button>
+            <button onClick={() => setType(4)}>Spring</button>
+            <button onClick={() => setType(5)}>Autumn</button>
+            <button onClick={() => setType(6)}>Summer</button>
             <button onClick={() => setType(7)}>Winter</button>
-            <button onClick={() => setType(8)}>Summer</button>
-            <button onClick={() => setType(9)}>โรงเรียน</button>
-            <button onClick={() => setType(10)}>มหาลัย</button>
           </ul>
 
-          <div class="pt-10 pb-20 grid gap-4 grid-cols-4 place-items-center">
+          <div class="px-20 pt-10 pb-20 grid gap-9 grid-cols-3 place-items-center">
             {
               fitter.map(data => (
                 <div>
-                <iframe width="200" height="150" src={data.link} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="1" />
-                <p>${data.name}</p>
+                <iframe width="350" height="200" src={data.link} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="1" />
+                <p>{data.name}</p>
                 </div>
               ))
             }
