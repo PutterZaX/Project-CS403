@@ -101,7 +101,7 @@ function Makeuptutorials() {
       type: 4
     },
     {
-      link: 'https://www.youtube.com/embed/hCUu0rtkKA',
+      link: 'https://www.youtube.com/embed/7hCUu0rtkKA',
       name: 'Glowy Spring makeup ',
       type: 4
     },
@@ -167,7 +167,7 @@ function Makeuptutorials() {
     },
     {
       link: 'https://www.youtube.com/embed/qs_yb0L6xx8',
-      name: 'Light Summer(Cool Tone) 🍓🥛 Strawberry Milk',
+      name: 'Light Summer🍓🥛 Strawberry Milk',
       type: 6
     },
     {
@@ -177,7 +177,7 @@ function Makeuptutorials() {
     },
     {
       link: 'https://www.youtube.com/embed/EAPb_y-hHXA',
-      name: 'อนแต่งหน้า : Winter Look',
+      name: 'สอนแต่งหน้า : Winter Look',
       type: 7
     },
     {
