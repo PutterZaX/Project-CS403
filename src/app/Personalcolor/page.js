@@ -180,22 +180,22 @@ function Personalcolor() {
     
         const topics = [
           {
-            title: "Spring",
+            title: "🍃Spring🍃",
             paragraph: "Warm Tone ที่มีความอ่อน จะเป็นโทนสีแนวสดใส ดอกไม้ผลิ ที่มีความน่ารัก หรือป๊อป สดใส สว่าง สว่างสดใส ให้ลุคที่น่ารักและร่าเริง",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_04.jpg",
           },
           {
-            title: "Autumn",
+            title: "🍂Autumn🍂",
             paragraph: "Warm Tone ที่มีความเข้ม จะเป็นโทนสีแนวตุ่นๆ หม่นๆ ดูเป็นธรรมชาติ ดูชิค และ หรูหรา แนวเอิร์ธโทน ให้ลุคที่เป็นธรรมชาติและดูสุขุมนุ่มลึก",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_06.jpg",
           },
           {
-            title: "Summer",
+            title: "☀️Summer☀️",
             paragraph: "Cool Tone ที่มีความอ่อน จะเป็นโทนสีแนว pastel ละมุ่น หวาน โรแมนติก สง่างาม แนวพาสเทล ให้ลุคที่ดูอ่อนโยนและน่าทะนุถนอม",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_05.jpg",
           },
           {
-            title: "Winter",
+            title: "❄️Winter❄️",
             paragraph: "สีโทนเย็นที่มีความเข้ม จะเป็นโทนสีเข้ม ๆ contrastจัด ๆ สีสด ๆ สีแบบแม่สี สีค่อนข้างสด ให้ลุคที่คมเข้มและดูเท่",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_07-01.jpg",
           },
@@ -384,8 +384,8 @@ function Personalcolor() {
             onClick={() => setCurrentTopic(topic)}
             style={{
               padding: "10px 90px",
-              backgroundColor: "#f0f0f0",
-              border: "1px solid #ccc",
+              backgroundColor: "",
+              border: "",
               cursor: "pointer",
               fontSize: 20,
               fontWeight: 'bold',
