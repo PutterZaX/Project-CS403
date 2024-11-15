@@ -9,6 +9,25 @@ function Personalcolor() {
     const [uploadedImage, setUploadedImage] = useState(null);
     const [undertone, setUndertone] = useState("");
 
+    // Example videos for each undertone
+    const videos = {
+        "Warm Tone": [
+            "https://www.youtube.com/embed/LjiP6I9q_qI",
+            "https://www.youtube.com/embed/DuyIKvsbxFc",
+            "https://www.youtube.com/embed/cJtKsdZfiIQ",
+        ],
+        "Cool Tone": [
+            "https://www.youtube.com/embed/9OQM3rZUd2c",
+            "https://www.youtube.com/embed/hxzAKZ_t6bg",
+            "https://www.youtube.com/embed/L8ehUgP05xc",
+        ],
+        "Neutral Tone": [
+            "https://www.youtube.com/embed/RKxw0oP3OAo",
+            "https://www.youtube.com/embed/U4v_w2zaZZ0",
+            "https://www.youtube.com/embed/FdXW9kuS1BI",
+        ],
+    };
+
     useEffect(() => {
         // Load face detection models
         const loadModels = async () => {
@@ -21,14 +40,14 @@ function Personalcolor() {
         navigator.mediaDevices.getUserMedia({
             video: true
         })
-        .then((stream) => {
-            let video = videoRef.current;
-            video.srcObject = stream;
-            video.play();
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+            .then((stream) => {
+                let video = videoRef.current;
+                video.srcObject = stream;
+                video.play();
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
 
     useEffect(() => {
@@ -63,7 +82,7 @@ function Personalcolor() {
         setSelectedColor(color);
     };
 
-      // Map season names to their tones
+    // Map season names to their tones
     const seasonToneMap = {
         Spring: "Warm Tone",
         Autumn: "Warm Tone",
@@ -120,7 +139,7 @@ function Personalcolor() {
                 red += faceData.data[i];
                 green += faceData.data[i + 1];
                 blue += faceData.data[i + 2];
-                
+
             }
 
             /// Calculate average color values
@@ -133,75 +152,95 @@ function Personalcolor() {
             const coolTones = ["#FCD6CA", "#F4D0C4", "#EBBCAC"];
 
             // Convert hex to RGB
-        const hexToRgb = (hex) => {
-            const bigint = parseInt(hex.slice(1), 16);
-            return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
-        };
+            const hexToRgb = (hex) => {
+                const bigint = parseInt(hex.slice(1), 16);
+                return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+            };
 
-        // Calculate color distance
-        const colorDistance = (rgb1, rgb2) => {
-            return Math.sqrt(
-                Math.pow(rgb1[0] - rgb2[0], 2) +
-                Math.pow(rgb1[1] - rgb2[1], 2) +
-                Math.pow(rgb1[2] - rgb2[2], 2)
-            );
-        };
+            // Calculate color distance
+            const colorDistance = (rgb1, rgb2) => {
+                return Math.sqrt(
+                    Math.pow(rgb1[0] - rgb2[0], 2) +
+                    Math.pow(rgb1[1] - rgb2[1], 2) +
+                    Math.pow(rgb1[2] - rgb2[2], 2)
+                );
+            };
 
-        // Find closest match in warm and cool tones
-        const averageColor = [red, green, blue];
-        let minWarmDistance = Infinity;
-        let minCoolDistance = Infinity;
+            // Find closest match in warm and cool tones
+            const averageColor = [red, green, blue];
+            let minWarmDistance = Infinity;
+            let minCoolDistance = Infinity;
 
-        for (const tone of warmTones) {
-            const toneRgb = hexToRgb(tone);
-            const distance = colorDistance(averageColor, toneRgb);
-            if (distance < minWarmDistance) minWarmDistance = distance;
-        }
+            for (const tone of warmTones) {
+                const toneRgb = hexToRgb(tone);
+                const distance = colorDistance(averageColor, toneRgb);
+                if (distance < minWarmDistance) minWarmDistance = distance;
+            }
 
-        for (const tone of coolTones) {
-            const toneRgb = hexToRgb(tone);
-            const distance = colorDistance(averageColor, toneRgb);
-            if (distance < minCoolDistance) minCoolDistance = distance;
-        }
+            for (const tone of coolTones) {
+                const toneRgb = hexToRgb(tone);
+                const distance = colorDistance(averageColor, toneRgb);
+                if (distance < minCoolDistance) minCoolDistance = distance;
+            }
 
             // Determine undertone based on closest color match
-        if (minWarmDistance < minCoolDistance) {
-            setUndertone("Warm Tone");
-        } else if (minCoolDistance < minWarmDistance) {
-            setUndertone("Cool Tone");
-        } else {
-            setUndertone("Neutral Tone");
-        }
-    };
+            if (minWarmDistance < minCoolDistance) {
+                setUndertone("Warm Tone");
+            } else if (minCoolDistance < minWarmDistance) {
+                setUndertone("Cool Tone");
+            } else {
+                setUndertone("Neutral Tone");
+            }
+        };
 
         image.src = imageSrc;
     };
 
-    
-        const topics = [
-          {
+
+    const topics = [
+        {
             title: "🍃Spring🍃",
             paragraph: "Warm Tone ที่มีความอ่อน จะเป็นโทนสีแนวสดใส ดอกไม้ผลิ ที่มีความน่ารัก หรือป๊อป สดใส สว่าง สว่างสดใส ให้ลุคที่น่ารักและร่าเริง",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_04.jpg",
-          },
-          {
+            videos: [
+                "https://www.youtube.com/embed/g8Mjj0w0C1k",
+                "https://www.youtube.com/embed/7hCUu0rtkKA",
+                "https://www.youtube.com/embed/OgMmEP7K5jc",
+            ],
+        },
+        {
             title: "🍂Autumn🍂",
             paragraph: "Warm Tone ที่มีความเข้ม จะเป็นโทนสีแนวตุ่นๆ หม่นๆ ดูเป็นธรรมชาติ ดูชิค และ หรูหรา แนวเอิร์ธโทน ให้ลุคที่เป็นธรรมชาติและดูสุขุมนุ่มลึก",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_06.jpg",
-          },
-          {
+            videos: [
+                "https://www.youtube.com/embed/g8Mjj0w0C1k",
+                "https://www.youtube.com/embed/7hCUu0rtkKA",
+                "https://www.youtube.com/embed/OgMmEP7K5jc",
+            ],
+        },
+        {
             title: "☀️Summer☀️",
             paragraph: "Cool Tone ที่มีความอ่อน จะเป็นโทนสีแนว pastel ละมุ่น หวาน โรแมนติก สง่างาม แนวพาสเทล ให้ลุคที่ดูอ่อนโยนและน่าทะนุถนอม",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_05.jpg",
-          },
-          {
+            videos: [
+                "https://www.youtube.com/embed/g8Mjj0w0C1k",
+                "https://www.youtube.com/embed/7hCUu0rtkKA",
+                "https://www.youtube.com/embed/OgMmEP7K5jc",
+            ],
+        },
+        {
             title: "❄️Winter❄️",
             paragraph: "สีโทนเย็นที่มีความเข้ม จะเป็นโทนสีเข้ม ๆ contrastจัด ๆ สีสด ๆ สีแบบแม่สี สีค่อนข้างสด ให้ลุคที่คมเข้มและดูเท่",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_07-01.jpg",
-          },
-        ];
-        
-        const [currentTopic, setCurrentTopic] = useState(topics[0]);
+            videos: [
+                "https://www.youtube.com/embed/g8Mjj0w0C1k",
+                "https://www.youtube.com/embed/7hCUu0rtkKA",
+                "https://www.youtube.com/embed/OgMmEP7K5jc",
+            ],
+        },
+    ];
+
+    const [currentTopic, setCurrentTopic] = useState(topics[0]);
 
     return (
         <main>
@@ -224,35 +263,35 @@ function Personalcolor() {
                         <h1>PERSONAL COLOR ANALYSIS</h1>
                     </div>
                 </div>
-            </section> 
+            </section>
             <br /> <br />
-            
+
 
             <section className="h-auto grid place-items-center">
                 <div className="pt-10 w-4/5">
                     <h1 className="my_space text-2xl font-bold text-center">Personal Color</h1>
-                    <br/> 
+                    <br />
                     <p className="text-lg">Personal Color คือสีประจำตัวที่มีความเหมาะสมกับโทนสีผิวของเรา ซึ่งถ้ามีสีนี้อยู่บนตัวจะขับผิวให้ดูเปล่งปลั่ง มีออร่าโดดเด่นและเปล่งประกาย ช่วยเสริมสร้างความมั่นใจ และทำให้ดูอ่อนเยาว์มากขึ้น ในทางตรงกันข้าม หากเลือกสีที่ไม่เหมาะกับตัวเองก็จะทำให้หน้าดูหมอง ริ้วรอยบนหน้าดูชัดขึ้นได้ โดย Personal Color นี้สามารถนำมาใช้เป็นสีเสื้อผ้า เครื่องประดับ เครื่องสำอาง สีผม หรืออะไรก็ตามที่อยู่ใกล้กับผิวของเรามากที่สุด</p>
-                    <br/> 
+                    <br />
                     <p className="text-lg">ตามหลักการแล้ว Personal Color จะแบ่งออกเป็น 2 ประเภทอย่างหลวมๆ ก็คือ Warm Tone (สีโทนอุ่น)  และ Cool Tone (สีโทนเย็น) โดยแบ่งลงไปอีกเป็น 2 กลุ่มย่อยในแต่ละประเภท นั่นก็คือ Autumn และ Spring อยู่ในหมวด Warm Tone , Summer และ  Winter  อยู่ในหมวดสี Cool Tone ทั้ง 4 กลุ่มย่อยถูกแบ่งด้วยความเข้มและสว่างของเฉดสีอีกที</p>
-                    <br/><br/>
+                    <br /><br />
                     <div className=" grid place-items-center">
-                            <img src="https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_01.jpg" alt="personalcolor"></img>
-                        </div>
-                    <br/> <br/> <br/> <br/> <br/> 
+                        <img src="https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_01.jpg" alt="personalcolor"></img>
+                    </div>
+                    <br /> <br /> <br /> <br /> <br />
 
                     <section className="h-auto grid place-items-center">
-                <div className="pt-10 w-full text-center">
-                    <h1 className="my_space text-2xl font-bold">4 Steps การดู Personal color</h1>
-                    <br /> <br /> <br />
-                    <img src="https://i.postimg.cc/HsXCVMmX/4step.png" alt="4 Steps Personal Color Guide"></img>
-                    <br/><br/> <br/> <br/> <br/> <br/> <br/> 
-                </div>
-            </section>
-            
+                        <div className="pt-10 w-full text-center">
+                            <h1 className="my_space text-2xl font-bold">4 Steps การดู Personal color</h1>
+                            <br /> <br /> <br />
+                            <img src="https://i.postimg.cc/HsXCVMmX/4step.png" alt="4 Steps Personal Color Guide"></img>
+                            <br /><br /> <br /> <br /> <br /> <br /> <br />
+                        </div>
+                    </section>
+
                     <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 1 Basic Under Tone</h1>
                     <p className="text-center text-lg"> วิธีทดสอบ Personal Color เบื้องต้นแบบง่ายๆ เริ่มจากขั้นตอนแรกการหา Under Tone ของสีผิวจาก 4 วิธีต่อไปนี้</p>
-                    <br /> 
+                    <br />
                     <p className="text-lg">1.เป็นวิธีที่นิยมกันมากที่สุดคือ ดูสีเส้นเลือดที่ข้อมือ <br /> เส้นเลือดออกสีเขียว คือ Warm Tone <br /> เส้นเลือดออกสีม่วง คือ Cool Tone <br /> เส้นเลือดออกทั้งสีเขียวและสีน้ำเงิน คือ สีผิวแบบกลาง (ให้ลองเทียบดูว่าเราเหมาะกับสีแบบไหนมากกว่ากัน)</p>
                     <br />
                     <p className="text-lg">2.เช็กสีผิวหลังโดนแดด <br /> โดนแดดแล้วผิวคล้ำ คือ Warm Tone <br /> โดนแดดแล้วผิวเป็นสีแดง คือ Cool Tone  </p>
@@ -260,8 +299,8 @@ function Personalcolor() {
                     <p className="text-lg">3.สีผม / ตา <br /> ได้สังเกตจากสีผมธรรมชาติของเราบริเวณโคนผม <br />  หากสีผมและตาเป็นโทนออกน้ำตาล หรือว่าเวลาโดนแดดแล้วเป็นประกายออกแดงๆ แสดงว่า เป็น Warm Tone <br />  หากสีผมและตาเป็นโทนสีดำ แสดงว่า เป็น Cool Tone </p>
                     <br />
                     <p className="text-lg">4.เทียบสีเครื่องประดับทอง vs เงิน <br /> ใส่เครื่องประดับทองแล้วดูผ่อง คือ Warm Tone <br /> ใส่เครื่องประดับเงินแล้วดูผ่อง คือ Cool Tone </p>
-                    </div>
-                    </section><br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> 
+                </div>
+            </section><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 
 
 
@@ -277,29 +316,51 @@ function Personalcolor() {
                 {/* Display Undertone Result */}
                 {undertone && <p>Your undertone is: {undertone}</p>}
 
+                {/* Display Example Videos */}
+                {undertone && videos[undertone] && (
+                    <div>
+                        <h3 className="my_space text-left">วิดีโอแนะนำการแต่งหน้า</h3>
+                        <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
+                            {videos[undertone].map((video, index) => (
+                                <iframe
+                                    key={index}
+                                    src={video}
+                                    title={`Video ${index + 1}`}
+                                    style={{ width: "220px", height: "150px", border: "none" }}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                ></iframe>
+                            ))}
+                        </div>
+                        <ul className=" my_space  text-right text-black">
+                        <Link href="/Makeuptutorials">ดูเพิ่มเติม</Link>
+                    </ul>
+                    </div>
+                )}
+
                 {/* Hidden Canvas for Image Analysis */}
                 <canvas ref={canvasRef} style={{ display: "none" }} />
             </section>
-            <br/><br/><br/><br/> <br/> <br/> <br/> 
+            <br /><br /><br /><br /> <br /> <br /> <br />
 
             <div className="grid place-items-center">
-            <h1 className="my_space text-2xl font-bold h-auto" > Step 3 Personal Color Analysis</h1>
-            <p className="text-lg"> ซึ่งหลังจากที่เราเช็ก Undertone ของสีผิวทั้ง 4 ข้อเรียบร้อยแล้ว เราก็จะสามารถดูได้เลยว่าโทนผิวของเราจะสามารถอยู่ในฤดูไหนบ้าง </p><br/>
-            <p className="px-40 text-lg text-center"> วิธีการทดสอบ : กดแผ่นสีเพื่อลองเทียบกับใบหน้า หากใบหน้าดูสว่างขึ้น หรือส่งเสริมให้เราดูดี ให้คลิกที่สีนั้น2ครั้งเพื่อกดถูกใจ ถ้าหัวใจที่ฤดูไหนเยอะที่สุดสีในฤดูนั้นจะเป็นสี Personal ของคุณ ระหว่างทำการทดสอบ ต้องหน้าสด ใช้แสงไฟสีขาวหรือแสงธรรมชาติ พื้นหลังสีขาว </p>
+                <h1 className="my_space text-2xl font-bold h-auto" > Step 3 Personal Color Analysis</h1>
+                <p className="text-lg"> ซึ่งหลังจากที่เราเช็ก Undertone ของสีผิวทั้ง 4 ข้อเรียบร้อยแล้ว เราก็จะสามารถดูได้เลยว่าโทนผิวของเราจะสามารถอยู่ในฤดูไหนบ้าง </p><br />
+                <p className="px-40 text-lg text-center"> วิธีการทดสอบ : กดแผ่นสีเพื่อลองเทียบกับใบหน้า หากใบหน้าดูสว่างขึ้น หรือส่งเสริมให้เราดูดี ให้คลิกที่สีนั้น2ครั้งเพื่อกดถูกใจ ถ้าหัวใจที่ฤดูไหนเยอะที่สุดสีในฤดูนั้นจะเป็นสี Personal ของคุณ ระหว่างทำการทดสอบ ต้องหน้าสด ใช้แสงไฟสีขาวหรือแสงธรรมชาติ พื้นหลังสีขาว </p>
             </div>
             <br /><br />
 
             <section className="flex justify-center items-center">
-                
-            <div className="relative w-3/5"> {/* Adjust width here to control overall container size */}
-        {/* Camera Feed */}
-        <div className="camera w-full h-full">
-            <video 
-                className="camera w-full h-full" 
-                ref={videoRef} 
-                style={{ width: '90%', height: '100%' }} // Ensures video fills container
-            ></video>
-        </div>
+
+                <div className="relative w-3/5"> {/* Adjust width here to control overall container size */}
+                    {/* Camera Feed */}
+                    <div className="camera w-full h-full">
+                        <video
+                            className="camera w-full h-full"
+                            ref={videoRef}
+                            style={{ width: '90%', height: '100%' }} // Ensures video fills container
+                        ></video>
+                    </div>
 
                     {/* Trapezoid Overlay */}
                     <div
@@ -308,7 +369,7 @@ function Personalcolor() {
                             top: '90%',
                             left: '45%',
                             transform: 'translate(-50%, -50%)',
-                            width: '90%', 
+                            width: '90%',
                             height: '20%',
                             clipPath: 'polygon(35% 0%, 65% 0%, 100% 100%, 0% 100%)', // Creates a trapezoid shape
                             backgroundColor: selectedColor,
@@ -321,16 +382,16 @@ function Personalcolor() {
                 {/* Color Palette on the Right */}
                 <div className="ml-10">
                     {Object.keys(colorPalettes).map((season) => (
-    
+
                         <div key={season} style={{ marginBottom: '20px' }}>
                             {/* Season with tone text */}
                             <h4 style={{ marginBottom: '7px' }}>{`${season} ( ${seasonToneMap[season]} )`}</h4>
                             <div style={{
-                                    display: 'flex',
-                                    flexWrap: 'wrap',
-                                    gap: '4px',
-                                    maxWidth: '300px', // Adjust to control the number of colors per line
-                                }}>
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                                gap: '4px',
+                                maxWidth: '300px', // Adjust to control the number of colors per line
+                            }}>
                                 {colorPalettes[season].map((color) => (
                                     <div
                                         key={color}
@@ -347,7 +408,7 @@ function Personalcolor() {
                                             transition: 'transform 0.2s ease, border 0.2s ease',
                                             transform: selectedColor === color ? 'scale(1.2)' : 'scale(1)',
                                         }}
-                                        >
+                                    >
                                         {/* Red Heart Icon */}
                                         {likedColors[color] && (
                                             <span style={{
@@ -365,55 +426,77 @@ function Personalcolor() {
                         </div>
                     ))}
                 </div>
-            
+
             </section>
-            <br/><br/><br/><br/><br/><br/><br/><br/>
+            <br /><br /><br /><br /><br /><br /><br /><br />
 
             <section className="h-auto grid place-items-center">
-                
+
                 <h1 className="my_space text-2xl font-bold h-auto grid place-items-center" > Step 4 Result & Recommendation</h1>
                 <p className="text-lg"> มาดูผลลัพธ์และคำแนะนำของแต่ละฤดูกัน </p>
-            </section><br/><br/>
+            </section><br/>
 
             <div style={{ textAlign: "center" }}>
-      {/* Topic Titles */}
-      <div style={{ display: "flex", justifyContent: "center", gap: "", marginBottom: "20px" }}>
-        {topics.map((topic, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentTopic(topic)}
-            style={{
-              padding: "10px 90px",
-              backgroundColor: "",
-              border: "",
-              cursor: "pointer",
-              fontSize: 20,
-              fontWeight: 'bold',
-            }}
-          >
-            {topic.title}
-          </button>
-        ))}
-      </div>
-      </div><br/>
+                {/* Topic Titles */}
+                <div style={{ display: "flex", justifyContent: "center", gap: "", marginBottom: "20px" }}>
+                    {topics.map((topic, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentTopic(topic)}
+                            style={{
+                                padding: "10px 90px",
+                                backgroundColor: "",
+                                border: "",
+                                cursor: "pointer",
+                                fontSize: 20,
+                                fontWeight: 'bold',
+                            }}
+                        >
+                            {topic.title}
+                        </button>
+                    ))}
+                </div>
+            </div>
 
-      {/* Displayed Content */}
-      
-      <div className="h-auto grid place-items-center">
-        <h2 className="text-xl font-bold">{currentTopic.title}</h2>
-        <p className="my_space text-lg">{currentTopic.paragraph}</p>
-        <img src={currentTopic.image} alt={currentTopic.title} style={{ maxWidth: "60%" }} /><br/><br /><br />
+            {/* Displayed Content */}
 
-        <p className="px-40 text-lg">ทดสอบ Personal Color ได้สีที่ใช่กันไปเรียบร้อยแล้วหวังว่าทุกคนจะเอาไปแมตช์สีเสื้อผ้า เครื่องประดับ เครื่องสำอาง หรือสีผมได้หมดทุกสิ่งอย่างเพื่อสร้างสรรค์ลุคที่สวยขับผิวเปล่งออร่าให้ความมั่นใจมาเต็ม จะแต่งลุคไหนก็เกิดแน่นอน!</p><br />
-      <p className="px-40 text-lg">ทั้งนี้ทั้งนั้นก็ไม่อยากให้หลายๆคน ยึดติดในสีประจำตัวมากเกินไป แต่นำหลักการไปปรับให้เข้ากับตัวเองโดยการสังเกตสีที่ตัวเองใส่แล้วรอด จะได้สนุกกับการแต่งตัวและได้ลุคที่ดึงเสน่ห์ของเราออกมาได้ด้วย</p>
-      
-      </div>
-   
-    
-    
-    <br /><br/><br/><br/>
-                    
-    
+            <div className="h-auto grid place-items-center">
+                <h2 className="text-xl font-bold">{currentTopic.title}</h2>
+                <p className="my_space text-lg">{currentTopic.paragraph}</p>
+                <img src={currentTopic.image} alt={currentTopic.title} style={{ maxWidth: "50%" }} />
+                <div>
+                    <h3 className="my_space ">วิดีโอแนะนำการแต่งหน้า</h3>
+                    <div className="flex justify-center gap-8">
+                        {currentTopic.videos.map((video, index) => (
+                            <iframe
+                                key={index}
+                                src={video}
+                                title={`Video ${index + 1}`}
+                                style={{ width: "220px", height: "150px", border: "none" }}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        ))}
+
+                    </div>
+                    <ul className=" my_space  text-right text-black">
+                        <Link href="/Makeuptutorials">ดูเพิ่มเติม</Link>
+                    </ul>
+                </div>
+            </div>
+
+            <br /><br /><br />
+
+            <div className="px-20 grid place-items-center">
+                <p className="px-40 text-lg">ทดสอบ Personal Color ได้สีที่ใช่กันไปเรียบร้อยแล้วหวังว่าทุกคนจะเอาไปแมตช์สีเสื้อผ้า เครื่องประดับ เครื่องสำอาง หรือสีผมได้หมดทุกสิ่งอย่างเพื่อสร้างสรรค์ลุคที่สวยขับผิวเปล่งออร่าให้ความมั่นใจมาเต็ม จะแต่งลุคไหนก็เกิดแน่นอน!</p><br />
+                <p className="px-40 text-lg">ทั้งนี้ทั้งนั้นก็ไม่อยากให้หลายๆคน ยึดติดในสีประจำตัวมากเกินไป แต่นำหลักการไปปรับให้เข้ากับตัวเองโดยการสังเกตสีที่ตัวเองใส่แล้วรอด จะได้สนุกกับการแต่งตัวและได้ลุคที่ดึงเสน่ห์ของเราออกมาได้ด้วย</p>
+            </div>
+
+
+
+            <br /><br /><br /><br />
+
+
         </main>
     );
 }
