@@ -212,8 +212,6 @@ function Makeuptutorials() {
             <Link href="/Skintone">Skin tone</Link>
             <Link href="/Personalcolor">Personal color</Link>
             <Link href="/Makeuptutorials">Makeup tutorials</Link>
-            <Link href="/Makeuptools">Makeup tools</Link>
-            <Link href="/Skincare">Skincare</Link>
           </ul>
         </div>
 

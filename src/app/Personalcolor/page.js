@@ -254,8 +254,6 @@ function Personalcolor() {
                         <Link href="/Skintone">Skin tone</Link>
                         <Link href="/Personalcolor">Personal color</Link>
                         <Link href="/Makeuptutorials">Makeup tutorials</Link>
-                        <Link href="/Makeuptools">Makeup tools</Link>
-                        <Link href="/Skincare">Skincare</Link>
                     </ul>
                 </div>
                 <div className="h-2/6">
@@ -308,10 +306,47 @@ function Personalcolor() {
                 <h1 className="my_space text-2xl font-bold h-auto grid place-items-center"> Step 2 Under Tone Analysis </h1>
                 <p className="text-lg"> หากคุณยังไม่แน่ใจสี Under Tone เราจะประมวลผลให้ เพียงคุณอัปโหลดรูปภาพ </p>
                 <p> รูปหน้าตรง หน้าสด ถ่ายภายใต้แสงไฟสีขาวหรือแสงธรรมชาติ พื้นหลังสีขาว</p>
-                <div className="h-auto grid place-items-center"><br />
-                    <input type="file" accept="image/*" onChange={handleImageUpload} /><br />
-                    {uploadedImage && <img src={uploadedImage} alt="Uploaded" style={{ width: '200px', marginTop: '10px' }} />}
-                </div>
+
+
+                <div className="h-auto grid place-items-center">
+  <br />
+  <label htmlFor="image-upload" style={{ cursor: "pointer" }}>
+    <div
+      style={{
+        padding: "10px 20px",
+        background: "linear-gradient(135deg, #ff7eb3, #ff758c)",
+        color: "#fff",
+        borderRadius: "25px",
+        fontWeight: "bold",
+        fontSize: "16px",
+        display: "inline-block",
+        textAlign: "center",
+        transition: "transform 0.2s, box-shadow 0.2s",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "scale(1.05)";
+        e.currentTarget.style.boxShadow = "0px 4px 10px rgba(255, 117, 140, 0.5)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "scale(1)";
+        e.currentTarget.style.boxShadow = "none";
+      }}
+    >
+      Upload Image
+    </div>
+  </label>
+  <input
+    type="file"
+    accept="image/*"
+    id="image-upload"
+    onChange={handleImageUpload}
+    style={{ display: "none" }}
+  />
+  <br />
+  {uploadedImage && <img src={uploadedImage} alt="Uploaded" style={{ width: "200px", marginTop: "10px" }} />}
+</div>
+
+
                 <br />
                 {/* Display Undertone Result */}
                 {undertone && <p>Your undertone is: {undertone}</p>}
@@ -451,6 +486,14 @@ function Personalcolor() {
                                 fontSize: 20,
                                 fontWeight: 'bold',
                             }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.transform = "scale(1.05)";
+                                e.currentTarget.style.textShadow = "0px 5px 13px rgba(180, 180, 180)";
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.transform = "scale(1)";
+                                e.currentTarget.style.textShadow = "none";
+                              }}
                         >
                             {topic.title}
                         </button>
@@ -465,7 +508,7 @@ function Personalcolor() {
                 <p className="my_space text-lg">{currentTopic.paragraph}</p>
                 <img src={currentTopic.image} alt={currentTopic.title} style={{ maxWidth: "50%" }} />
                 <div>
-                    <h3 className="my_space ">วิดีโอแนะนำการแต่งหน้า</h3>
+                    <h3 className="my_space">วิดีโอแนะนำการแต่งหน้า</h3>
                     <div className="flex justify-center gap-8">
                         {currentTopic.videos.map((video, index) => (
                             <iframe
