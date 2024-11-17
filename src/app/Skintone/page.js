@@ -37,7 +37,7 @@ function Skintone() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ filename: img }), // Send filename or any necessary info
+                body: JSON.stringify({ filename: img }), // Send filename or any necessary info 
             });
 
             if (!resSkin.ok) throw new Error('Skin tone classification failed');
@@ -56,6 +56,7 @@ function Skintone() {
 
     return (
         <main>
+            
             <section className="picture-home bg-[url('https://i.postimg.cc/zXqt5V6S/IMG-0703.jpg')]">
                 <div className="h-2/6 flex">
                     <div className="w-2/5 flex justify-center items-center text-white text-4xl">
@@ -68,7 +69,7 @@ function Skintone() {
                         <Link href="/Makeuptutorials">Makeup tutorials</Link>
                     </ul>
                 </div>
-
+                
                 <div className="h-2/6">
                     <div className="w-full h-4/5 flex justify-center items-center text-white text-4xl">
                         <h1>SKIN TONE ANALYSIS</h1>
@@ -103,6 +104,7 @@ function Skintone() {
 
                 <div>
                     <h1>Upload an Image</h1>
+                    <br /><br /><br /><br />
                     <form onSubmit={handleSubmit}>
                         <input type="file" onChange={handleFileChange} />
                         <button type="submit">Upload</button>
