@@ -47,7 +47,7 @@ function Skintone() {
             setSkinToneData(skinData);
             const fileParts = img.split('.');
             setImgName(`${fileParts[0]}-1.${fileParts[1]}`);
-            
+
         } catch (err) {
             setError(err.message);
         }
@@ -56,7 +56,7 @@ function Skintone() {
 
     return (
         <main>
-            
+
             <section className="picture-home bg-[url('https://i.postimg.cc/zXqt5V6S/IMG-0703.jpg')]">
                 <div className="h-2/6 flex">
                     <div className="w-2/5 flex justify-center items-center text-white text-4xl">
@@ -69,7 +69,7 @@ function Skintone() {
                         <Link href="/Makeuptutorials">Makeup tutorials</Link>
                     </ul>
                 </div>
-                
+
                 <div className="h-2/6">
                     <div className="w-full h-4/5 flex justify-center items-center text-white text-4xl">
                         <h1>SKIN TONE ANALYSIS</h1>
@@ -102,25 +102,58 @@ function Skintone() {
 
                 <br /><br /><br /><br />
 
-                <div>
-                    <h1>Upload an Image</h1>
-                    <br /><br /><br /><br />
-                    <form onSubmit={handleSubmit}>
-                        <input type="file" onChange={handleFileChange} />
-                        <button type="submit">Upload</button>
+                <div style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif', padding: '20px' }}>
+                    <h1 style={{ color: '#333', marginBottom: '20px' }}>Upload an Image</h1>
+
+                    <form
+                        onSubmit={handleSubmit}
+                        style={{ display: 'inline-block', background: '#f9f9f9', padding: '20px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
+                    >
+                        <div style={{ marginBottom: '15px' }}>
+                            <input
+                                type="file"
+                                onChange={handleFileChange}
+                                style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc', fontSize: '16px' }}
+                            />
+                        </div>
+
+                        <button
+                            type="submit"
+                            style={{
+                                backgroundColor: '#007BFF',
+                                color: '#fff',
+                                padding: '10px 20px',
+                                border: 'none',
+                                borderRadius: '4px',
+                                fontSize: '16px',
+                                cursor: 'pointer',
+                                transition: 'background-color 0.3s ease',
+                            }}
+                            onMouseOver={(e) => e.target.style.backgroundColor = '#0056b3'}
+                            onMouseOut={(e) => e.target.style.backgroundColor = '#007BFF'}
+                        >
+                            Upload
+                        </button>
                     </form>
 
-                    {error && <p style={{ color: 'red' }}>{error}</p>}
-                    {skinToneData && (
-                        <div>
-                        {/* <h2>Skin Tone Result:</h2>
-                          <p>{JSON.stringify(skinToneData)}</p> {/* Display the skin tone data /} */}
+                    {error && (
+                        <p style={{ color: 'red', marginTop: '15px', fontSize: '14px' }}>
+                            {error}
+                        </p>
+                    )}
 
-                            {/* Display the processed image */}
-                            <img src={`/output/debug/color/faces_1/${imgName}`} alt="Processed Skin Tone Result" />
+                    {skinToneData && (
+                        <div style={{ marginTop: '20px' }}>
+                            <h2 style={{ color: '#333', fontSize: '18px' }}>Skin Tone Result:</h2>
+                            <img
+                                src={`/output/debug/color/faces_1/${imgName}`}
+                                alt="Processed Skin Tone Result"
+                                style={{ marginTop: '10px', borderRadius: '8px', maxWidth: '100%', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
+                            />
                         </div>
                     )}
                 </div>
+
             </section>
         </main>
     );
