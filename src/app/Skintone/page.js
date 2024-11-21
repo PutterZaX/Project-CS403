@@ -47,7 +47,7 @@ function Skintone() {
             setSkinToneData(skinData);
             const fileParts = img.split('.');
             setImgName(`${fileParts[0]}-1.${fileParts[1]}`);
-            
+
         } catch (err) {
             setError(err.message);
         }
@@ -56,7 +56,7 @@ function Skintone() {
 
     return (
         <main>
-            
+
             <section className="picture-home bg-[url('https://i.postimg.cc/zXqt5V6S/IMG-0703.jpg')]">
                 <div className="h-2/6 flex">
                     <div className="w-2/5 flex justify-center items-center text-white text-4xl">
@@ -69,7 +69,7 @@ function Skintone() {
                         <Link href="/Makeuptutorials">Makeup tutorials</Link>
                     </ul>
                 </div>
-                
+
                 <div className="h-2/6">
                     <div className="w-full h-4/5 flex justify-center items-center text-white text-4xl">
                         <h1>SKIN TONE ANALYSIS</h1>
@@ -100,7 +100,7 @@ function Skintone() {
                     </div>
                 </div>
 
-                <br /><br /><br /><br /><br /><br /><br /> 
+                <br /><br /><br /><br /><br /><br /><br />
 
                 <div>
                     <h1>Upload an Image</h1>
@@ -119,7 +119,7 @@ function Skintone() {
                     {error && <p style={{ color: 'red' }}>{error}</p>}
                     {skinToneData && (
                         <div>
-                        {/* <h2>Skin Tone Result:</h2>
+                            {/* <h2>Skin Tone Result:</h2>
                           <p>{JSON.stringify(skinToneData)}</p> {/* Display the skin tone data /} */}
 
                             {/* Display the processed image */}
@@ -128,7 +128,7 @@ function Skintone() {
                     )}
                 </div>
 
-                <br /><br /><br /><br /><br /> 
+                <br /><br /><br /><br /><br />
 
                 <h1 className="text-center text-2xl font-semibold">รหัสสีและชื่อในภาษาอังกฤษ-ไทย:</h1>
 
@@ -149,7 +149,7 @@ function Skintone() {
                     <h1>Dark Brown</h1>
                     <h1>น้ำตาลเข้ม</h1>
                     <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#422811' }}></div>
- 
+
                     <h1>#513b2e</h1>
                     <h1>Walnut Brown</h1>
                     <h1>น้ำตาลวอลนัท</h1>
@@ -197,8 +197,8 @@ function Skintone() {
 
                 </div>
 
-                <br /><br /><br /><br /><br /> 
-                
+                <br /><br /><br /><br /><br />
+
                 <h1 className="text-center text-2xl font-semibold">แนะนำรองพื้นที่ใกล้เคียงกับสีที่คุณให้มาจาก </h1>
                 <h1 className="text-center text-2xl font-semibold">Maybelline’s Fit Me และ SuperStay Foundation ranges ตาม undertones</h1>
                 <br /><br />
@@ -246,7 +246,7 @@ function Skintone() {
                     <h1>โดยสีที่เลือกแนะนำนี้เป็นตัวเลือกเบื้องต้น แต่แนะนำให้ทดลองจริงเพื่อให้ได้เฉดที่เหมาะกับผิวคุณที่สุด</h1>
                 </div><br />
 
-                <br /><br /><br /><br /><br /> 
+                <br /><br /><br /><br /><br />
 
             </section>
         </main>
