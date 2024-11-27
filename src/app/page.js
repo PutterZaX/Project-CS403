@@ -43,7 +43,7 @@ export default function Home() {
 
           <div class=" h-2/6 text-center">
           <br />
-          <p class="text-3xl font-serif font-semibold">Skin Tone</p>
+          <p class="text-3xl font-serif font-bold">Skin Tone</p>
             <br />
             <p class= "text-neutral-500" >มนุษย์แต่ละเชื้อชาติมีความต่างกัน เห็นได้ชัดทั้งรูปร่างหน้าตาและสีผิว สำหรับคนที่เชื้อชาติเดียวกัน
               <br />ก็ยังมีสีผิวที่แตกต่างกันได้ หรือแม้กระทั่งตัวเราก็ยังมีสีผิวที่ไม่สม่ำเสมอ</p>
@@ -57,8 +57,8 @@ export default function Home() {
             
             <div class="w-1/2 pl-5 text-left">
             <br /><br /><br /><br />
-              <p class ="text-base font-serif font-medium text-red-700">Skin tone</p>
-              <h1 class="my_space text-2xl font-bold">เลือกรองพื้นให้หน้าไม่เทา</h1>
+              <p class ="text-base font-serif font-bold text-red-700">Skin tone</p>
+              <h1 class="my_space text-2xl font-semibold">เลือกรองพื้นให้หน้าไม่เทา</h1>
               <h1 class="text-sm">ถ้าเรารู้โทนสีผิวของตัวเองแล้ว เราจะสามารถเลือกสีรองพื้น
                 <br />คอนซีลเลอร์ และแป้งที่เหมาะกับสีผิวของเราได้มากขึ้น
                 <br />ช่วยทำให้เครื่องสำอางที่ทาออกมาดูเป็นงานผิวธรรมชาติ
@@ -76,7 +76,7 @@ export default function Home() {
       <section class="">
       <div class="pt-80  ">
           <div class="h-2/6 text-center justify-center">
-            <p class="text-3xl font-serif font-semibold">Personal Color</p>
+            <p class="text-3xl font-serif font-bold">Personal Color</p>
             <br />
             <p class="text-neutral-500">เทรนด์บางอย่างมาแล้วก็ไป แต่ Personal Color เป็นการทำงานกับหลักความเป็นจริง
               <br />นั่นแปลว่า ถ้าคุณใส่สีนี้สวย ต่อให้สิบปีข้างหน้า คุณก็ยังใส่สีนี้สวยอยู่ ดังนั้น Personal Color
@@ -86,8 +86,8 @@ export default function Home() {
 
           <div class=" h4/6 flex text-center">
             <div class="w-1/2 pr-5 text-right"><br /> <br /><br /><br />
-            <p class ="text-base font-serif font-medium text-red-700">Personal Color</p>
-            <h1 class="my_space text-2xl font-bold">สวยได้ทุกสีผิวจากโทนสีประจำตัว</h1>
+            <p class ="text-base font-serif font-bold text-red-700">Personal Color</p>
+            <h1 class="my_space text-2xl font-semibold">สวยได้ทุกสีผิวจากโทนสีประจำตัว</h1>
               <h1 class="text-sm">หากคุณอยากรู้ว่าโทนสีที่ใช่<br />
                 และเหมาะสมกับผิวของคุณที่สุดอยู่ในโทนใด<br />
                 ไปเช็คและสำรวจตัวเองกันได้เลย</h1><br />

@@ -366,10 +366,10 @@ function Personalcolor() {
                                 className="w-full h-full rounded-lg shadow-md"
                             />
                             <p className="text-lg text-center mt-4">
-                                ดูสีเส้นเลือดที่ข้อมือ <br />
-                                <strong className="text-purple-800">สีม่วง</strong> หรือ <strong className="text-blue-800">สีน้ำเงิน</strong> : Cool Tone <br />
-                                <strong className="text-green-900">สีเขียว</strong> : Warm Tone<br />
-                                ทั้ง<strong className="text-green-900"> สีเขียว</strong> และ <strong className="text-blue-800">สีน้ำเงิน</strong> : Neutral Tone<br />
+                                ดูสีเส้นเลือดที่ข้อมือ <br/>
+                                สีม่วงหรือสีน้ำเงิน 💜💙 : Cool Tone <br/>
+                                สีเขียว 💚 : Warm Tone<br />
+                                ทั้งสีเขียวและสีน้ำเงิน 💚💙 : Neutral Tone<br/>
                             </p>
                         </div>
 
@@ -382,8 +382,8 @@ function Personalcolor() {
                             />
                             <p className="text-lg text-center mt-4">
                                 เช็กสีผิวหลังโดนแดด <br />
-                                โดนแดดแล้วผิว<strong className="text-red-700"> แดง</strong> : Cool Tone<br />
-                                โดนแดดแล้วผิว<strong className="text-yellow-950"> คล้ำ</strong> : Warm Tone<br />
+                                โดนแดดแล้วผิวแดง ❤️ : Cool Tone<br />
+                                โดนแดดแล้วผิวคล้ำ 🤎 : Warm Tone<br />
                             </p>
                         </div>
 
@@ -396,8 +396,8 @@ function Personalcolor() {
                             />
                             <p className="text-lg text-center mt-4">
                                 เทียบสีเครื่องประดับ <br />
-                                ใส่สี <strong className="text-zinc-300">เงิน </strong>แล้วดูผ่อง : Cool Tone<br />
-                                ใส่สี <strong className="text-yellow-500">ทอง </strong>แล้วดูผ่อง : Warm Tone<br />
+                                ใส่สีเงินแล้วดูผ่อง 🤍  : Cool Tone<br />
+                                ใส่สีทองแล้วดูผ่อง 💛 : Warm Tone<br />
                             </p>
                         </div>
                     </div>
