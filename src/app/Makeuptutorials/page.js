@@ -4,6 +4,10 @@ import { useState } from "react";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Prompt, Nunito } from 'next/font/google';
+const prompt = Prompt({ subsets: ['thai'], weight: ['400', '700'], variable: '--font-prompt' });
+const nunito = Nunito({ subsets: ['latin'], weight: ['600', '700'], variable: '--font-nunito' });
+
 
 function Makeuptutorials() {
   const [type, setType] = useState(0)
@@ -201,8 +205,8 @@ function Makeuptutorials() {
 
 
   return (
-    <main >
-      <section class="picture-home  bg-[url('https://i.postimg.cc/pybrzwjK/Make-Up-Application-1.png')]">
+    <main className={`${prompt.variable} ${nunito.variable} font-sans`}>
+      <section class="picture-home  bg-[url('https://prod-cdn.pharmacity.io/blog/makeup-1.jpg')]">
         <div class="h-2/6 flex">
           <div class="w-2/5 flex justify-center items-center text-white text-4xl">
             <h1>TellTone</h1>

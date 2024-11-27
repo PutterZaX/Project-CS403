@@ -12,10 +12,10 @@
     "encoding": "^0.1.13",
     "face-api.js": "^0.20.0",
     "formidable": "^3.5.2",
-    "next": "^14.2.16",
+    "next": "^14.2.18",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tfjs-image-recognition-base": "^0.6.2"
+    "tfjs-image-recognition-base": "^0.6.0"
   },
   "devDependencies": {
     "eslint": "^8",

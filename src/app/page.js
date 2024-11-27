@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Prompt, Nunito } from 'next/font/google';
+const prompt = Prompt({ subsets: ['thai'], weight: ['400', '700'], variable: '--font-prompt' });
+const nunito = Nunito({ subsets: ['latin'], weight: ['600', '700'], variable: '--font-nunito' });
 
 
 export default function Home() {
   return (
-    <main >
-      <section class=" picture-home bg-[url('https://limelushorganics.com/cdn/shop/files/Bg.png?v=1694756724&width=1440')]">
+    <main className={`${prompt.variable} ${nunito.variable} font-sans`}>
+      <section class="picture-home bg-[url('https://limelushorganics.com/cdn/shop/files/Bg.png?v=1694756724&width=1440')]">
 
         <div class="h-2/6 flex">
 
@@ -24,7 +27,7 @@ export default function Home() {
         <div class="h-4/6 flex">
           <div class="w-full h-4/5 grid justify-center items-center ">
             <h1 class="text-white  text-center text-4xl">TELL YOUR SKIN TONE & PERSONAL COLOR</h1>
-            <h1 class="text-white text-center">Makeup tutorials & Tools & Skincare</h1>
+            <h1 class="text-white text-center">Makeup tutorials</h1>
             <Link class="bg-white  mx-auto px-10 py-4 text-black text-center " href="/Skintone"> Let’s start</Link>
 
           </div>

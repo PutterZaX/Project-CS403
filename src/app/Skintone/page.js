@@ -3,6 +3,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Prompt, Nunito } from 'next/font/google';
+const prompt = Prompt({ subsets: ['thai'], weight: ['400', '700'], variable: '--font-prompt' });
+const nunito = Nunito({ subsets: ['latin'], weight: ['600', '700'], variable: '--font-nunito' });
+
 
 function Skintone() {
     const [file, setFile] = useState(null);
@@ -55,7 +59,7 @@ function Skintone() {
 
 
     return (
-        <main>
+        <main className={`${prompt.variable} ${nunito.variable} font-sans`} >
 
             <section className="picture-home bg-[url('https://i.postimg.cc/zXqt5V6S/IMG-0703.jpg')]">
                 <div className="h-2/6 flex">
