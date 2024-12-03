@@ -255,24 +255,19 @@ function Personalcolor() {
             <section className="fixed bottom-80 left-5 z-50 flex flex-col gap-2 items-start">
                 {[
                     {
-                        id: 'step1',
-                        label: 'Step 1: Basic Undertone',
+                        id: '1',
+                        label: 'Introduction of Personal color',
                         color: 'bg-blue-500 hover:bg-blue-700',
                     },
                     {
-                        id: 'step2',
-                        label: 'Step 2: Undertone Analysis',
+                        id: '2',
+                        label: 'Analyze your Personal color',
                         color: 'bg-green-500 hover:bg-green-700',
                     },
                     {
-                        id: 'step3',
-                        label: 'Step 3: Personal Color Analysis',
+                        id: '3',
+                        label: 'Result & Recommendation',
                         color: 'bg-yellow-500 hover:bg-yellow-700',
-                    },
-                    {
-                        id: 'step4',
-                        label: 'Step 4: Result & Recommendation',
-                        color: 'bg-pink-500 hover:bg-pink-700',
                     },
                 ].map((step) => (
                     <div key={step.id} className="group relative">
@@ -282,7 +277,7 @@ function Personalcolor() {
                         >
                             {/* Short Label */}
                             <span className="whitespace-nowrap group-hover:hidden">
-                                {step.label.split(': ')[0]}
+                                {step.label.split(' ')[0]}
                             </span>
                             {/* Full Label */}
                             <span className="hidden whitespace-nowrap group-hover:inline">
@@ -301,8 +296,9 @@ function Personalcolor() {
                     <ul className="w-full gap-8 flex justify-center items-center text-white">
                         <Link href="/">Home</Link>
                         <Link href="/Skintone">Skin tone</Link>
+                        <Link href="/Undertone">Undertone</Link>
                         <Link href="/Personalcolor">Personal color</Link>
-                        <Link href="/Makeuptutorials">Makeup tutorials</Link>
+                        <Link href="/Makeuptutorials">Makeup tutorials</Link> 
                     </ul>
                 </div>
                 <div className="h-2/6">
@@ -315,7 +311,7 @@ function Personalcolor() {
 
 
             {/* Introduction */}
-            <section className="py-6 px-6 md:px-20">
+            <section id="1" className="py-6 px-6 md:px-20">
                 <h2 className="text-3xl font-serif font-bold text-center mb-8">Personal Color</h2>
                 <p className="text-lg mb-6 leading-7">
                     Personal Color คือสีประจำตัวที่มีความเหมาะสมกับโทนสีผิวของเรา ซึ่งถ้ามีสีนี้อยู่บนตัวจะขับผิวให้ดูเปล่งปลั่ง มีออร่าโดดเด่นและเปล่งประกาย ช่วยเสริมสร้างความมั่นใจ และทำให้ดูอ่อนเยาว์มากขึ้น ในทางตรงกันข้าม หากเลือกสีที่ไม่เหมาะกับตัวเองก็จะทำให้หน้าดูหมอง ริ้วรอยบนหน้าดูชัดขึ้นได้ โดย Personal Color นี้สามารถนำมาใช้เป็นสีเสื้อผ้า เครื่องประดับ เครื่องสำอาง สีผม หรืออะไรก็ตามที่อยู่ใกล้กับผิวของเรามากที่สุด
@@ -330,172 +326,9 @@ function Personalcolor() {
                         className="rounded-lg shadow-lg "
                     />
                 </div>
-
             </section><br/><br/><br/><br/>
 
-            {/* How to */}
-            <section>
-                <div className="pt-10 w-full text-center grid place-items-center">
-                    <h1 className="my_space font-serif text-3xl font-bold mb-24">4 Steps to know Personal color</h1>
-                    <img src="https://i.postimg.cc/HsXCVMmX/4step.png" alt="4 Steps Personal Color Guide"></img>
-                    <br /><br /><br /><br /><br /><br /><br />
-                </div>
-            </section>
-
-            {/* Step 1 */}
-            <section id="step1" className="relative h-auto bg-cover bg-center py-20 grid place-items-center"
-                style={{
-                    backgroundImage: "url('https://www.glam.com/img/gallery/why-your-skin-undertones-matter-and-how-to-figure-it-out/how-do-i-find-my-undertone-1663344935.webp')",
-                }}
-            >
-                <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
-
-                <div className="relative text-center">
-                    <h1 className="text-4xl font-serif  font-bold text-white">Step 1: Basic Undertone</h1>
-                    <p className="mt-4 text-lg text-white text-center">
-                        วิธีทดสอบ Personal Color เบื้องต้นแบบง่ายๆ เริ่มจากการหา Under Tone ของสีผิวจาก 3 วิธี
-                    </p>
-
-                    {/* Images and Texts in Equal-Width Columns */}
-                    <div className="mt-10 flex justify-evenly items-start w-full max-w-screen-xl space-x-4 text-white">
-                        {/* Item 1 */}
-                        <div className="flex flex-col items-center w-2/6">
-                            <img
-                                src="https://media.atime.live/editor/content/bab05b25-725e-4cf9-a8fe-c05907518046.png"
-                                alt="vein"
-                                className="w-full h-full rounded-lg shadow-md"
-                            />
-                            <p className="text-lg text-center mt-4">
-                                ดูสีเส้นเลือดที่ข้อมือ <br/>
-                                สีม่วงหรือสีน้ำเงิน 💜💙 : Cool Tone <br/>
-                                สีเขียว 💚 : Warm Tone<br />
-                                ทั้งสีเขียวและสีน้ำเงิน 💚💙 : Neutral Tone<br/>
-                            </p>
-                        </div>
-
-                        {/* Item 2 */}
-                        <div className="flex flex-col items-center w-2/6">
-                            <img
-                                src="https://media.atime.live/editor/content/178ca9ef-573c-4280-a761-96edf50131fc.png"
-                                alt="sun-exposure"
-                                className="w-full h-full rounded-lg shadow-md"
-                            />
-                            <p className="text-lg text-center mt-4">
-                                เช็กสีผิวหลังโดนแดด <br />
-                                โดนแดดแล้วผิวแดง ❤️ : Cool Tone<br />
-                                โดนแดดแล้วผิวคล้ำ 🤎 : Warm Tone<br />
-                            </p>
-                        </div>
-
-                        {/* Item 3 */}
-                        <div className="flex flex-col items-center w-2/6">
-                            <img
-                                src="https://media.atime.live/editor/content/ebe2d8f5-d966-4221-b057-95979d2464ba.png"
-                                alt="jewery"
-                                className="w-full h-full rounded-lg shadow-md"
-                            />
-                            <p className="text-lg text-center mt-4">
-                                เทียบสีเครื่องประดับ <br />
-                                ใส่สีเงินแล้วดูผ่อง 🤍  : Cool Tone<br />
-                                ใส่สีทองแล้วดูผ่อง 💛 : Warm Tone<br />
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Next Button */}
-                    <button
-                        onClick={() => scrollToSection('step2')}
-                        className=" mt-6 bg-pink-500 text-white px-6 py-2 rounded-full shadow-lg hover:bg-pink-400 transition-all"
-                    >
-                        Next Step
-                    </button>
-                </div>
-            </section>
-
-            <section id="step2" className="h-auto grid place-items-center text-center mt-20" alt="step2">
-                <h1 className="text-4xl font-serif font-bold h-auto grid place-items-center"> Step 2 Undertone Analysis </h1><br/>
-                <p className="text-lg"> หากคุณยังไม่แน่ใจสี Undertone เราจะประมวลผลให้ เพียงคุณอัปโหลดรูปภาพ </p>
-                <p> รูปหน้าตรง หน้าสด ถ่ายภายใต้แสงไฟสีขาวหรือแสงธรรมชาติ พื้นหลังสีขาว</p>
-
-                <div className="h-auto grid place-items-center"><br />
-                    <label htmlFor="image-upload" style={{ cursor: "pointer" }}>
-                        <div
-                            style={{
-                                padding: "10px 20px",
-                                background: "linear-gradient(135deg, #ff7eb3, #ff758c)",
-                                color: "#fff",
-                                borderRadius: "25px",
-                                fontWeight: "bold",
-                                fontSize: "16px",
-                                display: "inline-block",
-                                textAlign: "center",
-                                transition: "transform 0.2s, box-shadow 0.2s",
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = "scale(1.05)";
-                                e.currentTarget.style.boxShadow = "0px 4px 10px rgba(255, 117, 140, 0.5)";
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.transform = "scale(1)";
-                                e.currentTarget.style.boxShadow = "none";
-                            }}
-                        >
-                            Upload Image
-                        </div>
-                    </label>
-                    <input
-                        type="file"
-                        accept="image/*"
-                        id="image-upload"
-                        onChange={handleImageUpload}
-                        style={{ display: "none" }}
-                    />
-                    <br/>
-                    {uploadedImage && <img src={uploadedImage} alt="Uploaded" style={{ width: "200px", marginTop: "10px" }} />}
-                </div>
-
-
-                
-                {/* Display Undertone Result */}
-                {undertone && <p>Your undertone is: {undertone}</p>}
-
-                {/* Display Example Videos */}
-                {undertone && videos[undertone] && (
-                    <div>
-                        <h3 className="my_space text-left">วิดีโอแนะนำการแต่งหน้า</h3>
-                        <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
-                            {videos[undertone].map((video, index) => (
-                                <iframe
-                                    key={index}
-                                    src={video}
-                                    title={`Video ${index + 1}`}
-                                    style={{ width: "220px", height: "150px", border: "none" }}
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                ></iframe>
-                            ))}
-                        </div>
-                        <ul className=" my_space  text-right text-black">
-                            <Link href="/Makeuptutorials">ดูเพิ่มเติม</Link>
-                        </ul>
-                    </div>
-                )}
-
-                {/* Hidden Canvas for Image Analysis */}
-                <canvas ref={canvasRef} style={{ display: "none" }} />
-
-                {/* Next Button */}
-                <button
-                    onClick={() => scrollToSection('step3')}
-                    className="mt-10 bg-pink-500 text-white px-6 py-2 rounded-full shadow-lg hover:bg-pink-400 transition-all"
-                >
-                    Next Step
-                </button>
-
-            </section>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-            <section id="step3">
+            <section id="2">
                 <div className="grid place-items-center">
                     <h1 className="text-4xl font-serif  font-bold h-auto" > Step 3 Personal Color Analysis</h1><br/>
                     <p className="text-lg"> ซึ่งหลังจากที่เราเช็ก Undertone ของสีผิวทั้ง 4 ข้อเรียบร้อยแล้ว เราก็จะสามารถดูได้เลยว่าโทนผิวของเราจะสามารถอยู่ในฤดูไหนบ้าง </p><br />
@@ -591,7 +424,7 @@ function Personalcolor() {
                 </div>
             </section><br /><br /><br /><br /><br /><br /><br /><br />
 
-            <section id="step4" className="h-auto grid place-items-center" >
+            <section id="3" className="h-auto grid place-items-center" >
 
                 <h1 className=" text-4xl font-serif font-bold h-auto grid place-items-center" > Step 4 Result & Recommendation</h1><br/>
                 <p className="text-lg"> มาดูผลลัพธ์และคำแนะนำของแต่ละฤดูกัน </p>

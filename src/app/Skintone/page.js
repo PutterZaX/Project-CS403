@@ -69,6 +69,7 @@ function Skintone() {
                     <ul className="w-full gap-8 flex justify-center items-center text-white">
                         <Link href="/">Home</Link>
                         <Link href="/Skintone">Skin tone</Link>
+                        <Link href="/Undertone">Undertone</Link>
                         <Link href="/Personalcolor">Personal color</Link>
                         <Link href="/Makeuptutorials">Makeup tutorials</Link>
                     </ul>
