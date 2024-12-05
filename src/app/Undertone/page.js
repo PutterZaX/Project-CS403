@@ -194,7 +194,7 @@ function Undertone() {
 
 
 
-            <section className="picture-personal bg-[url('https://www.annmariegianni.com/wp-content/uploads/2020/05/how-to-determine-your-skin-tone-for-makeup-foundation-2.jpg')]" alt="header">
+            <section className="picture-personal bg-[url('https://media.glamourmagazine.co.uk/photos/64ba688967c0e099ae2e9782/16:9/w_2240,c_limit/UNDERTONES%20210723%20%20GettyImages-1483844655_L.jpg')]" alt="header">
                 <div className="h-2/6 flex">
                     <div className="w-2/5 flex justify-center items-center text-white text-4xl">
                         <h1>TellTone</h1>
@@ -212,28 +212,43 @@ function Undertone() {
                         <h1>UNDERTONE ANALYSIS</h1>
                     </div>
                 </div>
-            </section><br /><br />
+            </section>
 
             {/* Introduction */}
-            <section id="1" className="py-6 px-6 md:px-20">
-                <h2 className="text-3xl font-serif font-bold text-center mb-8">Undertone</h2>
-                <p className="text-lg mb-6 leading-7">
-                    Undertone คือโทนสีผิวจริงที่ปรากฏใต้พื้นผิวหนังของเรา จะส่งผลต่อเฉดสีผิวโดยรวม โดยจะแสดงสีผิวจากเม็ดสีเมลานินที่อยู่ใต้ชั้นผิว  ซึ่งจะแตกต่างจาก Skin Tone ที่เป็นสีผิวของเราที่เรามองเห็นจากภายนอก สามารถเปลี่ยนแปลงได้อยู่ตลอดเวลา
+            <section id="1" className="py-2 px-6 md:px-20 bg-amber-50"><br/><br/>
+                <h2 className="text-4xl font-serif font-bold text-center mb-3 text-amber-950">
+                    Undertone
+                </h2>
+                <p className="text-lg mb-6 leading-8 text-amber-950 text-center">
+                <span className="font-semibold text-2xl text-amber-950"></span> 
+                คือโทนสีผิวจริงที่ปรากฏใต้พื้นผิวหนัง โดยจะแสดงสีผิวจากเม็ดสีเมลานินที่อยู่ใต้ชั้นผิว ซึ่งส่งผลต่อเฉดสีผิวโดยรวม <br/>แตกต่างจาก Skin Tone ที่เป็นสีผิวที่มองเห็นจากภายนอก สามารถเปลี่ยนแปลงได้อยู่ตลอดเวลา
                 </p>
-                <p className="text-lg mb-6 leading-7">สีผิว Undertone จะแบ่งออกเป็น 3 กลุ่มด้วยกัน คือ <br />
-                    Cool Tone สีโทนเย็น โดยคนที่มี Undertone เป็นสีโทนเย็นมักจะเป็นคนที่มีสีผิวออกชมพูและฟ้า<br />
-                    Warm Tone สีโทนอุ่น โดยคนที่มี Undertone เป็นสีโทนอุ่นมักจะเป็นคนที่มีสีผิวออกเหลือง ทอง และพีช<br />
-                    Neutral Tone หรือโทนผิวกลาง สีโทนกลาง หมายความว่า สีผิวด้านนอก (Skin Tone) กับสีผิวด้านล่าง (Under Tone) เป็นสีเดียวกัน เป็นสีผิวที่ไม่ออกไปโทนชมพูหรือเหลือง
+                <p className="text-lg leading-8 text-amber-950">
+                    สีผิว Undertone จะแบ่งออกเป็น 3 กลุ่มด้วยกัน คือ <br />
+                    <span className="block mt-1">
+                        <span className="font-bold text-blue-700">Cool Tone</span> : สีโทนเย็น
+                        โดยคนที่มี Undertone เป็นสีโทนเย็นมักจะเป็นคนที่มีสีผิวออกชมพูและฟ้า
+                    </span>
+                    <span className="block mt-1">
+                        <span className="font-bold text-red-700">Warm Tone</span> : สีโทนอุ่น
+                        โดยคนที่มี Undertone เป็นสีโทนอุ่นมักจะเป็นคนที่มีสีผิวออกเหลือง ทอง
+                        และพีช
+                    </span>
+                    <span className="block mt-1">
+                        <span className="font-bold text-cyan-700">Neutral Tone</span> : สีโทนกลาง
+                        หมายความว่า สีผิวด้านนอก (Skin Tone) กับสีผิวด้านล่าง (Under Tone) เป็นสีเดียวกัน
+                        เป็นสีผิวที่ไม่ออกไปโทนชมพูหรือเหลือง
+                    </span>
                 </p>
-                <br />
-                <div className="grid place-items-center">
+                <div className="grid place-items-center mt-6">
                     <img
-                        src="https://pilthesalon.com/wp-content/uploads/2022/01/skin-undertones-1024x536.jpg"
+                        src="https://www.annmariegianni.com/wp-content/uploads/2020/05/how-to-determine-your-skin-tone-for-makeup-foundation-2.jpg"
                         alt="Undertone"
-                        className="w-8/12 "
+                        className="w-6/12 rounded-lg shadow-md"
                     />
-                </div>
-            </section><br /><br /><br /><br />
+                </div><br/><br/>
+            </section>
+
 
             {/* Step 2 */}
             <section id="2" className="relative h-auto bg-cover bg-center py-20 grid place-items-center"
@@ -241,7 +256,7 @@ function Undertone() {
                     backgroundImage: "url('https://www.glam.com/img/gallery/why-your-skin-undertones-matter-and-how-to-figure-it-out/how-do-i-find-my-undertone-1663344935.webp')",
                 }}
             >
-                <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+                <div className="absolute inset-0 bg-black opacity-65 z-0"></div>
 
                 <div className="relative text-center">
                     <h1 className="text-4xl font-serif  font-bold text-white">Step 1: Basic Undertone</h1>
@@ -297,7 +312,7 @@ function Undertone() {
 
                     {/* Next Button */}
                     <button
-                        onClick={() => scrollToSection('step2')}
+                        onClick={() => scrollToSection('3')}
                         className=" mt-6 bg-pink-500 text-white px-6 py-2 rounded-full shadow-lg hover:bg-pink-400 transition-all"
                     >
                         Next Step
@@ -344,7 +359,7 @@ function Undertone() {
                         onChange={handleImageUpload}
                         style={{ display: "none" }}
                     />
-                    <br/>
+                    <br />
                     {uploadedImage && <img src={uploadedImage} alt="Uploaded" style={{ width: "200px", marginTop: "10px" }} />}
                 </div>
 
