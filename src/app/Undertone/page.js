@@ -10,6 +10,7 @@ function Undertone() {
     const canvasRef = useRef(null);
     const [uploadedImage, setUploadedImage] = useState(null);
     const [undertone, setUndertone] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const videos = {
         "Warm Tone": [
@@ -50,8 +51,7 @@ function Undertone() {
     }, []);
 
     // Handle image upload and undertone analysis
-    const handleImageUpload = (event) => {
-        const file = event.target.files[0];
+    const handleImageUpload = (file) => {
         if (file) {
             const reader = new FileReader();
             reader.onload = (e) => {
@@ -62,11 +62,24 @@ function Undertone() {
         }
     };
 
+    const handleDrop = (event) => {
+        event.preventDefault();
+        const file = event.dataTransfer.files[0];
+        handleImageUpload(file);
+    };
+
+    const handleDragOver = (event) => {
+        event.preventDefault();
+    };
+    
+
     // Analyze the uploaded image and determine undertone
     const analyzeImage = (imageSrc) => {
+        setLoading(true); // Start loading spinner
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
         const image = new window.Image();
+
 
         image.onload = async () => {
             canvas.width = image.width;
@@ -77,6 +90,7 @@ function Undertone() {
             const detections = await faceapi.detectSingleFace(canvas, new faceapi.TinyFaceDetectorOptions());
             if (!detections) {
                 setUndertone("Face not detected");
+                setLoading(false); // Stop loading spinner
                 return;
             }
 
@@ -100,8 +114,8 @@ function Undertone() {
             blue = blue / pixelCount;
 
             // Reference warm and cool tone colors
-            const warmTones = ["#FEDCC0", "#F0C9A6", "#EDC097"];
-            const coolTones = ["#FCD6CA", "#F4D0C4", "#EBBCAC"];
+            const warmTones = ["#ecc9ab", "#ac7437", "#d6aa7b","#562c08","#fcf2e8","#c48b62","#f3d4bf","#b17b55","#dabc9a","#8f5c47","#d4b191","#6f4433","#d5ac81","#523726","#c69d72","#3a2810","#ebc9aa","#eed4b5","#d7ba92","#dfac96","#aa7536","#d2ab79","#935f3e","#623410","#522a06","#422307"];
+            const coolTones = ["#fcecef", "#ffe1f0", "#dab8b7","#63392d","#340c0c","#ffe4e7","#e2c6c1","#c29081","#d9bab8","#623930","#462220","#2c1313"]; 
 
             // Convert hex to RGB
             const hexToRgb = (hex) => {
@@ -143,6 +157,8 @@ function Undertone() {
             } else {
                 setUndertone("Neutral Tone");
             }
+
+            setLoading(false); // Stop loading spinner
         };
 
         image.src = imageSrc;
@@ -321,51 +337,53 @@ function Undertone() {
             </section>
 
             {/* Step 3 */}
-            <section id="3" className="h-auto grid place-items-center text-center mt-20" alt="step2">
-                <h1 className="text-4xl font-serif font-bold h-auto grid place-items-center"> Step 2 Undertone Analysis </h1><br />
+            <section id="3" className="h-auto grid place-items-center text-center mt-20">
+                <h1 className="text-4xl font-serif font-bold h-auto grid place-items-center">Undertone Analysis </h1><br />
                 <p className="text-lg"> หากคุณยังไม่แน่ใจสี Undertone เราจะประมวลผลให้ เพียงคุณอัปโหลดรูปภาพ </p>
                 <p> รูปหน้าตรง หน้าสด ถ่ายภายใต้แสงไฟสีขาวหรือแสงธรรมชาติ พื้นหลังสีขาว</p>
+                
 
-                <div className="h-auto grid place-items-center"><br />
-                    <label htmlFor="image-upload" style={{ cursor: "pointer" }}>
-                        <div
-                            style={{
-                                padding: "10px 20px",
-                                background: "linear-gradient(135deg, #ff7eb3, #ff758c)",
-                                color: "#fff",
-                                borderRadius: "25px",
-                                fontWeight: "bold",
-                                fontSize: "16px",
-                                display: "inline-block",
-                                textAlign: "center",
-                                transition: "transform 0.2s, box-shadow 0.2s",
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = "scale(1.05)";
-                                e.currentTarget.style.boxShadow = "0px 4px 10px rgba(255, 117, 140, 0.5)";
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.transform = "scale(1)";
-                                e.currentTarget.style.boxShadow = "none";
-                            }}
-                        >
-                            Upload Image
-                        </div>
+                <div
+                className="relative border-4 border-dashed border-pink-300 bg-pink-50 rounded-lg p-6 w-80 h-60 flex flex-col items-center justify-center text-center"
+                onDrop={handleDrop}
+                onDragOver={handleDragOver}
+            >
+                {!uploadedImage && !loading && (
+                    <p className="text-pink-600 text-sm mb-2">Drag and drop your image here</p>
+                )}
+                {!uploadedImage && (
+                    <label
+                        htmlFor="image-upload"
+                        className="bg-pink-500 text-white py-2 px-4 rounded-full shadow-lg hover:bg-pink-600 transition cursor-pointer"
+                    >
+                        Upload Image
                     </label>
-                    <input
-                        type="file"
-                        accept="image/*"
-                        id="image-upload"
-                        onChange={handleImageUpload}
-                        style={{ display: "none" }}
+                )}
+                <input
+                    type="file"
+                    accept="image/*"
+                    id="image-upload"
+                    onChange={(e) => handleImageUpload(e.target.files[0])}
+                    style={{ display: "none" }}
+                />
+                {uploadedImage && (
+                    <img
+                        src={uploadedImage}
+                        alt="Uploaded"
+                        className="absolute w-full h-full object-cover rounded-lg"
                     />
-                    <br />
-                    {uploadedImage && <img src={uploadedImage} alt="Uploaded" style={{ width: "200px", marginTop: "10px" }} />}
-                </div>
+                )}
+                {loading && <div className="loader mt-4"></div>}
+            </div>
+
+    
 
                 {/* Display Undertone Result */}
-                {undertone && <p>Your undertone is: {undertone}</p>}
-
+                {undertone && (
+                <p className="mt-6 text-xl text-pink-700 font-semibold">
+                    Your undertone is: {undertone}
+                </p>
+            )}
                 {/* Display Example Videos */}
                 {undertone && videos[undertone] && (
 
