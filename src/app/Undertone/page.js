@@ -11,6 +11,7 @@ function Undertone() {
     const [uploadedImage, setUploadedImage] = useState(null);
     const [undertone, setUndertone] = useState("");
     const [loading, setLoading] = useState(false);
+    const [dragging, setDragging] = useState(false);
 
     const videos = {
         "Warm Tone": [
@@ -64,14 +65,12 @@ function Undertone() {
 
     const handleDrop = (event) => {
         event.preventDefault();
+        setDragging(false);
         const file = event.dataTransfer.files[0];
-        handleImageUpload(file);
+        if (file) handleImageUpload(file);
     };
 
-    const handleDragOver = (event) => {
-        event.preventDefault();
-    };
-    
+
 
     // Analyze the uploaded image and determine undertone
     const analyzeImage = (imageSrc) => {
@@ -98,24 +97,24 @@ function Undertone() {
             const { x, y, width, height } = detections.box;
             const faceData = context.getImageData(x, y, width, height);
 
-            let red = 0, green = 0, blue = 0;
+            let yellow = 0, green = 0, blue = 0;
             const pixelCount = faceData.data.length / 4;
 
             for (let i = 0; i < faceData.data.length; i += 4) {
-                red += faceData.data[i];
+                yellow += faceData.data[i];
                 green += faceData.data[i + 1];
                 blue += faceData.data[i + 2];
 
             }
 
             /// Calculate average color values
-            red = red / pixelCount;
+            yellow = yellow / pixelCount;
             green = green / pixelCount;
             blue = blue / pixelCount;
 
             // Reference warm and cool tone colors
-            const warmTones = ["#ecc9ab", "#ac7437", "#d6aa7b","#562c08","#fcf2e8","#c48b62","#f3d4bf","#b17b55","#dabc9a","#8f5c47","#d4b191","#6f4433","#d5ac81","#523726","#c69d72","#3a2810","#ebc9aa","#eed4b5","#d7ba92","#dfac96","#aa7536","#d2ab79","#935f3e","#623410","#522a06","#422307"];
-            const coolTones = ["#fcecef", "#ffe1f0", "#dab8b7","#63392d","#340c0c","#ffe4e7","#e2c6c1","#c29081","#d9bab8","#623930","#462220","#2c1313"]; 
+            const warmTones = ["#ecc9ab", "#ac7437", "#d6aa7b", "#562c08", "#fcf2e8", "#c48b62", "#f3d4bf", "#b17b55", "#dabc9a", "#8f5c47", "#d4b191", "#6f4433", "#d5ac81", "#523726", "#c69d72", "#3a2810", "#ebc9aa", "#eed4b5", "#d7ba92", "#dfac96", "#aa7536", "#d2ab79", "#935f3e", "#623410", "#522a06", "#422307"];
+            const coolTones = ["#fcecef", "#ffe1f0", "#dab8b7", "#63392d", "#340c0c", "#ffe4e7", "#e2c6c1", "#c29081", "#d9bab8", "#623930", "#462220", "#2c1313"];
 
             // Convert hex to RGB
             const hexToRgb = (hex) => {
@@ -133,7 +132,7 @@ function Undertone() {
             };
 
             // Find closest match in warm and cool tones
-            const averageColor = [red, green, blue];
+            const averageColor = [yellow, green, blue];
             let minWarmDistance = Infinity;
             let minCoolDistance = Infinity;
 
@@ -168,6 +167,12 @@ function Undertone() {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
 
+    const resetUpload = () => {
+        setUploadedImage(null);
+        setUndertone(null);
+        setLoading(false);
+    };
+
     return (
         <main className={`${prompt.variable} ${nunito.variable} font-sans`}>
 
@@ -177,17 +182,17 @@ function Undertone() {
                     {
                         id: '1',
                         label: 'Introduction of Undertone',
-                        color: 'bg-blue-500 hover:bg-blue-700',
+                        color: 'bg-yellow-400/70 hover:bg-yellow-500',
                     },
                     {
                         id: '2',
-                        label: 'Basic your Undertone',
-                        color: 'bg-green-500 hover:bg-green-700',
+                        label: 'Basic to know your Undertone',
+                        color: 'bg-violet-800/70 hover:bg-violet-900',
                     },
                     {
                         id: '3',
                         label: 'Analyze your Undertone',
-                        color: 'bg-yellow-500 hover:bg-yellow-700',
+                        color: 'bg-pink-700/70 hover:bg-pink-800',
                     },
                 ].map((step) => (
                     <div key={step.id} className="group relative">
@@ -231,57 +236,67 @@ function Undertone() {
             </section>
 
             {/* Introduction */}
-            <section id="1" className="py-2 px-6 md:px-20 bg-amber-50"><br/><br/>
-                <h2 className="text-4xl font-serif font-bold text-center mb-3 text-amber-950">
-                    Undertone
-                </h2>
-                <p className="text-lg mb-6 leading-8 text-amber-950 text-center">
-                <span className="font-semibold text-2xl text-amber-950"></span> 
-                คือโทนสีผิวจริงที่ปรากฏใต้พื้นผิวหนัง โดยจะแสดงสีผิวจากเม็ดสีเมลานินที่อยู่ใต้ชั้นผิว ซึ่งส่งผลต่อเฉดสีผิวโดยรวม <br/>แตกต่างจาก Skin Tone ที่เป็นสีผิวที่มองเห็นจากภายนอก สามารถเปลี่ยนแปลงได้อยู่ตลอดเวลา
-                </p>
-                <p className="text-lg leading-8 text-amber-950">
-                    สีผิว Undertone จะแบ่งออกเป็น 3 กลุ่มด้วยกัน คือ <br />
-                    <span className="block mt-1">
-                        <span className="font-bold text-blue-700">Cool Tone</span> : สีโทนเย็น
-                        โดยคนที่มี Undertone เป็นสีโทนเย็นมักจะเป็นคนที่มีสีผิวออกชมพูและฟ้า
-                    </span>
-                    <span className="block mt-1">
-                        <span className="font-bold text-red-700">Warm Tone</span> : สีโทนอุ่น
-                        โดยคนที่มี Undertone เป็นสีโทนอุ่นมักจะเป็นคนที่มีสีผิวออกเหลือง ทอง
-                        และพีช
-                    </span>
-                    <span className="block mt-1">
-                        <span className="font-bold text-cyan-700">Neutral Tone</span> : สีโทนกลาง
-                        หมายความว่า สีผิวด้านนอก (Skin Tone) กับสีผิวด้านล่าง (Under Tone) เป็นสีเดียวกัน
-                        เป็นสีผิวที่ไม่ออกไปโทนชมพูหรือเหลือง
-                    </span>
-                </p>
-                <div className="grid place-items-center mt-6">
-                    <img
-                        src="https://www.annmariegianni.com/wp-content/uploads/2020/05/how-to-determine-your-skin-tone-for-makeup-foundation-2.jpg"
-                        alt="Undertone"
-                        className="w-6/12 rounded-lg shadow-md"
-                    />
-                </div><br/><br/>
+            <section
+                id="1"
+                className="relative h-auto bg-[#FFEEF4] py-10 flex justify-center items-center"
+            >
+                <div className="bg-white shadow-lg rounded-lg p-10 max-w-5xl text-center">
+                    <h2 className="text-4xl font-serif font-extrabold  mb-5 text-amber-950">
+                        Undertone
+                    </h2>
+                    <p className="text-lg mb-3 leading-8 text-amber-950">
+                        คือโทนสีผิวจริงที่ปรากฏใต้พื้นผิวหนัง โดยจะแสดงสีผิวจากเม็ดสีเมลานินที่อยู่ใต้ชั้นผิว ซึ่งส่งผลต่อเฉดสีผิวโดยรวม <br />
+                        แตกต่างจาก Skin Tone ที่เป็นสีผิวที่มองเห็นจากภายนอก สามารถเปลี่ยนแปลงได้อยู่ตลอดเวลา
+                    </p>
+                    <p className="text-lg mb-4 leading-8 text-pink-600">
+                        *ที่สำคัญ* หากรู้ Undertone เราจะสามารถ รู้ Personal color แบบเบื้องต้นได้! <br />
+                    </p>
+                    <p className="text-lg leading-8 text-amber-950">
+                        สีผิว Undertone จะแบ่งออกเป็น 2 กลุ่มใหญ่ๆด้วยกัน คือ <br/>
+                        <span className="block mt-1">
+                            <span className="font-bold text-red-700">Warm Tone☀️ </span>: สีโทนอุ่น
+                            โดยคนที่มี Undertone เป็นสีโทนอุ่นมักจะเป็นคนที่มีสีผิวออกเหลือง ทอง และพีช
+                        </span>
+                        <span className="block mt-1">
+                            <span className="font-bold text-blue-700">Cool Tone🧊 </span>: สีโทนเย็น
+                            โดยคนที่มี Undertone เป็นสีโทนเย็นมักจะเป็นคนที่มีสีผิวออกชมพูและฟ้า
+                        </span>
+                    </p>
+                    <div className="mt-6">
+                        <img
+                            className="mx-auto"
+                            src="https://qph.cf2.quoracdn.net/main-qimg-b92d74ec71aa796c1f96bd12ba681776-lq"
+                            alt="Undertone explanation"
+                        />
+                    </div><br/>
+                    {/* Next Button */}
+                    <button
+                        onClick={() => scrollToSection('2')}
+                        className=" mt-6 bg-[#E966A0] text-white px-6 py-2 rounded-full shadow-lg hover:bg-[#FF90BB] transition-all"
+                    >
+                        Click เพื่อสำรวจ Undertone ด้วยตนเอง
+                    </button>
+                </div>
             </section>
 
 
-            {/* Step 2 */}
-            <section id="2" className="relative h-auto bg-cover bg-center py-20 grid place-items-center"
-                style={{
-                    backgroundImage: "url('https://www.glam.com/img/gallery/why-your-skin-undertones-matter-and-how-to-figure-it-out/how-do-i-find-my-undertone-1663344935.webp')",
-                }}
-            >
-                <div className="absolute inset-0 bg-black opacity-65 z-0"></div>
 
-                <div className="relative text-center">
-                    <h1 className="text-4xl font-serif  font-bold text-white">Step 1: Basic Undertone</h1>
-                    <p className="mt-4 text-lg text-white text-center">
+            {/* Step 2 */}
+            <section id="2" className="relative h-auto bg-[#231903] bg-cover bg-center grid place-items-center"
+            /* style={{
+                 backgroundImage: "url('https://www.glam.com/img/gallery/why-your-skin-undertones-matter-and-how-to-figure-it-out/how-do-i-find-my-undertone-1663344935.webp')",
+             }} */
+            >
+                {/*<div className="absolute inset-0 bg-black opacity-65 z-0"></div>*/}
+                <br /><br />
+                <div className="relative text-center ">
+                    <h1 className="text-4xl font-serif  font-extrabold text-yellow-400">Basic Undertone</h1>
+                    <p className="mt-3 text-lg text-yellow-50 text-center">
                         วิธีทดสอบ Personal Color เบื้องต้นแบบง่ายๆ เริ่มจากการหา Under Tone ของสีผิวจาก 3 วิธี
                     </p>
 
                     {/* Images and Texts in Equal-Width Columns */}
-                    <div className="mt-10 flex justify-evenly items-start w-full max-w-screen-xl space-x-4 text-white">
+                    <div className="mt-7 text-yellow-50 flex justify-evenly items-start w-full max-w-screen-xl space-x-4 text-white">
                         {/* Item 1 */}
                         <div className="flex flex-col items-center w-2/6">
                             <img
@@ -290,10 +305,10 @@ function Undertone() {
                                 className="w-full h-full rounded-lg shadow-md"
                             />
                             <p className="text-lg text-center mt-4">
-                                ดูสีเส้นเลือดที่ข้อมือ <br />
-                                สีม่วงหรือสีน้ำเงิน 💜💙 : Cool Tone <br />
-                                สีเขียว 💚 : Warm Tone<br />
-                                ทั้งสีเขียวและสีน้ำเงิน 💚💙 : Neutral Tone<br />
+                                <span className="text-xl text-yellow-400">ดูสีเส้นเลือดที่ข้อมือ </span> <br />
+                                สีม่วงหรือสีน้ำเงิน : Cool Tone <br />
+                                สีเขียว : Warm Tone<br />
+                                ทั้งสีเขียวและสีน้ำเงิน : Neutral Tone<br />
                             </p>
                         </div>
 
@@ -305,9 +320,9 @@ function Undertone() {
                                 className="w-full h-full rounded-lg shadow-md"
                             />
                             <p className="text-lg text-center mt-4">
-                                เช็กสีผิวหลังโดนแดด <br />
-                                โดนแดดแล้วผิวแดง ❤️ : Cool Tone<br />
-                                โดนแดดแล้วผิวคล้ำ 🤎 : Warm Tone<br />
+                                <span className="text-xl text-yellow-400">เช็กสีผิวหลังโดนแดด </span> <br />
+                                โดนแดดแล้วผิวแดง : Cool Tone<br />
+                                โดนแดดแล้วผิวคล้ำ : Warm Tone<br />
                             </p>
                         </div>
 
@@ -319,120 +334,186 @@ function Undertone() {
                                 className="w-full h-full rounded-lg shadow-md"
                             />
                             <p className="text-lg text-center mt-4">
-                                เทียบสีเครื่องประดับ <br />
-                                ใส่สีเงินแล้วดูผ่อง 🤍  : Cool Tone<br />
-                                ใส่สีทองแล้วดูผ่อง 💛 : Warm Tone<br />
+                                <span className="text-xl text-yellow-400">เทียบสีเครื่องประดับ </span> <br />
+                                ใส่สีเงินแล้วดูผ่อง  : Cool Tone<br />
+                                ใส่สีทองแล้วดูผ่อง : Warm Tone<br />
                             </p>
                         </div>
-                    </div>
+                    </div><br />
 
                     {/* Next Button */}
                     <button
                         onClick={() => scrollToSection('3')}
-                        className=" mt-6 bg-pink-500 text-white px-6 py-2 rounded-full shadow-lg hover:bg-pink-400 transition-all"
+                        className=" mt-6 bg-lime-700 text-white px-6 py-2 rounded-full shadow-lg hover:bg-lime-600 transition-all"
                     >
-                        Next Step
+                        Click เพื่อให้ระบบประมวณผล Undertone ให้
                     </button>
-                </div>
+                </div><br/><br/><br/>
             </section>
 
             {/* Step 3 */}
-            <section id="3" className="h-auto grid place-items-center text-center mt-20">
-                <h1 className="text-4xl font-serif font-bold h-auto grid place-items-center">Undertone Analysis </h1><br />
-                <p className="text-lg"> หากคุณยังไม่แน่ใจสี Undertone เราจะประมวลผลให้ เพียงคุณอัปโหลดรูปภาพ </p>
-                <p> รูปหน้าตรง หน้าสด ถ่ายภายใต้แสงไฟสีขาวหรือแสงธรรมชาติ พื้นหลังสีขาว</p>
-                
-
-                <div
-                className="relative border-4 border-dashed border-pink-300 bg-pink-50 rounded-lg p-6 w-80 h-60 flex flex-col items-center justify-center text-center"
-                onDrop={handleDrop}
-                onDragOver={handleDragOver}
-            >
-                {!uploadedImage && !loading && (
-                    <p className="text-pink-600 text-sm mb-2">Drag and drop your image here</p>
-                )}
-                {!uploadedImage && (
-                    <label
-                        htmlFor="image-upload"
-                        className="bg-pink-500 text-white py-2 px-4 rounded-full shadow-lg hover:bg-pink-600 transition cursor-pointer"
-                    >
-                        Upload Image
-                    </label>
-                )}
-                <input
-                    type="file"
-                    accept="image/*"
-                    id="image-upload"
-                    onChange={(e) => handleImageUpload(e.target.files[0])}
-                    style={{ display: "none" }}
-                />
-                {uploadedImage && (
-                    <img
-                        src={uploadedImage}
-                        alt="Uploaded"
-                        className="absolute w-full h-full object-cover rounded-lg"
-                    />
-                )}
-                {loading && <div className="loader mt-4"></div>}
-            </div>
-
-    
-
-                {/* Display Undertone Result */}
-                {undertone && (
-                <p className="mt-6 text-xl text-pink-700 font-semibold">
-                    Your undertone is: {undertone}
-                </p>
-            )}
-                {/* Display Example Videos */}
-                {undertone && videos[undertone] && (
-
-                    <div className="mt-8">
-                        {/* Text and Image */}
-                        <div className="mb-6 text-center">
-                            <p className="text-2xl font-semibold">{toneText[undertone]}</p>
-                            {toneImages[undertone] && (
-                                <img
-                                    src={toneImages[undertone]}
-                                    alt={undertone}
-                                    className="w-48 h-48 mx-auto mt-4 "
-                                />
-                            )}
-                        </div>
-
-                        <h3 className="my_space text-left">วิดีโอแนะนำการแต่งหน้า</h3>
-                        <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
-                            {videos[undertone].map((video, index) => (
-                                <iframe
-                                    key={index}
-                                    src={video}
-                                    title={`Video ${index + 1}`}
-                                    style={{ width: "220px", height: "150px", border: "none" }}
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                ></iframe>
-                            ))}
-                        </div>
-                        <ul className=" my_space  text-right text-black">
-                            <Link href="/Makeuptutorials">ดูเพิ่มเติม</Link>
-                        </ul>
+            <section id="3" className="bg-[#FAF7F0] h-auto grid place-items-center text-center ">
+            
+                <div className="text-yellow-950 mt-20 ">
+                <div className="bg-white shadow-lg rounded-lg px-20 pt-10 pb-20 max-w-7xl grid place-items-center text-center ">
+                    <h1 className="text-4xl font-serif font-extrabold  h-auto grid place-items-center">Undertone Analysis </h1><br />
+                    <p className="text-xl"> หากคุณยังไม่แน่ใจสี Undertone ลองให้เราประมวลผลให้สิ เพียงคุณอัปโหลดรูปภาพ </p>
+                    <div className="text-left">
+                        <p className="text-lg text-[#8d6e63]" >
+                            - ภาพถ่ายหน้าตรง เห็นใบหน้าชัดเจน 
+                            - ถ่ายภายใต้แสงไฟสีขาวหรือแสงธรรมชาติ <br/>
+                            - พื้นหลังควรเป็นสีขาวหรือดำเท่านั้น
+                           - ระยะห่างจากกล้อง 30-50 cm<br/>
+                            </p>
                     </div>
-                )}
 
-                {/* Hidden Canvas for Image Analysis */}
-                <canvas ref={canvasRef} style={{ display: "none" }} />
+                    {/* Drag-and-Drop or Upload Section */}
+                    <div
+                        className={`relative border-4 border-dashed ${dragging ? 'border-pink-500 bg-pink-100' : 'border-pink-300 bg-pink-50'
+                            } rounded-lg p-6 w-80 h-60 flex flex-col items-center justify-center text-center mt-6`}
+                        onDrop={handleDrop}
+                        onDragOver={(e) => {
+                            e.preventDefault();
+                            setDragging(true);
+                        }}
+                        onDragLeave={() => setDragging(false)}
+                    >
+                        {!uploadedImage && !loading && (
+                            <p className="text-pink-600 text-sm mb-2">
+                                Drag and drop your image here
+                            </p>
+                        )}
+                        {!uploadedImage && (
+                            <label
+                                htmlFor="image-upload"
+                                className="bg-gradient-to-r from-pink-400 to-pink-500 text-white py-2 px-5 rounded-full shadow-lg hover:from-pink-500 hover:to-pink-600 hover:shadow-xl transition-all duration-300 cursor-pointer font-bold"
+                            >
+                                🌸 Upload Image 🌸
+                            </label>
+                        )}
+                        <input
+                            type="file"
+                            accept="image/*"
+                            id="image-upload"
+                            onChange={(e) => handleImageUpload(e.target.files[0])}
+                            style={{ display: 'none' }}
+                        />
+                        {uploadedImage && (
+                            <img
+                                src={uploadedImage}
+                                alt="Uploaded"
+                                className="absolute w-full h-full object-cover rounded-lg"
+                            />
+                        )}
+                        {loading && (
+                            <div className="mt-4 flex justify-center items-center">
+                                <svg
+                                    className="animate-spin h-6 w-6 text-pink-500"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <circle
+                                        className="opacity-25"
+                                        cx="12"
+                                        cy="12"
+                                        r="10"
+                                        stroke="currentColor"
+                                        strokeWidth="4"
+                                    ></circle>
+                                    <path
+                                        className="opacity-75"
+                                        fill="currentColor"
+                                        d="M4 12a8 8 0 018-8v8z"
+                                    ></path>
+                                </svg>
+                            </div>
+                        )}
+                    </div>
 
-            </section>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-            <section alt="conclusion">
-                <div className="px-20 grid place-items-center">
-                    <p className="px-40 text-lg">ทดสอบ Personal Color ได้สีที่ใช่กันไปเรียบร้อยแล้วหวังว่าทุกคนจะเอาไปแมตช์สีเสื้อผ้า เครื่องประดับ เครื่องสำอาง หรือสีผมได้หมดทุกสิ่งอย่างเพื่อสร้างสรรค์ลุคที่สวยขับผิวเปล่งออร่าให้ความมั่นใจมาเต็ม จะแต่งลุคไหนก็เกิดแน่นอน!</p><br />
-                    <p className="px-40 text-lg">ทั้งนี้ทั้งนั้นก็ไม่อยากให้หลายๆคน ยึดติดในสีประจำตัวมากเกินไป แต่นำหลักการไปปรับให้เข้ากับตัวเองโดยการสังเกตสีที่ตัวเองใส่แล้วรอด จะได้สนุกกับการแต่งตัวและได้ลุคที่ดึงเสน่ห์ของเราออกมาได้ด้วย</p>
+                    {/* Display Undertone Result */}
+                    {undertone && (
+
+                        <div className="">
+                            <button
+                                className="mt-2 bg-pink-500 text-white py-2 px-5 rounded-full shadow-lg hover:bg-pink-600 transition-all duration-300 cursor-pointer font-bold"
+                                onClick={resetUpload}
+                            >
+                                🌸 Upload Another Image 🌸
+                            </button>
+                            <p className="mt-8 text-2xl text-pink-700 font-bold">
+                                Your undertone is: {undertone}
+                            </p>
+
+                        </div>
+                    )}
+                    {/* Display Example Videos */}
+                    {undertone && videos[undertone] && (
+
+                        <div className="mt-2">
+                            {/* Text and Image */}
+                            <div className="mb-2 text-center">
+                                <p className="text-xl font-semibold">{toneText[undertone]}</p>
+                                {toneImages[undertone] && (
+                                    <img
+                                        src={toneImages[undertone]}
+                                        alt={undertone}
+                                        className="w-48 h-48 mx-auto mt-4 "
+                                    />
+                                )}
+                            </div>
+
+                            <h3 className="text-xl font-medium text-[#6d4c41] text-center">
+                            วิดีโอแนะนำการแต่งหน้า
+                        </h3>
+                        
+                         <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
+                                {videos[undertone].map((video, index) => (
+                                    <iframe
+                                        key={index}
+                                        src={video}
+                                        title={`Video ${index + 1}`}
+                                        className="mt-3 w-[220px] h-[150px] rounded-lg shadow-md border-none"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
+                                ))}
+                            </div>
+                            <ul className="text-right mt-6">
+                            <Link
+                                href="/Makeuptutorials"
+                                className="text-lg text-[#6d4c41] hover:text-[#8d6e63] underline"
+                            >
+                                ดูเพิ่มเติม
+                            </Link>
+                        </ul>
+                        </div>
+                    )}
+
+                    {/* Hidden Canvas for Image Analysis */}
+                    <canvas ref={canvasRef} style={{ display: "none" }} />
+                </div><br/><br/><br/><br/>
                 </div>
             </section>
 
-            <br /><br /><br /><br />
+            <section alt="conclusion" className="bg-[#FAF7F0] px-20 grid place-items-center">
+    <p className="px-40 text-lg text-[#4A2E16]">
+        รู้จัก Undertone ของตัวเองกันไปแล้ว ทีนี้คุนก็ได้รู้ Personal Color แบบเบื้องต้นกันไปแล้ว แต่ Personal Color
+        แบ่งแยกลึกลงไปอีกถึง 4 ฤดู ถ้าอยากรู้ว่าแต่ละฤดูเป็นยังไงและตัวเองอยู่ในฤดูอะไร ไปทำการทดสอบกันเลย
+    </p>
+    <br />
+    <button className="mb-10 bg-[#8B5742] text-white px-6 py-2 rounded-full shadow-lg hover:bg-[#A06B57] transition-all">
+        <Link href="/Personalcolor">Let's analyze your Personal color</Link>
+    </button>
+    <p className="px-40 text-lg text-[#5A3825]">
+        หลังจากรู้ Undertone แล้วคุณสามารถรู้เฉดรองพื้นจากระบบของเรา ที่สามารถหาเฉด skin tone ของคุณเพื่อให้เจอเฉดรองพื้นที่เหมาะสมกับคุณมากที่สุด ไปทำการทดสอบกันเลย
+    </p>
+    <button className="mt-6 bg-[#472D2D] text-white px-6 py-2 rounded-full shadow-lg hover:bg-[#704F4F] transition-all">
+        <Link href="/Skintone">Let's analyze your Skin tone</Link>
+    </button>
+    <br/><br/><br/>
+</section>
+
+            
 
         </main>
     );

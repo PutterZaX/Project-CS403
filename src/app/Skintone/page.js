@@ -14,13 +14,24 @@ function Skintone() {
     const [error, setError] = useState(null);
     const [filename, setFileName] = useState(null);
     const [imgName, setImgName] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [dragging, setDragging] = useState(false);
 
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
     };
 
+    const handleDrop = (event) => {
+        event.preventDefault();
+        setDragging(false);
+        if (event.dataTransfer.files && event.dataTransfer.files[0]) {
+            setFile(event.dataTransfer.files[0]);
+        }
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setIsLoading(true);
         const formData = new FormData();
         formData.append('file', file);
 
@@ -54,7 +65,10 @@ function Skintone() {
 
         } catch (err) {
             setError(err.message);
+        } finally {
+            setIsLoading(false);
         }
+
     };
 
 
@@ -82,63 +96,96 @@ function Skintone() {
                 </div>
             </section>
 
-            <section className="h-auto grid place-items-center">
-                <div className="h-2/6 flex justify-center">
+            <section className="h-auto grid place-items-center bg-[#FAF7F0]">
+                <br /><div className="h-2/6 flex justify-center">
                     <div className="pl-5">
-                        <h1 className="text-center text-2xl font-semibold">คำแนะนำสำหรับการอัพโหลดรูปภาพ:</h1>
-                        <br />
-                        <div className="text-lg">
-                            <li>รูปควรที่จะเป็นหน้าสด ไม่ใช้รุปที่แต่งหน้าแล้วเพื่อนที่จะได้คำนวนสีออกมาได้ถูกต้อง</li>
-                            <br />
-                            <li>แสงควรที่จะสว่าง ไม่ทำให้เกิดเงาบนใบหน้า เพื่อให้สีออกมาตรงมากที่สุด</li>
-                            <br />
-                            <li>แนะนำให้เป็นรูปที่เห็นหน้าชัดเจน หน้าตรง ไม่เล็กหรือไกลจนเกินไป</li>
-                            <br />
-                            <li>พื้นหลังต้องไม่ส่งผลกระทบต่อแสงที่ใบหน้า</li>
+                        <h1 className="text-center text-[#6d4c41] text-2xl font-semibold">คำแนะนำสำหรับการอัพโหลดรูปภาพ :</h1>
+
+                        <div className="text-lg text-[#8d6e63] mt-2">
+                            <li>ภาพถ่ายหน้าตรง เห็นใบหน้าชัดเจน </li>
+                            <li>ถ่ายภายใต้แสงไฟสีขาวหรือแสงธรรมชาติ</li>
+                            <li>พื้นหลังควรเป็นสีขาวหรือดำเท่านั้น</li>
+                            <li>ระยะห่างจากกล้อง 30-50 cm</li>
                         </div>
                         <br /><br />
                     </div>
 
-                    <div className="mt-10 text-center">
-                        <img className="w-40 ml-12" src="https://i.postimg.cc/qvCf9N9B/image.png" alt="ตัวอย่างรูปภาพ" />
-                        <p className="ml-12 mt-2">ตัวอย่างรูปภาพ</p>
+                    <div className=" text-center">
+                        <img className="w-40 ml-12 shadow-lg rounded-lg" src="https://i.postimg.cc/qvCf9N9B/image.png" alt="ตัวอย่างรูปภาพ" />
+                        <p className="ml-12 mt-2 text-[#8d6e63]">ตัวอย่างรูปภาพ</p>
                     </div>
                 </div>
 
-                <br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br />
 
-                <div style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif', padding: '20px' }}>
-                    <h1 style={{ color: '#333', marginBottom: '20px' }}>Upload an Image</h1>
+                <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl w-full">
+                    <h1 className="text-pink-600 text-xl font-bold text-center mb-4">
+                        Upload a  Image
+                    </h1>
+                    <div
+                        onDrop={handleDrop}
+                        onDragOver={(e) => {
+                            e.preventDefault();
+                            setDragging(true);
+                        }}
+                        onDragLeave={() => setDragging(false)}
+                        className={`border-dashed border-4 p-6 rounded-lg mb-4 ${dragging ? 'border-pink-400 bg-pink-50' : 'border-pink-300'
+                            }`}
+                    ><br />
+                        <p className="text-pink-500 text-center">
+                            Drag and drop your image here, or click to select
+                        </p>
+                        <input
+                            type="file"
+                            onChange={handleFileChange}
+                            className="hidden"
+                            id="file-upload"
+                        />
+                        <label htmlFor="file-upload" className="block cursor-pointer">
+                            <div className="text-center text-pink-500 underline">
+                                Select a file
+                            </div><br />
+                        </label>
 
-                    <form
-                        onSubmit={handleSubmit}
-                        style={{ display: 'inline-block', background: '#f9f9f9', padding: '20px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
-                    >
-                        <div style={{ marginBottom: '15px' }}>
-                            <input
-                                type="file"
-                                onChange={handleFileChange}
-                                style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc', fontSize: '16px' }}
-                            />
+                    </div>
+
+                    <form onSubmit={handleSubmit}>
+                        <div className="flex justify-center items-center">
+                            <button
+                                type="submit"
+                                disabled={!file || isLoading}
+                                className={`w-5/12 py-3 px-5 rounded-full text-white font-bold text-lg transition-all duration-300 shadow-lg ${!file || isLoading
+                                    ? 'bg-gradient-to-r from-pink-300 to-pink-400 opacity-50 cursor-not-allowed'
+                                    : 'bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600'
+                                    }`}
+                            >
+                                {isLoading ? (
+                                    <div className="flex justify-center items-center">
+                                        <svg
+                                            className="animate-spin h-5 w-5 mr-3 text-white"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <circle
+                                                className="opacity-25"
+                                                cx="12"
+                                                cy="12"
+                                                r="10"
+                                                stroke="currentColor"
+                                                strokeWidth="4"
+                                            ></circle>
+                                            <path
+                                                className="opacity-75"
+                                                fill="currentColor"
+                                                d="M4 12a8 8 0 018-8v8z"
+                                            ></path>
+                                        </svg>
+                                        Uploading...
+                                    </div>
+                                ) : (
+                                    '🌸 Upload 🌸'
+                                )}
+                            </button>
                         </div>
-
-                        <button
-                            type="submit"
-                            style={{
-                                backgroundColor: '#007BFF',
-                                color: '#fff',
-                                padding: '10px 20px',
-                                border: 'none',
-                                borderRadius: '4px',
-                                fontSize: '16px',
-                                cursor: 'pointer',
-                                transition: 'background-color 0.3s ease',
-                            }}
-                            onMouseOver={(e) => e.target.style.backgroundColor = '#0056b3'}
-                            onMouseOut={(e) => e.target.style.backgroundColor = '#007BFF'}
-                        >
-                            Upload
-                        </button>
                     </form>
 
                     {error && (
@@ -148,138 +195,190 @@ function Skintone() {
                     )}
 
                     {skinToneData && (
-                        <div style={{ marginTop: '20px' }}>
-                            <h2 style={{ color: '#333', fontSize: '18px' }}>Skin Tone Result:</h2>
+                        <div className="mt-10 text-center">
+                            <h2 className="text-xl font-bold text-gray-700 mb-4">
+                                Skin Tone Result :
+                            </h2>
                             <img
                                 src={`/output/debug/color/faces_1/${imgName}`}
                                 alt="Processed Skin Tone Result"
-                                style={{ marginTop: '10px', borderRadius: '8px', maxWidth: '100%', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
+                                className="mx-auto rounded-lg shadow-lg max-w-full"
                             />
                         </div>
+
                     )}
+                </div><br /><br /><br /><br /><br />
+            </section>
+
+            <section className="py-20 bg-[#231903]">
+                <h1 className="text-center text-3xl font-bold text-yellow-100 mb-2">
+                    รหัสสีและชื่อในภาษาอังกฤษ-ไทย 
+                </h1>
+                <h1 className="text-center text-2xl font-bold text-yellow-100 mb-6">
+                    Maybelline Fit Me Matte Poreless Liquid Foundation
+                </h1>
+                <div className="overflow-x-auto">
+                    <table className="table-auto border-collapse w-full max-w-6xl mx-auto bg-white shadow-lg rounded-xl">
+                        <thead className="bg-[#254336]">
+                            <tr>
+                                <th className="border border-green-950 px-3 py-2 text-lg font-semibold text-amber-100">
+                                    Color Code
+                                </th>
+                                <th className="border border-green-950 px-3 py-2 text-lg font-semibold text-amber-100">
+                                    English Name
+                                </th>
+                                <th className="border border-green-950 px-3 py-2 text-lg font-semibold text-amber-100">
+                                    Thai Name
+                                </th>
+                                <th className="border border-green-950 px-3 py-2 text-lg font-semibold text-amber-100">
+                                    Color Block
+                                </th>
+                                <th className="border border-green-950 px-3 py-2 text-lg font-semibold text-amber-100">
+                                    Warm Tone Foundation
+                                </th>
+                                <th className="border border-green-950 px-3 py-2 text-lg font-semibold text-amber-100">
+                                    Cool Tone Foundation
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {[
+                                {
+                                    code: "#373028",
+                                    english: "Dark Olive",
+                                    thai: "เขียวมะกอกเข้ม",
+                                    warm: { image: "https://media.ulta.com/i/ulta/2510205?w=2000&h=2000&fmt=auto", shade: "375 Java" },
+                                    cool: { image: "https://media.ulta.com/i/ulta/2529474?w=1080&h=1080&fmt=auto", shade: "380 Espresso" },
+                                },
+                                {
+                                    code: "#422811",
+                                    english: "Dark Brown",
+                                    thai: "น้ำตาลเข้ม",
+                                    warm: { image: "https://media.ulta.com/i/ulta/2529437?w=1080&h=1080&fmt=auto", shade: "370 Deep Bronze" },
+                                    cool: { image: "https://media.ulta.com/i/ulta/2510202?w=1080&h=1080&fmt=auto", shade: "360 Mocha" },
+                                },
+                                {
+                                    code: "#513B2E",
+                                    english: "Walnut Brown",
+                                    thai: "น้ำตาลวอลนัท",
+                                    warm: { image: "https://media.ulta.com/i/ulta/2529440?w=1080&h=1080&fmt=auto", shade: "356 Warm Coconut" },
+                                    cool: { image: "https://media.ulta.com/i/ulta/2282921?w=1080&h=1080&fmt=auto", shade: "355 Coconut" },
+                                },
+                                {
+                                    code: "#6F503C",
+                                    english: "Coffee Brown",
+                                    thai: "สีน้ำตาลกาแฟ",
+                                    warm: { image: "https://media.ulta.com/i/ulta/2295398?w=1080&h=1080&fmt=auto", shade: "340 Cappuccino" },
+                                    cool: { image: "https://media.ulta.com/i/ulta/2295394?w=1080&h=1080&fmt=auto", shade: "338 Spicy Brown" },
+                                },
+                                {
+                                    code: "#81654F",
+                                    english: "Chestnut",
+                                    thai: "น้ำตาลเกาลัด",
+                                    warm: { image: "https://media.ulta.com/i/ulta/2529457?w=1080&h=1080&fmt=auto", shade: "334 Warm Sun" },
+                                    cool: { image: "https://media.ulta.com/i/ulta/2282920?w=1080&h=1080&fmt=auto", shade: "330 Toffee" },
+                                },
+                                {
+                                    code: "#9D7A54",
+                                    english: "Tawny",
+                                    thai: "น้ำตาลทอง",
+                                    warm: { image: "https://media.ulta.com/i/ulta/2282914?w=1080&h=1080&fmt=auto", shade: "228 Soft Tan" },
+                                    cool: { image: "https://media.ulta.com/i/ulta/2295391?w=1080&h=1080&fmt=auto", shade: "222 True Beige" },
+                                },
+                                {
+                                    code: "#BEA07E",
+                                    english: "Beige Tan",
+                                    thai: "สีเบจอมน้ำตาล",
+                                    warm: { image: "https://media.ulta.com/i/ulta/2282912?w=1080&h=1080&fmt=auto", shade: "130 Buff Beige" },
+                                    cool: { image: "https://media.ulta.com/i/ulta/2282910?w=1080&h=1080&fmt=auto", shade: "125 Nude Beige" },
+                                },
+                                {
+                                    code: "#E5C8A6",
+                                    english: "Sand Beige",
+                                    thai: "สีเบจทราย",
+                                    warm: { image: "https://media.ulta.com/i/ulta/2282911?w=1080&h=1080&fmt=auto", shade: "128 Warm Nude" },
+                                    cool: { image: "https://media.ulta.com/i/ulta/2295399?w=1080&h=1080&fmt=auto", shade: "122 Creamy Beige" },
+                                },
+                                {
+                                    code: "#E7C1B8",
+                                    english: "Peach Pink",
+                                    thai: "ชมพูพีช",
+                                    warm: { image: "https://media.ulta.com/i/ulta/2529430?w=1080&h=1080&fmt=auto", shade: "118 Light Beige" },
+                                    cool: { image: "https://media.ulta.com/i/ulta/2282908?w=1080&h=1080&fmt=auto", shade: "115 Ivory" },
+                                },
+                                {
+                                    code: "#F3DAD6",
+                                    english: "Soft Pink",
+                                    thai: "ชมพูนุ่มนวล",
+                                    warm: { image: "https://media.ulta.com/i/ulta/2282906?w=1080&h=1080&fmt=auto", shade: "110 Porcelain" },
+                                    cool: { image: "https://media.ulta.com/i/ulta/2282907?w=1080&h=1080&fmt=auto", shade: "112 Natural Ivory" },
+                                },
+                                {
+                                    code: "#FBF2F3",
+                                    english: "Misty Rose",
+                                    thai: "ชมพูหมอก",
+                                    warm: { image: "https://media.ulta.com/i/ulta/2510268?w=1080&h=1080&fmt=auto", shade: "102 Fair Porcelain" },
+                                    cool: { image: "https://media.ulta.com/i/ulta/2510267?w=1080&h=1080&fmt=auto", shade: "105 Fair Ivory" },
+                                },
+                            ].map((color, index) => (
+                                <tr
+                                    key={index}
+                                    className={`${index % 2 === 0 ? "bg-[#FCF8F3]" : "bg-white"
+                                        } transform transition-all duration-200 hover:scale-110`}
+                                >
+                                    <td className="border border-stone-200 px-3 py-2 text-center text-base font-medium text-gray-700">
+                                        {color.code}
+                                    </td>
+                                    <td className="border border-stone-200 px-3 py-2 text-center text-base font-medium text-gray-700">
+                                        {color.english}
+                                    </td>
+                                    <td className="border border-stone-200 px-3 py-2 text-center text-base font-medium text-gray-700">
+                                        {color.thai}
+                                    </td>
+                                    <td className="border border-stone-200 px-3 py-2 text-center">
+                                        <div
+                                            className="w-8 h-8 mx-auto rounded-full border border-green-950"
+                                            style={{ backgroundColor: color.code }}
+                                        ></div>
+                                    </td>
+                                    <td className="border border-stone-200 px-3 py-2 text-center text-gray-700">
+                                        <div className="flex flex-col items-center">
+                                            <img
+                                                src={color.warm.image}
+                                                alt={color.warm.shade}
+                                                className="w-12 h-12 object-contain mb-2"
+                                            />
+                                            <span>{color.warm.shade}</span>
+                                        </div>
+                                    </td>
+                                    <td className="border border-stone-200 px-3 py-2 text-center text-gray-700">
+                                        <div className="flex flex-col items-center">
+                                            <img
+                                                src={color.cool.image}
+                                                alt={color.cool.shade}
+                                                className="w-12 h-12 object-contain mb-2"
+                                            />
+                                            <span>{color.cool.shade}</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
+                <br />
+            </section>
+            <section alt="conclusion">
+                <div className="bg-[#231903] px-20 grid place-items-center">
+                    <p className="px-40 text-lg text-amber-50 ">บางคนอาจจะสงสัยว่ารองพื้นมีแยกโทนด้วยหรอ แล้ว Warm tone กับ Cool tone จากรองพื้นข้างต้น คืออะไร จริงๆแล้วมาจาก Undertone ของเรานั่นเองค่ะ สงสัยกันใช่ไหมคะ ว่าตนเองมี Undertone แบบไหน ไปทดสอบกันเลย</p>
 
+                    <button
+                        className=" mt-6 bg-lime-700 text-white px-6 py-2 rounded-full shadow-lg hover:bg-lime-600 transition-all"
+                    ><Link href="/Undertone">Let's analyze your Undertone</Link>
+                    </button>
 
-                <br /><br /><br /><br /><br />
-
-                <h1 className="text-center text-2xl font-semibold">รหัสสีและชื่อในภาษาอังกฤษ-ไทย:</h1>
-
-                <br /><br />
-
-                <div className="grid grid-cols-4 gap-12 text-center items-center justify-items-center">
-                    <h1 className="text-2l font-semibold">Color code</h1>
-                    <h1 className="text-2l font-semibold">English name</h1>
-                    <h1 className="text-2l font-semibold">Thai name</h1>
-                    <h1 className="text-2l font-semibold">Color block</h1>
-
-                    <h1>#373028</h1>
-                    <h1>Dark Olive</h1>
-                    <h1>เขียวมะกอกเข้ม</h1>
-                    <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#373028' }}></div>
-
-                    <h1>#422811</h1>
-                    <h1>Dark Brown</h1>
-                    <h1>น้ำตาลเข้ม</h1>
-                    <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#422811' }}></div>
-
-                    <h1>#513b2e</h1>
-                    <h1>Walnut Brown</h1>
-                    <h1>น้ำตาลวอลนัท</h1>
-                    <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#513b2e' }}></div>
-
-                    <h1>#6f503c</h1>
-                    <h1>Coffee Brown</h1>
-                    <h1>สีน้ำตาลกาแฟ</h1>
-                    <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#6f503c' }}></div>
-
-                    <h1>#81654f</h1>
-                    <h1>Chestnut</h1>
-                    <h1>น้ำตาลเกาลัด</h1>
-                    <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#81654f' }}></div>
-
-                    <h1>#9d7a54</h1>
-                    <h1>Tawny</h1>
-                    <h1>น้ำตาลทอง</h1>
-                    <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#9d7a54' }}></div>
-
-                    <h1>#bea07e</h1>
-                    <h1>Beige Tan</h1>
-                    <h1>สีเบจอมน้ำตาล</h1>
-                    <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#bea07e' }}></div>
-
-                    <h1>#e5c8a6</h1>
-                    <h1>Sand Beige</h1>
-                    <h1>สีเบจทราย</h1>
-                    <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#e5c8a6' }}></div>
-
-                    <h1>#e7c1b8</h1>
-                    <h1>Peach Pink</h1>
-                    <h1>ชมพูพีช</h1>
-                    <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#e7c1b8' }}></div>
-
-                    <h1>#f3dad6</h1>
-                    <h1>Soft Pink</h1>
-                    <h1>ชมพูนุ่มนวล</h1>
-                    <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#f3dad6' }}></div>
-
-                    <h1>#fbf2f3</h1>
-                    <h1>Misty Rose</h1>
-                    <h1>ชมพูหมอก</h1>
-                    <div className="w-10 h-10 border border-black" style={{ backgroundColor: '#fbf2f3' }}></div>
-
+                    <br /><br /><br /><br />
                 </div>
-
-                <br /><br /><br /><br /><br />
-
-                <h1 className="text-center text-2xl font-semibold">แนะนำรองพื้นที่ใกล้เคียงกับสีที่คุณให้มาจาก </h1>
-                <h1 className="text-center text-2xl font-semibold">Maybelline’s Fit Me และ SuperStay Foundation ranges ตาม undertones</h1>
-                <br /><br />
-                <div className="text-lg">
-                    <h1>1. สีอ่อนโทนกลางถึงอบอุ่น เช่น สีที่ใกล้กับ "#bea07e" หรือ "#e5c8a6":</h1>
-                    <li>Fit Me: เฉด Classic Ivory (120) สำหรับโทนกลางเย็น หรือ Buff Beige (130) สำหรับกลางอบอุ่น​</li>
-                    <div class="flex gap-20 justify-center items-center space-x-4">
-                        <img class="w-40 ml-12" src="https://medias.watsons.co.th/publishing/WTCTH-271496-swatch-zoom.jpg?version=1718737816" />
-                        <img class="w-40 ml-12" src="https://medias.watsons.co.th/publishing/WTCTH-271504-side-zoom.jpg?version=1718737804" />
-                    </div>
-                    <li>SuperStay: เฉด Light Beige (118) หรือ Warm Nude (128)</li>
-                    <div class="flex gap-20 justify-center items-center space-x-4">
-                        <img class="w-40 ml-12" src="https://acdn.mitiendanube.com/stores/004/266/326/products/86315-362ca9fd8daf01225317149370344904-1024-1024.png" />
-                        <img class="w-40 ml-12" src="https://shaheenchemistrwp.com/cdn/shop/files/Untitleddesign_40_9580df46-e24d-4756-ab56-692a852078ea.png?v=1723205073" />
-                    </div>
-                    <br /><br />
-
-                    <h1>2. สีปานกลางโทนอบอุ่น เช่น สีที่ใกล้เคียงกับ "#81654f" และ "#9d7a54":</h1>
-                    <li>Fit Me: เฉด Natural Beige (220) สำหรับกลางโทนอุ่น และ Sun Beige (310) สำหรับโทนอุ่นเข้มขึ้นเล็กน้อย​​</li>
-                    <div class="flex gap-20 justify-center items-center space-x-4">
-                        <img class="w-40 ml-12" src="https://medias.watsons.co.th/publishing/WTCTH-BP_271498-front-zoom.jpg" />
-                        <img class="w-40 ml-12" src="https://skinplusbd.com/public/uploads/all/s8Ur1NDbTl0ejBncpN4oD8oVcNLV7pw4WHLUWkWl.png" />
-                    </div>
-                    <li>SuperStay: เฉด Natural Beige (220) หรือ Golden (312)​</li>
-                    <div class="flex gap-20 justify-center items-center space-x-4">
-                        <img class="w-40 ml-12" src="https://www.gosupps.com/media/catalog/product/cache/25/small_image/1500x1650/9df78eab33525d08d6e5fb8d27136e95/6/1/61wsbCTjzAL.jpg" />
-                        <img class="w-40 ml-12" src="https://m.media-amazon.com/images/I/41FRgz2pR0L.jpg" />
-                    </div>
-                    <br /><br />
-
-                    <h1>3. สีเข้มโทนอุ่น เช่น สีที่ใกล้กับ "#6f503c" หรือ "#513b2e":</h1>
-                    <li>Fit Me: เฉด Golden Caramel (332) และ Cappuccino (340) เหมาะสำหรับโทนผิวเข้มโทนอุ่น​​</li>
-                    <div class="flex gap-20 justify-center items-center space-x-4">
-                        <img class="w-40 ml-12" src="https://img.lazcdn.com/g/p/3924e484da4a572bdb15fa1564a226a9.jpg_720x720q80.jpg" />
-                        <img class="w-40 ml-12" src="https://img.tatacliq.com/images/i18//1316Wx1468H/MP000000018560791_1316Wx1468H_202406251150561.jpeg" />
-                    </div>
-                    <li>SuperStay: เฉด Golden Caramel (332) หรือ Cappuccino (340)</li>
-                    <div class="flex gap-20 justify-center items-center space-x-4">
-                        <img class="w-40 ml-12" src="https://i5.walmartimages.com/seo/Maybelline-Super-Stay-Liquid-Foundation-Makeup-Full-Coverage-332-Golden-Caramel-1-fl-oz_686ef3c2-aa28-429c-a2cf-1360359aeba2.6012a0fc02be8cd4aa4db5eab2e2af7b.png" />
-                        <img class="w-40 ml-12" src="https://i5.walmartimages.com/seo/Maybelline-Super-Stay-Liquid-Foundation-Makeup-Full-Coverage-340-Cappuccino-1-fl-oz_0f820f69-d355-4d89-9471-b72991c8bbc1.b90f070f8e50c66e8dabe12e7cf20143.png?odnHeight=768&odnWidth=768&odnBg=FFFFFF" />
-                    </div>
-                    <br /><br />
-
-                    <h1>เฉดสีเหล่านี้มีอยู่ในหลายสูตร เช่น Fit Me Dewy + Smooth สำหรับผิวแห้งและ Matte + Poreless สำหรับผิวมัน</h1>
-                    <h1>โดยสีที่เลือกแนะนำนี้เป็นตัวเลือกเบื้องต้น แต่แนะนำให้ทดลองจริงเพื่อให้ได้เฉดที่เหมาะกับผิวคุณที่สุด</h1>
-                </div><br />
-
-                <br /><br /><br /><br /><br />
-
             </section>
         </main>
     );
