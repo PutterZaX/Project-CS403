@@ -80,9 +80,9 @@ function Personalcolor() {
             paragraph: "Warm Tone ที่มีความเข้ม จะเป็นโทนสีแนวตุ่นๆ หม่นๆ ดูเป็นธรรมชาติ ดูชิค และ หรูหรา แนวเอิร์ธโทน ให้ลุคที่เป็นธรรมชาติและดูสุขุมนุ่มลึก",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_06.jpg",
             videos: [
-                "https://www.youtube.com/embed/g8Mjj0w0C1k",
-                "https://www.youtube.com/embed/7hCUu0rtkKA",
-                "https://www.youtube.com/embed/OgMmEP7K5jc",
+                "https://www.youtube.com/embed/-CipoeGV-s8",
+                "https://www.youtube.com/embed/EfVuVCATeIM",
+                "https://www.youtube.com/embed/E8PKPFsqje4",
             ],
         },
         {
@@ -90,9 +90,9 @@ function Personalcolor() {
             paragraph: "Cool Tone ที่มีความอ่อน จะเป็นโทนสีแนว pastel ละมุ่น หวาน โรแมนติก สง่างาม แนวพาสเทล ให้ลุคที่ดูอ่อนโยนและน่าทะนุถนอม",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_05.jpg",
             videos: [
-                "https://www.youtube.com/embed/g8Mjj0w0C1k",
-                "https://www.youtube.com/embed/7hCUu0rtkKA",
-                "https://www.youtube.com/embed/OgMmEP7K5jc",
+                "https://www.youtube.com/embed/gDBRORMi0a8",
+                "https://www.youtube.com/embed/KB9xb6O9YJc",
+                "https://www.youtube.com/embed/GYEljxxv5po",
             ],
         },
         {
@@ -100,9 +100,9 @@ function Personalcolor() {
             paragraph: "สีโทนเย็นที่มีความเข้ม จะเป็นโทนสีเข้ม ๆ contrastจัด ๆ สีสด ๆ สีแบบแม่สี สีค่อนข้างสด ให้ลุคที่คมเข้มและดูเท่",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_07-01.jpg",
             videos: [
-                "https://www.youtube.com/embed/g8Mjj0w0C1k",
-                "https://www.youtube.com/embed/7hCUu0rtkKA",
-                "https://www.youtube.com/embed/OgMmEP7K5jc",
+                "https://www.youtube.com/embed/erTX3cvP_GM",
+                "https://www.youtube.com/embed/EAPb_y-hHXA",
+                "https://www.youtube.com/embed/jbVyzE1XYFA",
             ],
         },
     ];
