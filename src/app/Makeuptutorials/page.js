@@ -289,7 +289,7 @@ function Makeuptutorials() {
       {fitter.map((data, index) => (
         <div
           key={index}
-          className="bg-[#FAF3ED] rounded-lg shadow-md overflow-hidden w-full max-w-sm transform hover:scale-105 transition-transform"
+          className="bg-white rounded-lg shadow-md overflow-hidden w-full max-w-sm transform hover:scale-105 transition-transform"
         >
           <iframe
             width="100%"
