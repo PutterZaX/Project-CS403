@@ -137,10 +137,11 @@ function Personalcolor() {
 
     useEffect(() => {
         const sortedTopics = [...topics].sort(
-            (a, b) => likesCount[b.title.slice(2, -2)] - likesCount[a.title.slice(2, -2)]
+            (a, b) => (likesCount[b.title.match(/[A-Za-z]+/)] || 0) - (likesCount[a.title.match(/[A-Za-z]+/)] || 0)
         );
         setCurrentTopic(sortedTopics[0]);
-    }, [likesCount]); // Trigger on likesCount change
+    }, [likesCount]);
+    
 
 
 
