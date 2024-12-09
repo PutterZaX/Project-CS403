@@ -66,7 +66,7 @@ function Personalcolor() {
 
     const topics = [
         {
-            title: "🌸Spring🌸",
+            title: "🌸 Spring 🌸",
             paragraph: "Warm Tone ที่มีความอ่อน จะเป็นโทนสีแนวสดใส ดอกไม้ผลิ ที่มีความน่ารัก หรือป๊อป สดใส สว่าง สว่างสดใส ให้ลุคที่น่ารักและร่าเริง",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_04.jpg",
             videos: [
@@ -76,7 +76,7 @@ function Personalcolor() {
             ],
         },
         {
-            title: "🍂Autumn🍂",
+            title: "🍂 Autumn 🍂",
             paragraph: "Warm Tone ที่มีความเข้ม จะเป็นโทนสีแนวตุ่นๆ หม่นๆ ดูเป็นธรรมชาติ ดูชิค และ หรูหรา แนวเอิร์ธโทน ให้ลุคที่เป็นธรรมชาติและดูสุขุมนุ่มลึก",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_06.jpg",
             videos: [
@@ -86,7 +86,7 @@ function Personalcolor() {
             ],
         },
         {
-            title: "☀️Summer☀️",
+            title: "☀️ Summer ☀️",
             paragraph: "Cool Tone ที่มีความอ่อน จะเป็นโทนสีแนว pastel ละมุ่น หวาน โรแมนติก สง่างาม แนวพาสเทล ให้ลุคที่ดูอ่อนโยนและน่าทะนุถนอม",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_05.jpg",
             videos: [
@@ -96,7 +96,7 @@ function Personalcolor() {
             ],
         },
         {
-            title: "❄️Winter❄️",
+            title: "❄️ Winter ❄️",
             paragraph: "สีโทนเย็นที่มีความเข้ม จะเป็นโทนสีเข้ม ๆ contrastจัด ๆ สีสด ๆ สีแบบแม่สี สีค่อนข้างสด ให้ลุคที่คมเข้มและดูเท่",
             image: "https://cosmenet-private.s3-bkk.nipa.cloud/upload/content/cosme-howto/lifestyle/2022-05-20-personal-color/personal_color_07-01.jpg",
             videos: [
@@ -199,7 +199,7 @@ function Personalcolor() {
                     </ul>
                 </div>
                 <div className="h-2/6">
-                    <div className="w-full h-4/6 flex justify-center items-center text-white text-4xl">
+                    <div className="w-full h-4/6 flex justify-center items-center text-white text-4xl ">
                         <h1>PERSONAL COLOR ANALYSIS</h1>
                     </div>
                 </div>
@@ -354,7 +354,7 @@ function Personalcolor() {
 
 
 
-            <section id="3" className="py-12 bg-[#FAF7F0] ">
+            <section id="3" className="py-12 bg-[#FAF7F0]  ">
                 <h1 className="text-4xl font-serif font-extrabold text-center text-[#6d4c41]">
                     Result & Recommendation
                 </h1>
@@ -385,15 +385,15 @@ function Personalcolor() {
                 {/* Displayed Content */}
                 <div className="mt-12 bg-white shadow-lg rounded-lg p-8 w-11/12 lg:w-3/4 mx-auto">
                     {/* Topic Title */}
-                    <h2 className="text-2xl font-bold text-[#6d4c41] text-center">
+                    <h2 className="text-3xl font-bold text-[#6d4c41] text-center">
                         {currentTopic.title}
                     </h2>
-                    <p className="text-lg text-[#8d6e63] mt-4 text-center">
+                    <p className="text-xl text-[#8d6e63] mt-4 text-center mx-36">
                         {currentTopic.paragraph}
                     </p>
 
                     {/* Topic Image */}
-                    <div className="flex justify-center mt-6">
+                    <div className="flex justify-center mt-6 ">
                         <img
                             src={currentTopic.image}
                             alt={currentTopic.title}
@@ -402,7 +402,7 @@ function Personalcolor() {
                     </div>
 
                     {/* Video Section */}
-                    <div className="mt-8">
+                    <div className="mt-8 ">
                         <h3 className="text-xl font-medium text-[#6d4c41] text-center">
                             วิดีโอแนะนำการแต่งหน้า
                         </h3>
@@ -418,7 +418,7 @@ function Personalcolor() {
                                 ></iframe>
                             ))}
                         </div>
-                        <ul className="text-right mt-6">
+                        <ul className="text-right mt-6 mx-20">
                             <Link
                                 href="/Makeuptutorials"
                                 className="text-lg text-[#6d4c41] hover:text-[#8d6e63] underline"

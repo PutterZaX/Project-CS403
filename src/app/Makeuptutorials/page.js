@@ -205,8 +205,8 @@ function Makeuptutorials() {
 
 
   return (
-    <main className={`${prompt.variable} ${nunito.variable} font-sans`}>
-      <section class="picture-home  bg-[url('https://prod-cdn.pharmacity.io/blog/makeup-1.jpg')]">
+    <main className={`${prompt.variable} ${nunito.variable} font-sans bg-[#FAF3ED] text-[#4A3F35]`}>
+  <section class="picture-home  bg-[url('https://prod-cdn.pharmacity.io/blog/makeup-1.jpg')]">
         <div class="h-2/6 flex">
           <div class="w-2/5 flex justify-center items-center text-white text-4xl">
             <h1>TellTone</h1>
@@ -228,40 +228,85 @@ function Makeuptutorials() {
 
       </section>
 
-      <section class="h-auto flex justify-center">
+  {/* Categories */}
+  <section className="h-auto flex flex-col items-center py-16">
+    <div className="text-center">
+      <h1 className="text-3xl font-bold text-[#4A3F35] mb-6">Categories</h1>
+      <ul className="flex gap-6 flex-wrap justify-center items-center">
+        <button
+          className="bg-[#8C6D57] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#A5836B] transition-all"
+          onClick={() => setType(0)}
+        >
+          ทั้งหมด
+        </button>
+        <button
+          className="bg-[#C78C6C] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#D9A583] transition-all"
+          onClick={() => setType(1)}
+        >
+          Warm Tone
+        </button>
+        <button
+          className="bg-[#8BA5A8] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#9FC2C5] transition-all"
+          onClick={() => setType(2)}
+        >
+          Cool Tone
+        </button>
+        <button
+          className="bg-[#B3A595] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#C4B3A5] transition-all"
+          onClick={() => setType(3)}
+        >
+          Neutral Tone
+        </button>
+        <button
+          className="bg-[#F2CDA3] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#F4D9B8] transition-all"
+          onClick={() => setType(4)}
+        >
+          Spring
+        </button>
+        <button
+          className="bg-[#7D4F3A] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#9A6B52] transition-all"
+          onClick={() => setType(5)}
+        >
+          Autumn
+        </button>
+        <button
+          className="bg-[#76A1C2] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#89B8D5] transition-all"
+          onClick={() => setType(6)}
+        >
+          Summer
+        </button>
+        <button
+          className="bg-[#3A547D] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#4F6A95] transition-all"
+          onClick={() => setType(7)}
+        >
+          Winter
+        </button>
+      </ul>
+    </div>
 
-        <div class=" text-center pt-10 ">
-
-          <h1 class="text-2xl">Caragories</h1>
-          <br/>
-          <ul class="gap-10 flex justify-center items-center  ">
-            <button onClick={() => setType(0)}>ทั้งหมด</button>
-            <button onClick={() => setType(1)}>Warm Tone</button>
-            <button onClick={() => setType(2)}>Cool Tone</button>
-            <button onClick={() => setType(3)}>Neutral Tone</button>
-            <button onClick={() => setType(4)}>Spring</button>
-            <button onClick={() => setType(5)}>Autumn</button>
-            <button onClick={() => setType(6)}>Summer</button>
-            <button onClick={() => setType(7)}>Winter</button>
-          </ul>
-
-          <div class="px-20 pt-10 pb-20 grid gap-9 grid-cols-3 place-items-center">
-            {
-              fitter.map(data => (
-                <div>
-                <iframe width="350" height="200" src={data.link} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="1" />
-                <p>{data.name}</p>
-                </div>
-              ))
-            }
-
-          </div>
-
+    {/* Video Grid */}
+    <div className="px-20 pt-12 pb-20 grid gap-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
+      {fitter.map((data, index) => (
+        <div
+          key={index}
+          className="bg-[#FAF3ED] rounded-lg shadow-md overflow-hidden w-full max-w-sm transform hover:scale-105 transition-transform"
+        >
+          <iframe
+            width="100%"
+            height="200"
+            src={data.link}
+            title="YouTube video player"
+            className="border-b-4 border-[#4A3F35]"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+          <p className="text-center text-[#4A3F35] text-base p-4">{data.name}</p>
         </div>
+      ))}
+    </div>
+  </section>
+</main>
 
-      </section>
-
-    </main>
   )
 }
 

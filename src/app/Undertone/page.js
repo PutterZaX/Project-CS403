@@ -32,15 +32,15 @@ function Undertone() {
     };
 
     const toneText = {
-        "Warm Tone": "You have a warm undertone! Here are some tips for you.",
-        "Cool Tone": "You have a cool undertone! Explore these resources.",
-        "Neutral Tone": "You have a neutral undertone! Check out these ideas.",
+        "Warm Tone": "คุณเหมาะกับเครื่องประดับสีทอง ใส่แล้วดูเป็นประกายวิ้งๆ สีเสื้อผ้าที่ใส่แล้วขึ้นคือ ส้ม เขียวใบไม้ เขียวอมฟ้า เหลือง น้ำตาล สีเอิร์ทโทน หรือสีอื่นๆ ที่ออกโทนเหลือง บางคนจะใส่สีขาวไม่ค่อยขึ้น บางคนจะไม่ เหมาะกับสีชมพู หรือฟ้า แต่ก็ไม่ได้หมายความว่าไม่ควรใส่นะคะ แล้วแต่สไตล์ สีผม สีผิวหน้าด้วย บางคนใส่สี ชมพูหรือฟ้าได้สวยทีเดียว รองพื้นหรือแป้งเหมาะกับสีออกโทนพีชหรือเหลือง",
+        "Cool Tone": "คุณเหมาะกับเครื่องประดับเงิน ทองคำขาวและแพลทตินัม ใส่แล้วจะดูมีออร่า สีเสื้อผ้าที่ใส่แล้วขึ้นคือ ชมพู ฟ้า น้ำเงิน เขียว ม่วง ขาว ดำ ดูดีกับเสื้อผ้าสีสว่างๆ หรือสีสดใส รองพื้นหรือแป้งเหมาะกับสีออกโทนชมพู",
+        "Neutral Tone": "คุณเป็นคนพิเศษ เพราะน้อยคนนักที่จะมี Undertone สีนี้และจะดูดีกับเสื้อผ้าแทบทุกสีเลย เครื่องประดับก็สามารถใส่ได้หมด",
     };
 
     const toneImages = {
-        "Warm Tone": "https://www.beautyintrend.com/images/article/upload/763/2.jpg",
-        "Cool Tone": "https://www.beautyintrend.com/images/article/upload/763/1.jpg",
-        "Neutral Tone": "https://www.beautyintrend.com/images/article/upload/763/3.jpg",
+        "Warm Tone": "https://i.postimg.cc/NFM8Gcf9/warmtone.jpg",
+        "Cool Tone": "https://i.postimg.cc/d3yRpKs8/cooltone.jpg",
+        "Neutral Tone": "https://i.postimg.cc/jSsNQf76/neutarltone.jpg",
     };
 
     useEffect(() => {
@@ -229,7 +229,7 @@ function Undertone() {
                     </ul>
                 </div>
                 <div className="h-2/6">
-                    <div className="w-full h-4/6 flex justify-center items-center text-white text-4xl">
+                    <div className=" w-full h-4/6 flex justify-center items-center text-white text-4xl">
                         <h1>UNDERTONE ANALYSIS</h1>
                     </div>
                 </div>
@@ -355,7 +355,7 @@ function Undertone() {
             <section id="3" className="bg-[#FAF7F0] h-auto grid place-items-center text-center ">
             
                 <div className="text-yellow-950 mt-20 ">
-                <div className="bg-white shadow-lg rounded-lg px-20 pt-10 pb-20 max-w-7xl grid place-items-center text-center ">
+                <div className="bg-white shadow-lg rounded-lg px-20 pt-10 pb-20 max-w-5xl grid place-items-center text-center ">
                     <h1 className="text-4xl font-serif font-extrabold  h-auto grid place-items-center">Undertone Analysis </h1><br />
                     <p className="text-xl"> หากคุณยังไม่แน่ใจสี Undertone ลองให้เราประมวลผลให้สิ เพียงคุณอัปโหลดรูปภาพ </p>
                     <div className="text-left">
@@ -440,8 +440,8 @@ function Undertone() {
                             >
                                 🌸 Upload Another Image 🌸
                             </button>
-                            <p className="mt-8 text-2xl text-pink-700 font-bold">
-                                Your undertone is: {undertone}
+                            <p className="mt-8 text-3xl text-pink-700 font-bold">
+                                 Undertone : {undertone}
                             </p>
 
                         </div>
@@ -449,20 +449,20 @@ function Undertone() {
                     {/* Display Example Videos */}
                     {undertone && videos[undertone] && (
 
-                        <div className="mt-2">
+                        <div className="mt-2 ">
                             {/* Text and Image */}
                             <div className="mb-2 text-center">
-                                <p className="text-xl font-semibold">{toneText[undertone]}</p>
+                                <p className="text-xl text-[#8d6e63] mx-20 ">{toneText[undertone]}</p>
                                 {toneImages[undertone] && (
                                     <img
                                         src={toneImages[undertone]}
                                         alt={undertone}
-                                        className="w-48 h-48 mx-auto mt-4 "
+                                        className="w-6/12 mx-auto shadow-lg rounded-lg mt-4 "
                                     />
                                 )}
                             </div>
 
-                            <h3 className="text-xl font-medium text-[#6d4c41] text-center">
+                            <h3 className="text-xl font-medium text-[#6d4c41] text-center mt-10">
                             วิดีโอแนะนำการแต่งหน้า
                         </h3>
                         
@@ -478,10 +478,10 @@ function Undertone() {
                                     ></iframe>
                                 ))}
                             </div>
-                            <ul className="text-right mt-6">
+                            <ul className="text-right mt-4">
                             <Link
                                 href="/Makeuptutorials"
-                                className="text-lg text-[#6d4c41] hover:text-[#8d6e63] underline"
+                                className="text-lg text-[#6d4c41] hover:text-[#8d6e63] mx-20 underline"
                             >
                                 ดูเพิ่มเติม
                             </Link>
