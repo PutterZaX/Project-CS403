@@ -97,18 +97,18 @@ function Undertone() {
             const { x, y, width, height } = detections.box;
             const faceData = context.getImageData(x, y, width, height);
 
-            let yellow = 0, green = 0, blue = 0;
+            let red = 0, green = 0, blue = 0;
             const pixelCount = faceData.data.length / 4;
 
             for (let i = 0; i < faceData.data.length; i += 4) {
-                yellow += faceData.data[i];
+                red += faceData.data[i];
                 green += faceData.data[i + 1];
                 blue += faceData.data[i + 2];
 
             }
 
             /// Calculate average color values
-            yellow = yellow / pixelCount;
+            red = red / pixelCount;
             green = green / pixelCount;
             blue = blue / pixelCount;
 
@@ -132,7 +132,7 @@ function Undertone() {
             };
 
             // Find closest match in warm and cool tones
-            const averageColor = [yellow, green, blue];
+            const averageColor = [red, green, blue];
             let minWarmDistance = Infinity;
             let minCoolDistance = Infinity;
 
@@ -362,8 +362,8 @@ function Undertone() {
                         <p className="text-lg text-[#8d6e63]" >
                             - ภาพถ่ายหน้าตรง เห็นใบหน้าชัดเจน 
                             - ถ่ายภายใต้แสงไฟสีขาวหรือแสงธรรมชาติ <br/>
-                            - พื้นหลังควรเป็นสีขาวหรือดำเท่านั้น
-                           - ระยะห่างจากกล้อง 30-50 cm<br/>
+                            - พื้นหลังสีขาวหรือดำเท่านั้น
+                           - ระยะห่างระหว่างใบหน้ากับกล้อง 30-50 cm<br/>
                             </p>
                     </div>
 

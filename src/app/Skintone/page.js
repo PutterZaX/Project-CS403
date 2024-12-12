@@ -104,8 +104,8 @@ function Skintone() {
                         <div className="text-lg text-[#8d6e63] mt-2">
                             <li>ภาพถ่ายหน้าตรง เห็นใบหน้าชัดเจน </li>
                             <li>ถ่ายภายใต้แสงไฟสีขาวหรือแสงธรรมชาติ</li>
-                            <li>พื้นหลังควรเป็นสีขาวหรือดำเท่านั้น</li>
-                            <li>ระยะห่างจากกล้อง 30-50 cm</li>
+                            <li>พื้นหลังสีขาวหรือดำเท่านั้น</li>
+                            <li>ระยะห่างระหว่างใบหน้ากับกล้อง 30-50 cm</li>
                         </div>
                         <br /><br />
                     </div>
@@ -267,7 +267,7 @@ function Skintone() {
                                 {
                                     code: "#6F503C",
                                     english: "Coffee Brown",
-                                    thai: "สีน้ำตาลกาแฟ",
+                                    thai: "น้ำตาลกาแฟ",
                                     warm: { image: "https://media.ulta.com/i/ulta/2295398?w=1080&h=1080&fmt=auto", shade: "340 Cappuccino" },
                                     cool: { image: "https://media.ulta.com/i/ulta/2295394?w=1080&h=1080&fmt=auto", shade: "338 Spicy Brown" },
                                 },
@@ -288,14 +288,14 @@ function Skintone() {
                                 {
                                     code: "#BEA07E",
                                     english: "Beige Tan",
-                                    thai: "สีเบจอมน้ำตาล",
+                                    thai: "เบจอมน้ำตาล",
                                     warm: { image: "https://media.ulta.com/i/ulta/2282912?w=1080&h=1080&fmt=auto", shade: "130 Buff Beige" },
                                     cool: { image: "https://media.ulta.com/i/ulta/2282910?w=1080&h=1080&fmt=auto", shade: "125 Nude Beige" },
                                 },
                                 {
                                     code: "#E5C8A6",
                                     english: "Sand Beige",
-                                    thai: "สีเบจทราย",
+                                    thai: "เบจทราย",
                                     warm: { image: "https://media.ulta.com/i/ulta/2282911?w=1080&h=1080&fmt=auto", shade: "128 Warm Nude" },
                                     cool: { image: "https://media.ulta.com/i/ulta/2295399?w=1080&h=1080&fmt=auto", shade: "122 Creamy Beige" },
                                 },

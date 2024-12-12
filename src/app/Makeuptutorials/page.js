@@ -13,191 +13,223 @@ function Makeuptutorials() {
   const [type, setType] = useState(0)
   const data = [
     {
+      link: 'https://www.youtube.com/embed/jvAqpTyP6TE',
+      name: 'How To Apply Makeup For Beginners',
+      type: 1
+
+    },
+    {
+      link: 'https://www.youtube.com/embed/8eKGei7pv3I',
+      name: 'beginner Makeup step by step',
+      type: 1
+
+    },
+    {
+      link: 'https://www.youtube.com/embed/en7NaNgQGts',
+      name: 'How to มือใหม่หัดแต่งหน้า',
+      type: 1
+    },
+    {
+      link: 'https://www.youtube.com/embed/q80dd21kv8E',
+      name: 'เอามือใหม่มานั่งแต่งหน้าด้วยกัน!🎐🎀 ',
+      type: 1
+    },
+    {
+      link: 'https://www.youtube.com/embed/fh44WYPx5fw',
+      name: 'Step By Step "SUPER AFFORDABLE"',
+      type: 1
+    },
+    {
+      link: 'https://www.youtube.com/embed/-WlqBjKC0C8',
+      name: 'BEGINNER MAKEUP TUTORIAL',
+      type: 1
+    },
+    {
       link: 'https://www.youtube.com/embed/LjiP6I9q_qI',
       name: 'Warm Tone Makeup 🍂 | Dearkiko',
-      type: 1
+      type: 2
 
     },
     {
       link: 'https://www.youtube.com/embed/DuyIKvsbxFc',
       name: 'WARM TONE Makeup | mininuiizz',
-      type: 1
+      type: 2
 
     },
     {
       link: 'https://www.youtube.com/embed/cJtKsdZfiIQ',
       name: 'Warm tone fall makeup that makes prettier',
-      type: 1
+      type: 2
     },
     {
       link: 'https://www.youtube.com/embed/V1eq6uWB6sE',
       name: 'HOW TO Warm Tone Makeup 🤎 ',
-      type: 1
+      type: 2
     },
     {
       link: 'https://www.youtube.com/embed/dk2Goqgvg9Q',
       name: 'Warm Everyday Makeup 🧶',
-      type: 1
+      type: 2
     },
     {
       link: 'https://www.youtube.com/embed/USbS0e6o58o',
       name: ' แต่งหน้าโทนอุ่น โทนสีตุ่นๆ ละมุน รับหน้าหนาว 🍂',
-      type: 1
+      type: 2
     },
     {
       link: 'https://www.youtube.com/embed/9OQM3rZUd2c',
       name: 'Everyday Cool Tone Makeup 🐈‍⬛',
-      type: 2
+      type: 3
     },
     {
       link: 'https://www.youtube.com/embed/hxzAKZ_t6bg',
       name: 'Cool Tone Makeup สาวไทยก็แต่งได้นะ!!',
-      type: 2
+      type: 3
     },
     {
       link: 'https://www.youtube.com/embed/L8ehUgP05xc',
       name: '❄️✨🤍 COOL TONE MAKEUP เกาหลีเกาใจ',
-      type: 2
+      type: 3
     },
     {
       link: 'https://www.youtube.com/embed/0duxJz8ZHyk',
       name: 'Everyday Cool Berry Makeup',
-      type: 2
+      type: 3
     },
     {
       link: 'https://www.youtube.com/embed/qyxT6ZidG_c',
       name: 'แต่งหน้าหวานๆโทนม่วงชมพูววว☂️💗',
-      type: 2
+      type: 3
     },
     {
       link: 'https://www.youtube.com/embed/Lw_EaPF619c',
       name: 'แต่งหน้าชมพูคูลโทนของสาวผิวขาวเหลือง',
-      type: 2
+      type: 3
     },
     {
       link: 'https://www.youtube.com/embed/RKxw0oP3OAo',
       name: 'Neutral Tone Makeup แบบสวยจึ้งตะลึง!',
-      type: 3
+      type: 4
     },
     {
       link: 'https://www.youtube.com/embed/U4v_w2zaZZ0',
       name: 'แต่งหน้างานผิวแมทล้อแสง Neutral Tone',
-      type: 3
+      type: 4
     },
     {
       link: 'https://www.youtube.com/embed/FdXW9kuS1BI',
       name: 'grwm, everyday soft glam makeup ^_−☆',
-      type: 3
+      type: 4
     },
     {
       link: 'https://www.youtube.com/embed/ZTS7IenNi6M',
       name: 'Soft beige makeup',
-      type: 3
+      type: 4
     },
     {
       link: 'https://www.youtube.com/embed/sHm27cMY2M4',
       name: 'แนะนำเมคอัพ Neutral Tone ละมุนเกินเบอร์',
-      type: 3
+      type: 4
     },
     {
       link: 'https://www.youtube.com/embed/g8Mjj0w0C1k',
       name: 'สอนแต่งหน้า : Spring looks',
-      type: 4
+      type: 5
     },
     {
       link: 'https://www.youtube.com/embed/7hCUu0rtkKA',
       name: 'Glowy Spring makeup ',
-      type: 4
+      type: 5
     },
     {
       link: 'https://www.youtube.com/embed/OgMmEP7K5jc',
       name: 'Light Spring Makeup ',
-      type: 4
+      type: 5
     },
     {
       link: 'https://www.youtube.com/embed/9R-YJYGTIk0',
       name: 'fresh spring makeup 🌷',
-      type: 4
+      type: 5
     },
     {
       link: 'https://www.youtube.com/embed/QNnnYG8PUHY',
       name: 'Spring warm makeup',
-      type: 4
+      type: 5
     },
     {
       link: 'https://www.youtube.com/embed/-CipoeGV-s8',
       name: 'Autumn Makeup งาน Warm Tone มาแล้ว',
-      type: 5
+      type: 6
     },
     {
       link: 'https://www.youtube.com/embed/EfVuVCATeIM',
       name: 'grwm 🍂 autumn mute makeup',
-      type: 5
+      type: 6
     },
     {
       link: 'https://www.youtube.com/embed/E8PKPFsqje4',
       name: 'Autumn Palette Makeup ฟีลฤดูใบไม้ร่วง🍂🍁',
-      type: 5
+      type: 6
     },
     {
       link: 'https://www.youtube.com/embed/VoRFuJSzwdk',
       name: 'สอนแต่งหน้า : Autumn Look ',
-      type: 5
+      type: 6
     },
     {
       link: 'https://www.youtube.com/embed/7zIV3FWbUrM',
       name: 'Warm Autumn 🍁 Makeup ',
-      type: 5
+      type: 6
     },
     {
       link: 'https://www.youtube.com/embed/rXmB78BRbJk',
       name: '데일리 메이크업 튜토리얼🌷',
-      type: 6
+      type: 7
     },
     {
       link: 'https://www.youtube.com/embed/gDBRORMi0a8',
       name: 'สอนแต่งหน้า : Summer looks',
-      type: 6
+      type: 7
     },
     {
       link: 'https://www.youtube.com/embed/KB9xb6O9YJc',
       name: 'Soft Summer(CoolTone)💕Korean Makeup✨',
-      type: 6
+      type: 7
     },
     {
       link: 'https://www.youtube.com/embed/GYEljxxv5po',
       name: 'PC light summer 🎀🛁',
-      type: 6
+      type: 7
     },
     {
       link: 'https://www.youtube.com/embed/qs_yb0L6xx8',
       name: 'Light Summer🍓🥛 Strawberry Milk',
-      type: 6
+      type: 7
     },
     {
       link: 'https://www.youtube.com/embed/erTX3cvP_GM',
       name: 'Deep Winter Makeup Tutorial ❄️ 💜',
-      type: 7
+      type: 8
     },
     {
       link: 'https://www.youtube.com/embed/EAPb_y-hHXA',
       name: 'สอนแต่งหน้า : Winter Look',
-      type: 7
+      type: 8
     },
     {
       link: 'https://www.youtube.com/embed/jbVyzE1XYFA',
       name: 'Clear Winter Makeup ลุคชมพูบานเย็น ',
-      type: 7
+      type: 8
     },
     {
       link: 'https://www.youtube.com/embed/X4RmvQWtkJA',
       name: 'How To : DARK WINTER MAKEUP LOOK ',
-      type: 7
+      type: 8
     },
     {
       link: 'https://www.youtube.com/embed/LWRut1RsEnc',
       name: 'Deep Winter: My makeup before and after',
-      type: 7
+      type: 8
     },
   ]
 
@@ -240,44 +272,50 @@ function Makeuptutorials() {
           ทั้งหมด
         </button>
         <button
-          className="bg-[#C78C6C] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#D9A583] transition-all"
+          className="bg-[#99627A] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#C88EA7] transition-all"
           onClick={() => setType(1)}
+        >
+          Beginners
+        </button>
+        <button
+          className="bg-[#C78C6C] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#D9A583] transition-all"
+          onClick={() => setType(2)}
         >
           Warm Tone
         </button>
         <button
           className="bg-[#8BA5A8] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#9FC2C5] transition-all"
-          onClick={() => setType(2)}
+          onClick={() => setType(3)}
         >
           Cool Tone
         </button>
         <button
           className="bg-[#B3A595] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#C4B3A5] transition-all"
-          onClick={() => setType(3)}
+          onClick={() => setType(4)}
         >
           Neutral Tone
         </button>
         <button
-          className="bg-[#F2CDA3] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#F4D9B8] transition-all"
-          onClick={() => setType(4)}
+          className="bg-[#94A684] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#AEC3AE] transition-all"
+          onClick={() => setType(5)}
         >
           Spring
         </button>
         <button
           className="bg-[#7D4F3A] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#9A6B52] transition-all"
-          onClick={() => setType(5)}
+          onClick={() => setType(6)}
         >
           Autumn
         </button>
         <button
           className="bg-[#76A1C2] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#89B8D5] transition-all"
-          onClick={() => setType(6)}
+          onClick={() => setType(7)}
         >
           Summer
         </button>
         <button
           className="bg-[#3A547D] text-white py-2 px-6 rounded-full shadow-lg hover:bg-[#4F6A95] transition-all"
-          onClick={() => setType(7)}
+          onClick={() => setType(8)}
         >
           Winter
         </button>
