@@ -125,7 +125,7 @@ function Personalcolor() {
             const isLiked = !prevLikedColors[color]; // Toggle the like state
             setLikesCount((prevCounts) => ({
                 ...prevCounts,
-                [season]: prevCounts[season] + (isLiked ? 0.5 : -1), // Adjust count based on like/unlike
+                [season]: prevCounts[season] + (isLiked ? 0.5 : -0.5), // Adjust count based on like/unlike
             }));
             return {
                 ...prevLikedColors,

@@ -204,6 +204,17 @@ function Skintone() {
                                 alt="Processed Skin Tone Result"
                                 className="mx-auto rounded-lg shadow-lg max-w-full"
                             />
+
+                            <h2 className="mt-5 text-base text-[#8d6e63] mb-2">
+                           -Dominant Color คือ สีที่มีมากที่สุดบนใบหน้า อยู่ใน label ที่ 1
+                           <br/>-Percent คือ เปอร์เซ็นต์ที่สีนี้ (Dominant Color) ครอบคลุมในบริเวณที่ตรวจจับได้
+                           <br/>-Skin tone คือ สีผิวที่เทียบกับค่ามาตรฐานซึ่งมี 11 สี อยู่ใน label ที่ 2
+                           <br/>-Accuracy คือ ความแม่นยำของผลลัพธ์
+                            </h2>
+
+                            <h2 className="text-xl  text-pink-700 mt-4">
+                                นำโค้ดสี Skin tone (#xxxxxx) ไปเปรียบเทียบกับตารางด้านล่าง เพื่อดูคำแนะนำ
+                            </h2>
                         </div>
 
                     )}
@@ -212,7 +223,7 @@ function Skintone() {
 
             <section className="py-20 bg-[#231903]">
                 <h1 className="text-center text-3xl font-bold text-yellow-100 mb-2">
-                    รหัสสีและชื่อในภาษาอังกฤษ-ไทย 
+                    รหัสสีและชื่อในภาษาอังกฤษ-ไทย
                 </h1>
                 <h1 className="text-center text-2xl font-bold text-yellow-100 mb-6">
                     Maybelline Fit Me Matte Poreless Liquid Foundation
@@ -366,7 +377,7 @@ function Skintone() {
                         </tbody>
                     </table>
                 </div>
-                <br />
+                <br/>
             </section>
             <section alt="conclusion">
                 <div className="bg-[#231903] px-20 grid place-items-center">
