@@ -322,7 +322,7 @@ function Makeuptutorials() {
       </ul>
     </div>
 
-    {/* Video Grid */}
+    {/* กล่อง Video  */}
     <div className="px-20 pt-12 pb-20 grid gap-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
       {fitter.map((data, index) => (
         <div
