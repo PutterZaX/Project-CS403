@@ -36,5 +36,6 @@ git clone https://github.com/ComSciThammasatU/2567-1-cs403-final-submission-66-2
 
 ### Run this project
 ```shell
+npm install
 npm run dev
 ```
