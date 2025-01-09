@@ -19,15 +19,6 @@ pip install skin-tone-classifier[all] --upgrade
 pip install torch numpy pillow
 ```
 
-### Install Node.js dependencies Install the required Node.js libraries:
-
-```shell
-npm install formidable
-npm install face-api.js
-npm install tfjs-image-recognition-base
-npm install encoding
-```
-
 ### Clone this project
 
 ```shell
