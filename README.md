@@ -4,7 +4,7 @@ This is final project from CS402/403: Special Projects 2 (1/2567)
 ## Prerequisites
 Before installing, ensure you have the following installed:
 * Node.js 
-* Python
+* Python (ต้องเป็น python เวอร์ชั่น 10 ขึ้นไปแต่ไม่เกิน 12)
 
 ## Installation
 
