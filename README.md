@@ -14,6 +14,8 @@ Before installing, ensure you have the following installed:
 pip install skin-tone-classifier --upgrade
 # Or for all optional dependencies:
 pip install skin-tone-classifier[all] --upgrade
+
+
 pip install torch numpy pillow
 ```
 
